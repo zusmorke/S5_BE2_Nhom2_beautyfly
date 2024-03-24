@@ -13,24 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/cart', function () {
-    return view('cart');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/listProduct', function () {
-    return view('listProduct');
-});
-Route::get('/news', function () {
-    return view('news');
-});
-Route::get('/pay', function () {
-    return view('pay');
-});
-Route::get('/product', function () {
-    return view('product');
-});
+Route::get('/{name?}', function ($name = 'index') {
+    return view($name);
+})->name('name.view');
