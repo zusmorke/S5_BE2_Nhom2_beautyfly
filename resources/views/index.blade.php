@@ -171,7 +171,7 @@
         <!-- Slider -->
         <div class="main__slice">
             <div class="slider">
-                <div class="slide active" style="background-image:url(img/anh1.png)">
+                <div class="slide active" style="background-image:url(img/a1.jpg)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
@@ -181,7 +181,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide active" style="background-image:url(img/anh2.png)">
+                <div class="slide active" style="background-image:url(img/a4.webp)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
@@ -191,7 +191,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide active" style="background-image:url(img/anh3.png)">
+                <div class="slide active" style="background-image:url(img/a3.webp)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
