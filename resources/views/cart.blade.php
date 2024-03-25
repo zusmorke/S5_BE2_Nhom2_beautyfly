@@ -509,7 +509,7 @@
                 <div class="form-group">
                     <label for="account" class="form-label">Địa chỉ email *</label>
                     <input id="account" name="account" type="text" class="form-control">
-                    <span class="form-message">Tài khoản không chính xác !</span>
+                    
                 </div>
                 <div class="form-group">
                     <label for="password" class="form-label">Mật khẩu *</label>

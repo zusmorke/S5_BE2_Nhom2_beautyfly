@@ -68,7 +68,7 @@
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
                                     <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
@@ -80,7 +80,7 @@
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
                                     <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
@@ -92,7 +92,7 @@
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
                                     <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
@@ -674,8 +674,8 @@
                     <ul class="footer__list">
                         <li class="footer__item">
                             <span class="footer__text">
-                                    <i class="fas fa-map-marked-alt"></i> 22/3 Võ Văn Ngân,Linh Chiểu,TP Thủ Đức
-                                </span>
+                                <i class="fas fa-map-marked-alt"></i> 22/3 Võ Văn Ngân,Linh Chiểu,TP Thủ Đức
+                            </span>
                         </li>
                         <li class="footer__item">
                             <a href="#" class="footer__link">
@@ -690,15 +690,15 @@
                         <li class="footer__item ">
                             <div class="social-group ">
                                 <a href="# " class="social-item "><i class="fab fa-facebook-f "></i>
-                                    </a>
+                                </a>
                                 <a href="# " class="social-item "><i class="fab fa-twitter "></i>
-                                    </a>
+                                </a>
                                 <a href="# " class="social-item "><i class="fab fa-pinterest-p "></i>
-                                    </a>
+                                </a>
                                 <a href="# " class="social-item "><i class="fab fa-invision "></i>
-                                    </a>
-                                <a href="# " class="social-item "><i class="fab fa-youtube "></i>  
-                                    </a>
+                                </a>
+                                <a href="# " class="social-item "><i class="fab fa-youtube "></i>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -726,60 +726,60 @@
         </div>
     </div>
     <!-- Modal Form -->
-    <div class="ModalForm ">
-        <div class="modal " id="my-Register ">
-            <a href="# " class="overlay-close "></a>
-            <div class="authen-modal register ">
-                <h3 class="authen-modal__title ">Đăng Kí</h3>
-                <div class="form-group ">
-                    <label for="account " class="form-label ">Họ Tên</label>
-                    <input id="account " name="account " type="text " class="form-control ">
-                    <span class="form-message ">Không hợp lệ !</span>
+    <div class="ModalForm">
+        <div class="modal" id="my-Register">
+            <a href="#" class="overlay-close"></a>
+            <div class="authen-modal register">
+                <h3 class="authen-modal__title">Đăng Kí</h3>
+                <div class="form-group">
+                    <label for="account" class="form-label">Họ Tên</label>
+                    <input id="account" name="account" type="text" class="form-control">
+
                 </div>
-                <div class="form-group ">
-                    <label for="password " class="form-label ">Tài khoản Email *</label>
-                    <input id="password " name="password " type="text " class="form-control ">
-                    <span class="form-message "></span>
+                <div class="form-group">
+                    <label for="password" class="form-label">Tài khoản Email *</label>
+                    <input id="password" name="password" type="text" class="form-control">
+                    <span class="form-message"></span>
                 </div>
-                <div class="form-group ">
-                    <label for="password " class="form-label ">Mật khẩu *</label>
-                    <input id="password " name="password " type="text " class="form-control ">
-                    <span class="form-message "></span>
+                <div class="form-group">
+                    <label for="password" class="form-label">Mật khẩu *</label>
+                    <input id="password" name="password" type="text" class="form-control">
+                    <span class="form-message"></span>
                 </div>
-                <div class="form-group ">
-                    <label for="password " class="form-label ">Nhập lại mật khẩu *</label>
-                    <input id="password " name="password " type="text " class="form-control ">
-                    <span class="form-message "></span>
+                <div class="form-group">
+                    <label for="password" class="form-label">Nhập lại mật khẩu *</label>
+                    <input id="password" name="password" type="text" class="form-control">
+                    <span class="form-message"></span>
                 </div>
-                <div class="authen__btns ">
-                    <div class="btn btn--default ">Đăng Kí</div>
+                <div class="authen__btns">
+                    <div class="btn btn--default">Đăng Kí</div>
                 </div>
             </div>
         </div>
-        <div class=" modal " id="my-Login ">
-            <a href="# " class="overlay-close "></a>
-            <div class="authen-modal login ">
-                <h3 class="authen-modal__title ">Đăng Nhập</h3>
-                <div class="form-group ">
-                    <label for="account " class="form-label ">Địa chỉ email *</label>
-                    <input id="account " name="account " type="text " class="form-control ">
-                    <span class="form-message ">Tài khoản không chính xác !</span>
+        <div class=" modal" id="my-Login">
+            <a href="#" class="overlay-close"></a>
+            <div class="authen-modal login">
+                <h3 class="authen-modal__title">Đăng Nhập</h3>
+                <div class="form-group">
+                    <label for="account" class="form-label">Địa chỉ email *</label>
+                    <input id="account" name="account" type="text" class="form-control">
+
                 </div>
-                <div class="form-group ">
-                    <label for="password " class="form-label ">Mật khẩu *</label>
-                    <input id="password " name="password " type="text" class="form-control ">
-                    <span class="form-message "></span>
+                <div class="form-group">
+                    <label for="password" class="form-label">Mật khẩu *</label>
+                    <input id="password" name="password" type="text" class="form-control">
+                    <span class="form-message"></span>
                 </div>
-                <div class="authen__btns ">
-                    <div class="btn btn--default ">Đăng Nhập</div>
-                    <input type="checkbox " class="authen-checkbox ">
-                    <label class="form-label ">Ghi nhớ mật khẩu</label>
+                <div class="authen__btns">
+                    <div class="btn btn--default">Đăng Nhập</div>
+                    <input type="checkbox" class="authen-checkbox">
+                    <label class="form-label">Ghi nhớ mật khẩu</label>
                 </div>
-                <a class="authen__link ">Quên mật khẩu ?</a>
+                <a class="authen__link">Quên mật khẩu ?</a>
             </div>
         </div>
-        <div class="up-top " id="upTop " onclick="goToTop() ">
-            <i class="fas fa-chevron-up "></i>
+        <div class="up-top" id="upTop" onclick="goToTop()">
+            <i class="fas fa-chevron-up"></i>
         </div>
 
     </div>
@@ -848,7 +848,7 @@
                 if (current < 0) {
                     current = count;
                 }
-                if (current > count)  {
+                if (current > count) {
                     current = 0;
                 }
 

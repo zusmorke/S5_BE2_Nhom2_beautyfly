@@ -129,7 +129,7 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="index.blade.php" class="header__nav-link">Trang chủ</a>
+                    <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới Thiệu</a>
