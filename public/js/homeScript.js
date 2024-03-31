@@ -18,6 +18,7 @@ next.addEventListener("click", function() {
 
 })
 
+
 // -->create circle indicators
 function circleIndicator() {
     for (let i = 0; i < slides.length; i++) {
