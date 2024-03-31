@@ -14,18 +14,18 @@
     <!-- Icon fontanwesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Reset css & grid sytem -->
-    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="{{asset('css/library.css')}}">
     <!-- Owl Slider css -->
-    <link rel="stylesheet" href="owlCarousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="owlCarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ asset('owlCarousel/assets/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('owlCarousel/assets/owl.theme.default.min.css')}}">
     <!-- Layout -->
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="{{asset('css/common.css')}}">
     <!-- index -->
-    <link rel="stylesheet" type="text/css" href="css/product.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/product.css')}}">
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl caroucel Js-->
-    <script src="owlCarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 </head>
@@ -39,7 +39,7 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__logo">
+                <a href="{{url('index')}}" class="header__logo">
                     <img src="img/logomoi.png" alt="">
                 </a>
                 <div class="header__search">
@@ -64,44 +64,44 @@
                         <ul class="order__list">
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-img">
+                                    <a href="{{url('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{url('product')}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
+                                    <a href="{{url('product')}}" class="order-close"><i class="far fa-times-circle"></i></a>
                                 </div>
                             </li>
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-img">
+                                    <a href="{{url('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{url('product')}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
+                                    <a href="{{url('product')}}" class="order-close"><i class="far fa-times-circle"></i></a>
                                 </div>
                             </li>
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-img">
+                                    <a href="{{url('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{url('product')}}" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
+                                    <a href="{{url('product')}}" class="order-close"><i class="far fa-times-circle"></i></a>
                                 </div>
                             </li>
                         </ul>
                         <div class="total-money">Tổng cộng: 120.000đ</div>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
-                        <a href="{{ route('name.view', ['name' => 'pay'] )}}" class="btn btn--default cart-btn orange">Thanh toán</a>
+                        <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
+                        <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a>
                         <!-- norcart -->
                         <!-- <img class="header__cart-img-nocart" src="http://www.giaybinhduong.com/images/empty-cart.png" alt=""> -->
                     </div>
@@ -131,7 +131,7 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{url('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới Thiệu</a>
@@ -144,39 +144,19 @@
                                 <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
-                        </ul>
-                        <ul class="sub-nav">
-                            <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
@@ -184,19 +164,19 @@
                                 <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
@@ -204,28 +184,48 @@
                                 <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
+                            </li>
+                        </ul>
+                        <ul class="sub-nav">
+                            <li class="sub-nav__item">
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'news'] )}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{url('news')}}" class="header__nav-link">Tin Tức</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'contact  '] )}}" class="header__nav-link">Liên Hệ</a>
+                    <a href="{{url('contact')}}" class="header__nav-link">Liên Hệ</a>
                 </li>
             </ul>
         </div>
@@ -629,6 +629,7 @@
             </div>
         </div>
     </div>
+    @yield('content')
     <div class="footer ">
         <div class="grid wide ">
             <div class="row ">
@@ -908,7 +909,7 @@
     </script>
 
     <!-- Script common -->
-    <script src="js/commonscript.js ">
+    <script src="{{asset('js/commonscript.js')}} ">
     </script>
     <script>
         function calcRate(r) {

@@ -14,19 +14,17 @@
     <!-- Icon fontanwesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Reset css & grid sytem -->
-    <link rel="stylesheet" href="css/library.css">
-    <link href="owlCarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/library.css')}}">
+    <link href="{{ asset('owlCarousel/assets/owl.carousel.min.css')}}" rel="stylesheet" />
     <!-- Layout -->
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="{{ asset('css/common.css')}}">
     <!-- index -->
-    <link href="css/home.css" rel="stylesheet" />
+    <link href="{{ asset('css/home.css')}}" rel="stylesheet" />
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl caroucel Js-->
-    <script src="owlCarousel/owl.carousel.min.js"></script>
-
+    <script src="{{ asset('owlCarousel/owl.carousel.min.js')}}"></script>
 </head>
-
 <body>
     <div class="header scrolling" id="myHeader">
         <div class="grid wide">
@@ -36,8 +34,8 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__logo">
-                    <img src="img/logomoi.png" alt="" style="width: 130px; height: 130px;">
+                <a href="{{url('index')}}" class="header__logo">
+                    <img src="{{asset('img/logomoi.png')}}" alt="" style="width: 130px; height: 130px;">
                 </a>
                 <div class="header__search">
                     <div class="header__search-wrap">
@@ -97,8 +95,8 @@
                             </li>
                         </ul>
                         <div class="total-money">Tổng cộng: 120.000đ</div>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
-                        <a href="{{ route('name.view', ['name' => 'pay'] )}}" class="btn btn--default cart-btn orange">Thanh toán</a>
+                        <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
+                        <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a>
                         <!-- norcart -->
                         <!-- <img class="header__cart-img-nocart" src="http://www.giaybinhduong.com/images/empty-cart.png" alt=""> -->
                     </div>
@@ -128,41 +126,41 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{url('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới Thiệu</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="header__nav-link">Sản Phẩm</a>
+                    <a href="{{url('listProduct')}}" class="header__nav-link">Sản Phẩm</a>
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'news'] )}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{url('news')}}" class="header__nav-link">Tin Tức</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'contact'] )}}" class="header__nav-link">Liên Hệ</a>
+                    <a href="{{url('contact')}}" class="header__nav-link">Liên Hệ</a>
                 </li>
             </ul>
         </div>
@@ -176,7 +174,7 @@
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
                             <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
+                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
 
                         </div>
                     </div>
@@ -186,7 +184,7 @@
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
                             <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
+                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
 
                         </div>
                     </div>
@@ -196,7 +194,7 @@
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
                             <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
+                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
 
                         </div>
                     </div>
@@ -215,6 +213,7 @@
             <div class="indicator">
             </div>
         </div>
+        
         <!--Product Category -->
         <div class="main__tabnine" >
             <div class="grid wide" >
@@ -252,8 +251,8 @@
                                             <span class="product__sale-text">Giảm</span>
                                         </div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                    <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                    <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                                    <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                                 </div>
                             </div>
                             <div class="col l-2 m-4 s-6">
@@ -273,8 +272,8 @@
                                             <span class="product__sale-text">Giảm</span>
                                         </div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                    <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                    <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                                    <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                                 </div>
                             </div>
                             
@@ -295,8 +294,8 @@
                                             <span class="product__sale-text">Giảm</span>
                                         </div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                    <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                    <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                                    <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                                 </div>
                             </div>
                         </div>
@@ -326,8 +325,8 @@
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                         </div>
-                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                     </div>
                     <div class="product">
                         <div class="product__avt" style="background-image: url(img/product/product1.jpg);">
@@ -345,8 +344,8 @@
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                         </div>
-                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                     </div>
                     
                     <div class="product">
@@ -365,8 +364,8 @@
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                         </div>
-                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
 
                     </div>
                     <div class="product">
@@ -385,8 +384,8 @@
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                         </div>
-                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}} class="addToCart">Thêm vào giỏ</a>
+                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
 
                     </div>
                 </div>
@@ -397,7 +396,7 @@
             <div class="row">
                 <div class="col l-3 m-6">
                     <div class="policy bg-1" style="background-color: rgb(94, 233, 94);">
-                        <img src="img/policy/policy1.png" class="policy__img"></img>
+                        <img src="{{asset('img/policy/policy1.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">GIAO HÀNG MIỄN PHÍ</h3>
                             <p class="policy__description">Cho đơn hàng từ 300K</p>
@@ -406,7 +405,7 @@
                 </div>
                 <div class="col l-3 m-6">
                     <div class="policy bg-2">
-                        <img src="img/policy/policy2.png" class="policy__img"></img>
+                        <img src="{{asset('img/policy/policy2.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">ĐỔI TRẢ HÀNG</h3>
                             <p class="policy__description">Trong 3 ngày đầu tiên</p>
@@ -415,7 +414,7 @@
                 </div>
                 <div class="col l-3 m-6">
                     <div class="policy bg-1"  style="background-color: rgb(94, 233, 94);">
-                        <img src="img/policy/policy3.png" class="policy__img"></img>
+                        <img src="{{asset('img/policy/policy3.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">HÀNG CHÍNH HÃNG</h3>
                             <p class="policy__description">Cam kết chất lượng</p>
@@ -424,7 +423,7 @@
                 </div>
                 <div class="col l-3 m-6">
                     <div class="policy bg-2">
-                        <img src="img/policy/policy4.png" class="policy__img"></img>
+                        <img src="{{asset('img/policy/policy4.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">TƯ VẤN 24/24</h3>
                             <p class="policy__description">Giải đáp mọi thắc mắc</p>
@@ -440,9 +439,9 @@
                 <h3 class="category__title">Nhóm 2 Cometics</h3>
                 <h3 class="category__heading">Tin Tức</h3>
                 <div class="owl-carousel news owl-theme">
-                    <a href="{{ route('name.view', ['name' => 'news'] )}}" class="news">
+                    <a href="{{url('news')}}" class="news">
                         <div class="news__img">
-                            <img src="img/news/news1.jpg" alt="">
+                            <img src="{{asset('img/news/news1.jpg')}}" alt="">
                         </div>
                         <div class="news__body">
                             <h3 class="news__body-title">Trang điểm đúng cách</h3>
@@ -452,9 +451,9 @@
                             </p>
                         </div>
                     </a>
-                    <a href="{{ route('name.view', ['name' => 'news'] )}}" class="news">
+                    <a href="{{url('news')}}" class="news">
                         <div class="news__img">
-                            <img src="img/news/news1.jpg" alt="">
+                            <img src="{{asset('img/news/news1.jpg')}}" alt="">
                         </div>
                         <div class="news__body">
                             <h3 class="news__body-title">Trang điểm đúng cách</h3>
@@ -464,9 +463,9 @@
                             </p>
                         </div>
                     </a>
-                    <a href="{{ route('name.view', ['name' => 'news'] )}}" class="news">
+                    <a href="{{url('news')}}" class="news">
                         <div class="news__img">
-                            <img src="img/news/news1.jpg" alt="">
+                            <img src="{{asset('img/news/news1.jpg')}}" alt="">
                         </div>
                         <div class="news__body">
                             <h3 class="news__body-title">Trang điểm đúng cách</h3>
@@ -482,13 +481,13 @@
         <div class="main__bands">
             <div class="grid wide">
                 <div class="owl-carousel bands">
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band1.png)"></a>
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band2.png)"></a>
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band3.png)"></a>
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band4.png)"></a>
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band5.png)"></a>
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band6.png)"></a>
-                    <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="band__item" style="background-image: url(img/band/band7.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band1.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band2.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band3.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band4.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band5.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band6.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band7.png)"></a>
                 </div>
             </div>
         </div>
@@ -711,8 +710,8 @@
         })
     </script>
     <!-- Script common -->
-    <script src="js/homeScript.js"></script>
-    <script src="js/commonscript.js"></script>
+    <script src="{{asset('js/homeScript.js')}}"></script>
+    <script src="{{asset('js/commonscript.js')}}"></script>
 </body>
 
 </html>

@@ -14,17 +14,17 @@
     <!-- Icon fontanwesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- Reset css & grid sytem -->
-    <link rel="stylesheet" href="css/library.css">
+    <link rel="stylesheet" href="{{ asset('css/library.css')}}">
     <!-- Layout -->
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="{{ asset('css/common.css')}}">
     <!-- index -->
-    <link rel="stylesheet" type="text/css" href="css/product.css">
-    <link rel="stylesheet" type="text/css" href="css/productSale.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/product.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/productSale.css')}}">
 
 </head>
 
 <body>
-    <div class="header scrolling" id="myHeader">
+<div class="header scrolling" id="myHeader">
         <div class="grid wide">
             <div class="header__top">
                 <div class="navbar-icon">
@@ -32,7 +32,7 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__logo">
+                <a href="{{ asset('index')}}" class="header__logo">
                     <img src="img/logomoi.png" alt="">
                 </a>
                 <div class="header__search">
@@ -57,44 +57,44 @@
                         <ul class="order__list">
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-img">
+                                    <a href="{{ asset('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{ asset('product')}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
+                                    <a href="{{ asset('product')}}" class="order-close"><i class="far fa-times-circle"></i></a>
                                 </div>
                             </li>
                                 <li class="item-order">
                                     <div class="order-wrap">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-img">
+                                        <a href="{{ asset('product')}}" class="order-img">
                                             <img src="img/product/product1.jpg" alt="">
                                         </a>
                                         <div class="order-main">
-                                            <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                            <a href="{{ asset('product')}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                             <div class="order-main-price">2 x 45,000 ₫</div>
                                         </div>
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
+                                        <a href="{{ asset('product')}}" class="order-close"><i class="far fa-times-circle"></i></a>
                                     </div>
                                 </li>
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-img">
+                                    <a href="{{ asset('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="{{ asset('product')}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
-                                    <a href="{{ route('name.view', ['name' => 'product'] )}}" class="order-close"><i class="far fa-times-circle"></i></a>
+                                    <a href="{{ asset('product')}}" class="order-close"><i class="far fa-times-circle"></i></a>
                                 </div>
                             </li>
                         </ul>
                         <div class="total-money">Tổng cộng: 120.000đ</div>
-                        <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
-                        <a href="{{ route('name.view', ['name' => 'pay'] )}}" class="btn btn--default cart-btn orange">Thanh toán</a>
+                        <a href="{{ asset('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
+                        <a href="{{ asset('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a>
                         <!-- norcart -->
                         <!-- <img class="header__cart-img-nocart" src="http://www.giaybinhduong.com/images/empty-cart.png" alt=""> -->
                     </div>
@@ -124,7 +124,7 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{ route('name.view', ['name' => 'index'] )}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{ asset('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới Thiệu</a>
@@ -137,39 +137,19 @@
                                 <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
-                        </ul>
-                        <ul class="sub-nav">
-                            <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
@@ -177,19 +157,19 @@
                                 <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                         <ul class="sub-nav">
@@ -197,28 +177,48 @@
                                 <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Khuyến mãi</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Nước hoa</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Nước hoa</a>
                             </li>
                             <li class="sub-nav__item">
-                                <a href="{{ route('name.view', ['name' => 'listProduct'] )}}" class="sub-nav__link">Chăm sóc miệng</a>
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
+                            </li>
+                        </ul>
+                        <ul class="sub-nav">
+                            <li class="sub-nav__item">
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Nước hoa</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'news'] )}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{ asset('news')}}" class="header__nav-link">Tin Tức</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ route('name.view', ['name' => 'contact'] )}}" class="header__nav-link">Liên Hệ</a>
+                    <a href="{{ asset('contact')}}" class="header__nav-link">Liên Hệ</a>
                 </li>
             </ul>
         </div>
@@ -269,8 +269,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -288,8 +288,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -307,8 +307,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -326,8 +326,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -345,8 +345,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -364,8 +364,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -383,8 +383,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -402,8 +402,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -421,8 +421,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -440,8 +440,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                         <div class="col l-2 m-4 s-6">
@@ -459,8 +459,8 @@
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="{{ route('name.view', ['name' => 'product'] )}}" class="viewDetail">Xem chi tiết</a>
-                                <a href="{{ route('name.view', ['name' => 'cart'] )}}" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
                     </div>
@@ -658,7 +658,7 @@
 
     </div>
     <!-- Script common -->
-    <script src="js/commonscript.js"></script>
+    <script src="{{asset('js/commonscript.js')}}"></script>
 </body>
 
 </html>
