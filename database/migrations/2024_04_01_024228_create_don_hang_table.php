@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('donhang', function (Blueprint $table) {
+        Schema::create('don_hang', function (Blueprint $table) {
             $table->increments('donhang_id');
             $table->unsignedInteger('user_id'); // Sử dụng cùng kiểu dữ liệu như trong bảng users
             $table->foreign('user_id')->references('user_id')->on('users'); // Thay 'id' thành 'user_id'
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donhang');
+        Schema::dropIfExists('don_hang');
     }
 };

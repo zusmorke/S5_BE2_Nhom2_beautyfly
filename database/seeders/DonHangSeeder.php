@@ -14,7 +14,7 @@ class DonHangSeeder extends Seeder
      * @return void
      */
     public function run(){
-        DB::table('donhang')->insert([
+        DB::table('don_hang')->insert([
             [
                 'user_id' => '1',
                 'ngaydat' => now(),
