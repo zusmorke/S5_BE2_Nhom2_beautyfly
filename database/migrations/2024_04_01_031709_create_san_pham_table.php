@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('soluongtrongkho');
             $table->integer('soluongdaban')->default(0);
             $table->unsignedInteger('danhmucsp_id');
-            $table->foreign('danhmucsp_id')->references('danhmucsp_id')->on('danh_muc_sp');
+            $table->foreign('danhmucsp_id')->references('danhmucsp_id')->on('category');
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('san_pham');
+        Schema::dropIfExists('sanpham');
     }
 };
