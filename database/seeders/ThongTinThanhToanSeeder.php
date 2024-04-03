@@ -55,6 +55,19 @@ class ThongTinThanhToanSeeder extends Seeder
                 "created_at" => now(),
                 "updated_at" => now(),
             ],
+            [
+ 
+                'Tinh' => 'Bình Thuận',
+                'diachi' => 'Táng Linh',
+                'donhang_id' => '3',
+                'email' => 'nguyend@mail.com',
+                'ghichudonhang' => 'Giao hàng trong giờ hành chính',
+                'ten' => 'nguyen van d',
+                'sdt' => '012342903673',
+                'user_id' => '1',
+                "created_at" => now(),
+                "updated_at" => now(),
+            ],
         ]);
     }
 }
