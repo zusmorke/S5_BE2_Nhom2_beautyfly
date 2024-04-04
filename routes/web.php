@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{page?}', function ($page = 'index') {
-    return view($page);
-});
+Route::get('/{page?}', [WelcomeController::class, 'page']);

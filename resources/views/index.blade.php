@@ -235,29 +235,30 @@
                     <div class="tab-pane active">
                         <div class="row">
                       
+                        @foreach($data as $row)
+                        <div class="col l-2 m-4 s-6">
                             
-                            <div class="col l-2 m-4 s-6">
-                            @foreach($data as $row)
-                                <div class="product">
-                                    <div class="product__avt" >
-                                        <img src="{{asset('public/img/product/' . $row->hinh)}};" alt="">
-                                    </div>
-                                    <div class="product__info">
-                                        <h3 class="product__name"><a href="#">{{$row->ten}}</a></h3>
-                                        <div class="product__price">
-                                            <div class="price__old">
-                                                300.000 đ
+                                    <div class="product">
+                                        <div class="product__avt">
+                                            <img src="{{asset('img/product/' . $row->hinh)}}" alt="" >
+                                        </div>
+                                        <div class="product__info">
+                                            <h3 class="product__name"><a href="#">{{$row->ten}}</a></h3>
+                                            <div class="product__price">
+                                                <div class="price__old">
+                                                    300.000 đ
+                                                </div>
+                                                <div class="price__new">200.000 <span class="price__unit">đ</span></div>
                                             </div>
-                                            <div class="price__new">200.000 <span class="price__unit">đ</span></div>
+                                            <div class="product__sale">
+                                                <span class="product__sale-percent">24%%</span>
+                                                <span class="product__sale-text">Giảm</span>
+                                            </div>
                                         </div>
-                                        <div class="product__sale">
-                                            <span class="product__sale-percent">24%%</span>
-                                            <span class="product__sale-text">Giảm</span>
-                                        </div>
+                                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                                     </div>
-                                    <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
-                                    <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
-                                </div>
+                              
                             </div>
                             @endforeach
                         </div>
