@@ -30,7 +30,7 @@ class CategorySeeder extends Seeder
             ],
             [
                 'ten' => 'Haircare',
-                'mota' => 'Danh 3ục sản phẩm chăm sóc tóc',
+                'mota' => 'Danh mục sản phẩm chăm sóc tóc',
                 "created_at" => now(),
                 "updated_at" => now(),
             ],

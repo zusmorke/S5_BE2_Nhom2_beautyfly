@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thanh Toán</title>
+    <title>Liên Hệ</title>
     <!-- Font roboto -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -235,7 +235,7 @@
                     <a href="{{ url('index')}}" class="breadcrumb__link">Trang chủ</a>
                 </div>
                 <div class="breadcrumb__item">
-                    <a href="#" class="breadcrumb__link">Giới thiệu</a>
+                    <a href="#" class="breadcrumb__link">Liên hệ</a>
                 </div>
             </div>
             <div class="row">
