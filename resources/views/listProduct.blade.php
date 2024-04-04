@@ -60,6 +60,7 @@
                                     <a href="{{ asset('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
+                                
                                     <div class="order-main">
                                         <a href="{{ asset('product')}}" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
