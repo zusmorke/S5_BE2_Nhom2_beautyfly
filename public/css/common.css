@@ -1105,6 +1105,66 @@ textarea.form-control {
     font-size: 1.3rem;
     text-decoration: underline;
 }
+.product__avt {
+    width: 100%;
+    height: 200px; /* Thiết lập chiều cao cố định cho khung hình */
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    overflow: hidden; /* Ẩn phần nội dung vượt ra ngoài */
+    position: relative; /* Cho phép sử dụng object-position */
+}
+
+.product__image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Hiển thị toàn bộ ảnh trong khung hình mà không biến dạng */
+    display: block;
+    position: absolute;
+    top: 50%; /* Đưa ảnh lên trên 50% */
+    left: 50%; /* Đưa ảnh sang trái 50% */
+    transform: translate(-50%, -50%); /* Dịch chuyển ảnh để căn giữa */
+}
+.header__nav-item {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.sub-nav-wrap {
+    display: none;
+}
+
+.header__nav-item:hover .sub-nav-wrap {
+    display: block;
+}
+
+.sub-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Hiển thị danh sách danh mục theo chiều ngang */
+}
+
+.sub-nav__item {
+    margin-right: 10px; /* Khoảng cách giữa các mục */
+}
+
+.sub-nav__link {
+    text-decoration: none;
+    color: black;
+}
+
+.sub-nav__link:hover {
+    background-color: lightgray;
+}
+
+.product__price {
+    display: flex;
+    justify-content: flex-end;
+
+}
 
 .product__sale {
     position: absolute;

@@ -16,7 +16,7 @@ class SanPhamSeeder extends Seeder
     public function run(){
         DB::table('sanpham')->insert([
             [
-                'ten' => 'kem chong nang',
+                'ten' => 'Kem chong nang',
                 'mota' => 'chong nang',
                 "gia" => "50000",
                 "sale" => "35000",
@@ -28,7 +28,7 @@ class SanPhamSeeder extends Seeder
                 "updated_at" => now(),
             ],
             [
-                'ten' => 'nuoc tay trang',
+                'ten' => 'Nuoc tay trang',
                 'mota' => 'dùng cho da bình thường, da dầu,da khô,.... ',
                 "gia" => "200000",
                 "sale" => "175000",
@@ -40,7 +40,7 @@ class SanPhamSeeder extends Seeder
                 "updated_at" => now(),
             ],
             [
-                'ten' => 'son dưỡng môi',
+                'ten' => 'Son dưỡng môi',
                 'mota' => 'dùng để cho môi mềm mịn, ko nứt nẻ,....',
                 "gia" => "50000",
                 "sale" => "25000",
@@ -52,7 +52,7 @@ class SanPhamSeeder extends Seeder
                 "updated_at" => now(),
             ],
             [
-                'ten' => 'kem nền',
+                'ten' => 'Kem nền',
                 'mota' => ' kem nền là làm đều màu da, che đi các khuyết điểm, làm mờ nếp nhăn và tạo cảm giác mịn màng cho làn da,....',
                 "gia" => "100000",
                 "sale" => "79000",
@@ -64,7 +64,7 @@ class SanPhamSeeder extends Seeder
                 "updated_at" => now(),
             ],
             [
-                'ten' => 'kem ủ tóc',
+                'ten' => 'Kem ủ tóc',
                 'mota' => 'Kem ủ tóc là một loại sản phẩm chăm sóc tóc được thiết kế để cung cấp dưỡng chất, độ ẩm và dưỡng ẩm sâu cho tóc... ',
                 "gia" => "200000",
                 "sale" => "189000",
@@ -76,7 +76,7 @@ class SanPhamSeeder extends Seeder
                 "updated_at" => now(),
             ],
             [
-                'ten' => 'son dior',
+                'ten' => 'Son dior',
                 'mota' => 'son Dior mang đến không chỉ là một màu sắc tuyệt đẹp mà còn là sự chăm sóc và bảo vệ cho làn môi.',
                 "gia" => "1000000",
                 "sale" => "899000",
@@ -88,7 +88,7 @@ class SanPhamSeeder extends Seeder
                 "updated_at" => now(),
             ],
             [
-                'ten' => 'dầu dưỡng tóc',
+                'ten' => 'Dầu dưỡng tóc',
                 'mota' => 'Dùng để nuôi dưỡng tóc từ bên trong, làm mềm mại, chống gãy rụng và tăng cường sự mềm mại..... ',
                 "gia" => "200000",
                 "sale" => "175000",

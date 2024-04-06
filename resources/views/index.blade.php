@@ -25,6 +25,7 @@
     <!-- Owl caroucel Js-->
     <script src="{{ asset('owlCarousel/owl.carousel.min.js')}}"></script>
 </head>
+
 <body>
     <div class="header scrolling" id="myHeader">
         <div class="grid wide">
@@ -41,7 +42,7 @@
                     <div class="header__search-wrap">
                         <input type="text" class="header__search-input" placeholder="Tìm kiếm">
                         <a class="header__search-icon" href="#">
-                            <i class="fas fa-search"></i>   
+                            <i class="fas fa-search"></i>
                         </a>
                     </div>
                 </div>
@@ -63,7 +64,7 @@
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="product.blade.php" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="product.blade.php" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
                                     <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
@@ -75,7 +76,7 @@
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="product.blade.php" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="product.blade.php" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
                                     <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
@@ -87,7 +88,7 @@
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
-                                        <a href="product.blade.php" class="order-main-name">Áo sơ mi  caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
+                                        <a href="product.blade.php" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
                                         <div class="order-main-price">2 x 45,000 ₫</div>
                                     </div>
                                     <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
@@ -104,11 +105,11 @@
             </div>
         </div>
         <!-- Menu -->
-        <div class="header__nav"  style="background-color: green;" >
+        <div class="header__nav" style="background-color: green;">
             <ul class="header__nav-list">
-                <li class="header__nav-item nav__search" >
-                    <div class="nav__search-wrap" >
-                        <input class="nav__search-input" type="text" name="" id=""  placeholder="Tìm sản phẩm...">
+                <li class="header__nav-item nav__search">
+                    <div class="nav__search-wrap">
+                        <input class="nav__search-input" type="text" name="" id="" placeholder="Tìm sản phẩm...">
                     </div>
                     <div class="nav__search-btn">
                         <i class="fas fa-search"></i>
@@ -135,24 +136,11 @@
                     <a href="{{url('listProduct')}}" class="header__nav-link">Sản Phẩm</a>
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
+                            @foreach($cate as $row)
                             <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link heading">{{$row->ten}}</a>
                             </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
+                            @endforeach
                         </ul>
                     </div>
                 </li>
@@ -213,147 +201,81 @@
             <div class="indicator">
             </div>
         </div>
-        
+
         <!--Product Category -->
-        <div class="main__tabnine" >
-            <div class="grid wide" >
+        <div class="main__tabnine">
+            <div class="grid wide">
                 <!-- Tab items -->
-                <div class="tabs" >
-                    <div class="tab-item active"style="color: green;"  >
+                <div class="tabs">
+                    <div class="tab-item active" style="color: green;">
                         Bán Chạy
                     </div>
-                    <div class="tab-item" style="color: green;" >
+                    <div class="tab-item" style="color: green;">
                         Giá tốt
                     </div>
-                    <div class="tab-item" style="color: green;" >
+                    <div class="tab-item" style="color: green;">
                         Mới Nhập
                     </div>
-                    <div class="line" style="background-color: green;" ></div>
+                    <div class="line" style="background-color: green;"></div>
                 </div>
                 <!-- Tab content -->
                 <div class="tab-content">
                     <div class="tab-pane active">
                         <div class="row">
-                      
-                        @foreach($data as $row)
-                        <div class="col l-2 m-4 s-6">
-                            
-                                    <div class="product">
-                                        <div class="product__avt">
-                                            <img src="{{asset('img/product/' . $row->hinh)}}" alt="" >
-                                        </div>
-                                        <div class="product__info">
-                                            <h3 class="product__name"><a href="#">{{$row->ten}}</a></h3>
-                                            <div class="product__price">
-                                                <div class="price__old">
-                                                    300.000 đ
-                                                </div>
-                                                <div class="price__new">200.000 <span class="price__unit">đ</span></div>
-                                            </div>
-                                            <div class="product__sale">
-                                                <span class="product__sale-percent">24%%</span>
-                                                <span class="product__sale-text">Giảm</span>
-                                            </div>
-                                        </div>
-                                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
-                                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
+                            @foreach($data as $row)
+                            <div class="col l-2 m-4 s-6">
+                                <div class="product">
+                                    <div class="product__avt">
+                                        <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
                                     </div>
-                              
+                                    <div class="product__info">
+                                        <h3 class="product__name"><a href="#">{{$row->ten}}</a></h3>
+                                        <div class="product__price">
+                                            <div class="price__new" style="text-align: right; color: red;">{{ $row->gia}} <span class="price__unit">đ</span></div>
+                                        </div>
+                                        <div class="product__sale">
+                                            <span class="product__sale-percent">24%%</span>
+                                            <span class="product__sale-text">Giảm</span>
+                                        </div>
+                                    </div>
+                                    <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                                    <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
+                                </div>
                             </div>
                             @endforeach
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- HightLight  -->
         <div class="main__frame">
-            <div class="grid wide">
-                <h3 class="category__title">Nhóm 2 Cometics</h3>
-                <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
-                <div class="owl-carousel hight owl-theme">
-                    <div class="product">
-                        <div class="product__avt" style="background-image: url(img/product/product1.jpg);">
-                        </div>
-                        <div class="product__info">
-                            <h3 class="product__name">Son môi cao cấp</h3>
-                            <div class="product__price">
-                                <div class="price__old">
-                                    100.000 đ
-                                </div>
-                                <div class="price__new"> 70.000<span class="price__unit">đ</span></div>
-                            </div>
-                            <div class="product__sale">
-                                <span class="product__sale-percent">23</span>
-                                <span class="product__sale-text">Giảm</span>
-                            </div>
-                        </div>
-                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
+    <div class="grid wide">
+        <h3 class="category__title">Nhóm 2 Cometics</h3>
+        <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
+        <div class="owl-carousel hight owl-theme" id="productCarousel">
+            @foreach($data as $index => $row)
+            <div class="product">
+                <div class="product__avt" style="background: url('{{asset('img/product/' . $row->hinh)}}')"></div>
+                <div class="product__info">
+                    <h3 class="product__name">{{$row->ten}}</h3>
+                    <div class="product__price">
+                        <div class="price__new" style ="color: red">{{ $row->gia }}<span class="price__unit">đ</span></div>
                     </div>
-                    <div class="product">
-                        <div class="product__avt" style="background-image: url(img/product/product1.jpg);">
-                        </div>
-                        <div class="product__info">
-                            <h3 class="product__name">Son môi cao cấp</h3>
-                            <div class="product__price">
-                                <div class="price__old">
-                                    100.000 đ
-                                </div>
-                                <div class="price__new"> 70.000<span class="price__unit">đ</span></div>
-                            </div>
-                            <div class="product__sale">
-                                <span class="product__sale-percent">23</span>
-                                <span class="product__sale-text">Giảm</span>
-                            </div>
-                        </div>
-                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
-                    </div>
-                    
-                    <div class="product">
-                        <div class="product__avt" style="background-image: url(img/product/product1.jpg);">
-                        </div>
-                        <div class="product__info">
-                            <h3 class="product__name">Son môi cao cấp</h3>
-                            <div class="product__price">
-                                <div class="price__old">
-                                    100.000 đ
-                                </div>
-                                <div class="price__new"> 70.000<span class="price__unit">đ</span></div>
-                            </div>
-                            <div class="product__sale">
-                                <span class="product__sale-percent">23</span>
-                                <span class="product__sale-text">Giảm</span>
-                            </div>
-                        </div>
-                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
-
-                    </div>
-                    <div class="product">
-                        <div class="product__avt" style="background-image: url(img/product/product1.jpg);">
-                        </div>
-                        <div class="product__info">
-                            <h3 class="product__name">Son môi cao cấp</h3>
-                            <div class="product__price">
-                                <div class="price__old">
-                                    100.000 đ
-                                </div>
-                                <div class="price__new"> 70.000<span class="price__unit">đ</span></div>
-                            </div>
-                            <div class="product__sale">
-                                <span class="product__sale-percent">23</span>
-                                <span class="product__sale-text">Giảm</span>
-                            </div>
-                        </div>
-                        <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
-                        <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
-
+                    <div class="product__sale">
+                        <span class="product__sale-percent">23</span>
+                        <span class="product__sale-text">Giảm</span>
                     </div>
                 </div>
+                <a href="{{url('listProduct')}}" class="viewDetail">Xem chi tiết</a>
+                <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
             </div>
+            @endforeach
         </div>
+    </div>
+</div>
+
         <!-- Sales Policy -->
         <div class="main__policy">
             <div class="row">
@@ -376,7 +298,7 @@
                     </div>
                 </div>
                 <div class="col l-3 m-6">
-                    <div class="policy bg-1"  style="background-color: rgb(94, 233, 94);">
+                    <div class="policy bg-1" style="background-color: rgb(94, 233, 94);">
                         <img src="{{asset('img/policy/policy3.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">HÀNG CHÍNH HÃNG</h3>
@@ -501,8 +423,8 @@
                     <ul class="footer__list">
                         <li class="footer__item">
                             <span class="footer__text">
-                                    <i class="fas fa-map-marked-alt"></i> 22/3 Võ Văn Ngân,Linh Chiểu,TP Thủ Đức
-                                </span>
+                                <i class="fas fa-map-marked-alt"></i> 22/3 Võ Văn Ngân,Linh Chiểu,TP Thủ Đức
+                            </span>
                         </li>
                         <li class="footer__item">
                             <a href="#" class="footer__link">
@@ -517,15 +439,15 @@
                         <li class="footer__item">
                             <div class="social-group">
                                 <a href="#" class="social-item"><i class="fab fa-facebook-f"></i>
-                                    </a>
+                                </a>
                                 <a href="#" class="social-item"><i class="fab fa-twitter"></i>
-                                    </a>
+                                </a>
                                 <a href="#" class="social-item"><i class="fab fa-pinterest-p"></i>
-                                    </a>
+                                </a>
                                 <a href="#" class="social-item"><i class="fab fa-invision"></i>
-                                    </a>
-                                <a href="#" class="social-item"><i class="fab fa-youtube"></i>  
-                                    </a>
+                                </a>
+                                <a href="#" class="social-item"><i class="fab fa-youtube"></i>
+                                </a>
                             </div>
                         </li>
                     </ul>
