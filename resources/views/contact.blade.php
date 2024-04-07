@@ -240,7 +240,7 @@
             </div>
             <div class="row">
                 <div class="col l-6 m-12 s-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4749789206066!2d106.75548917471203!3d10.851432489301928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752797e321f8e9%3A0xb3ff69197b10ec4f!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEPDtG5nIG5naOG7hyBUaOG7pyDEkOG7qWM!5e0!3m2!1svi!2s!4v1711348810647!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4749789206066!2d106.75548917471203!3d10.851432489301928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752797e321f8e9%3A0xb3ff69197b10ec4f!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEPDtG5nIG5naOG7hyBUaOG7pyDEkOG7qWM!5e0!3m2!1svi!2s!4v1711348810647!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </iframe>
                 </div>
                 <div class="col l-6 m-12 s-12">
                     <div class="contact__wrap">
@@ -271,26 +271,62 @@
                         <div class="about-us__heading">Liên hệ với chúng tôi</div>
                         <div class="form__group">
                             <div>
-                                <input type="text" value="Họ và tên">
+                                <input type="text" name="hoTen"  placeholder="Họ Và Tên">
                             </div>
                             <div>
-                                <input type="text" value="Email">
+                                <input type="text" name="email" placeholder="Email">
                             </div>
                             <div>
-                                <input type="text" value="Địa chỉ">
+                                <input type="text" name="diaChi" placeholder="Địa chỉ">
                             </div>
                             <div>
-                                <input type="text" value="Số điện thoại">
+                                <input type="text" name="soDienThoai"  placeholder="Số điện thoại">
                             </div>
                         </div>
-                        <textarea name="" id="" cols="30" rows="5" placeholder="Lời nhắn"></textarea>
+                        <textarea name="loiNhan" id="" cols="30" rows="5" placeholder="Lời nhắn"></textarea>
                         <button type="submit" class="btn btn--default">Gửi</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+
+    <div class="container">
+    <h2 style="font-size: 34px; text-align: center; color: red;">Thông tin liên hệ</h2>
+    <div class="contact-wrapper">
+        @foreach ($contact as $row)
+        <ul class="contact-list">
+            <li class="contact-item">
+                <label>Họ và tên:</label>
+                <span>{{ $row->hovaten }}</span>
+            </li>
+            <li class="contact-item">
+                <label>Email:</label>
+                <span>{{ $row->email }}</span>
+            </li>
+            <li class="contact-item">
+                <label>Địa chỉ:</label>
+                <span>{{ $row->diachi }}</span>
+            </li>
+            <li class="contact-item">
+                <label>Số điện thoại:</label>
+                <span>{{ $row->sdt }}</span>
+            </li>
+            <li class="contact-item">
+                <label>Lời nhắn:</label>
+                <span>{{ $row->loinhan }}</span>
+            </li>
+            <li class="contact-item">
+                <label>Ngày tạo:</label>
+                <span>{{ $row->created_at}}</span>
+            </li>
+        </ul>
+        @endforeach
     </div>
+</div>
+
+
     <div class="footer">
         <div class="grid wide">
             <div class="row">
@@ -446,11 +482,9 @@
 
     </div>
     <!-- Sccipt for owl caroucel -->
-                    
+    
     <!-- Script common -->
     <script src="js/commonscript.js"></script>
-
-
 </body>
 
 </html>

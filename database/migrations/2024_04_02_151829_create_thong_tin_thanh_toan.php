@@ -25,7 +25,7 @@ return new class extends Migration
             
             
             // Khóa ngoại
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('user');
             $table->foreign('donhang_id')->references('donhang_id')->on('don_hang');
             $table->timestamps();
 

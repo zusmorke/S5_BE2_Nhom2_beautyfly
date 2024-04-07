@@ -238,7 +238,7 @@
                                             <span class="product__sale-text">Giảm</span>
                                         </div>
                                     </div>
-                                    <a href="{{url('product')}}" class="viewDetail">Xem chi tiết</a>
+                                    <a href="{{url('chitietsanpham')}}" class="viewDetail">Xem chi tiết</a>
                                     <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                                 </div>
                             </div>

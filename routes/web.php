@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\luuThongTinLienHe;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{page?}', [WelcomeController::class, 'page']);
+Route::get('/{page?}', [WelcomeController::class, 'page']); // Sử dụng route pattern khác cho phương thức page
+Route::get('/contact/{page?}', [WelcomeController::class, 'contact']);
+ // Sử dụng route pattern khác cho phương thức contact
