@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SanPham;
 use App\Models\LienHe;
 use App\Models\Category;
-
+use App\Models\DanhGia;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -22,5 +22,13 @@ class WelcomeController extends Controller
     {
         $lienhe = LienHe::all();
         return view($page, ['contact' => $lienhe]);
+    }
+
+    public function danhgia( $page = "danhgia"){
+        $danhgia = DanhGia::all();
+        if ($danhgia->isEmpty()) {
+            var_dump("Loi") ;
+        }
+        return view($page, ['danhgia'=> $danhgia]);
     }
 }

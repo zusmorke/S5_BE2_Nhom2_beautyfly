@@ -17,4 +17,5 @@ use App\Http\Controllers\luuThongTinLienHe;
 
 Route::get('/{page?}', [WelcomeController::class, 'page']); // Sử dụng route pattern khác cho phương thức page
 Route::get('/contact/{page?}', [WelcomeController::class, 'contact']);
+Route::get('/danhgia/{page?}', [WelcomeController::class, 'danhgia']);
  // Sử dụng route pattern khác cho phương thức contact

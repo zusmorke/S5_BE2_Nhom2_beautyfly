@@ -2,14 +2,16 @@
 
 .header.scrolling {
     transition: background-color 0.3s ease;
-    background-color: green;
-    
+    background-color: #00ab6d;
+
 }
 
 .header.scrolling .header__nav {
     transition: background-color 0.3s ease;
-    background: green;
+    background: #00ab6d;
     box-shadow: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .header.scrolling .header__nav-item {
@@ -20,11 +22,13 @@
 
 .header.scrolling .header__nav .header__nav-item:last-child {
     border-right: none;
-   
+
 }
-.bg-1{
-    background-color: green;
+
+.bg-1 {
+    background-color: #00ab6d;
 }
+
 .header.scrolling .header__search-wrap {
     border: 2px solid white;
     color: green;
@@ -78,8 +82,7 @@
 
 .header__account-login:after {
     border-right: 1px solid var(--white-cl-1);
-    background-color: green;
-
+    color: #00ab6d;
 }
 
 .container {
@@ -100,7 +103,7 @@
 
 .main__slice .caption h1 {
     font-size: 4.2rem;
-    color: var(--white-cl-1);
+    color: #fff;
     margin: 0;
 }
 
@@ -113,7 +116,7 @@
 .main__slice .caption p {
     font-size: 1.8rem;
     margin: 15px 0 30px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #fff;
     font-weight: 200;
 }
 
@@ -125,7 +128,7 @@
 
 .main__slice .caption a {
     display: inline-block;
-    color: var(--white-cl-1);
+    color: #00ab6d;
 }
 
 .main__slice .slide.active .caption a {
@@ -175,11 +178,12 @@
     z-index: 2;
     transform: translateX(-50%);
 }
+
 .main__slice .indicator div {
     display: inline-block;
     width: 35px;
     height: 35px;
-    background-color: var(--white-cl-1);
+    background-color: #fff;
     color: var(--default-cl);
     border-radius: 50%;
     text-align: center;
@@ -189,8 +193,7 @@
 }
 
 .main__slice .indicator div.active {
-    background-color: green;
-    color: var(--white-cl-1);
+    background-color: #fff;
     transition: all 0.3s;
 }
 
@@ -239,7 +242,7 @@
     left: 0;
     height: 1px;
     width: 130px;
-    background-color:green;
+    background-color: green;
 }
 
 .sale-heading::before {
@@ -352,23 +355,18 @@
     align-items: center;
     justify-content: center;
     height: 120px;
-    background-color:rgb(59, 177, 59);
 }
 
 .policy__img {
     width: 60px;
 }
 
-.policy__info {
-    
-}
-
 .policy__title {
     font-size: 1.8rem;
     text-transform: uppercase;
-    color: var(--white-cl-1);
+    color: black;
     margin-bottom: 12px;
-    
+
 }
 
 .policy__description {
@@ -380,7 +378,7 @@
 /* Bands */
 
 .main__bands {
-    background-color:white;
+    background-color: white;
 }
 
 .band__item {
@@ -395,72 +393,89 @@
 /*========Responsive========*/
 
 @media(max-width: 1023px) {
+
     .header__nav,
     .header.scrolling .header__nav {
         background-color: green;
-       
+
     }
+
     .header__nav-item,
     .header.scrolling .header__nav-item {
-       background-color:green;
+        background-color: green;
         border-top: none;
         border-bottom: none;
     }
+
     .main__slice .slider {
         height: 500px;
     }
+
     .main__slice .caption {
         width: 70%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
     .header.scrolling .header__nav .header__nav-item:last-child {
         border-right: none;
     }
+
     .header.scrolling .header__search-wrap {
         border: 1px solid green;
     }
+
     .header.scrolling .header__search-icon i {
         color: var(--white-cl-1)
     }
 }
 
 @media(max-width: 739px) {
+
     .main__slice .indicator,
     .controls {
         display: none;
     }
+
     .main__slice .slider {
         height: 350px;
     }
+
     .main__slice .caption {
         width: 78%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
     .main__slice .caption h1 {
         font-size: 2.2rem;
     }
+
     .main__slice .caption p {
         font-size: 1.2rem;
         margin: 12px 0 20px 0;
     }
+
     .sale-heading {
         text-align: center;
         font-size: 2.6rem;
     }
+
     .main__sale-info {
         text-align: center;
     }
+
     .sale-heading:after,
     .sale-heading::before {
         left: 50%;
         transform: translate(-50%);
     }
+
     .main__policy {
         display: none;
-       
+
     }
+
     .tab-item {
         font-size: 1.6rem;
         min-width: 40px;
@@ -468,35 +483,66 @@
         text-transform: none;
         color: green;
     }
+
     .main__tabnine .row {
-      
+
         margin-left: 0;
         margin-right: 0;
     }
+
     .main__sale,
     .main__frame {
         padding-left: 10px;
         padding-right: 10px;
     }
+
     .news {
         flex-direction: column;
     }
+
     .news__body {
         margin-top: 16px;
         margin-bottom: 24px;
     }
+
     .move__left,
     .move__right {
         display: none;
     }
 }
-.footer{
-    background-color: green;
+
+.footer {
+    background: #fff;
 }
-.social-item{
-    background-color: green;
-    border: 2px solid white;
+
+.footer * {
+    color: #000;
+    /* Đảm bảo màu chữ trong footer là đen */
 }
-.copyright{
-    background-color: rgb(55, 185, 55);
+
+.footer__item:hover * {
+    color: #58f5b4;
+    /* Đảm bảo màu chữ trong footer là đen */
+}
+
+.line {
+    border-bottom: 1px solid rgb(205, 200, 200);
+    width: 100%;
+    margin-top: 0px;
+    /* Chỉnh sửa theo nhu cầu */
+}
+
+.line1 {
+    border-bottom: 1px solid rgb(205, 200, 200);
+    width: 100%;
+    margin-top: 0px;
+    /* Chỉnh sửa theo nhu cầu */
+}
+.copyright {
+    background: #fff;
+    color: #000;
+    font-size: 300px;
+}
+.footer__link1:hover {
+    color: #00ab6d;
 }

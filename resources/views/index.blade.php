@@ -105,7 +105,7 @@
             </div>
         </div>
         <!-- Menu -->
-        <div class="header__nav" style="background-color: green;">
+        <div class="header__nav" style="background-color: #00ab6d;">
             <ul class="header__nav-list">
                 <li class="header__nav-item nav__search">
                     <div class="nav__search-wrap">
@@ -162,27 +162,27 @@
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
                             <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
+                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: white;">Xem ngay</a>
 
                         </div>
                     </div>
                 </div>
-                <div class="slide active" style="background-image:url(img/a4.webp)">
+                <div class="slide active" style="background-image:url(img/a3.jpg)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
                             <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
+                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: white;">Xem ngay</a>
 
                         </div>
                     </div>
                 </div>
-                <div class="slide active" style="background-image:url(img/a3.webp)">
+                <div class="slide active" style="background-image:url(img/a2.jpg)">
                     <div class="container">
                         <div class="caption">
                             <h1>Giảm giá 30%</h1>
                             <p>Giảm giá cực sốc trong tháng 6!</p>
-                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: green;">Xem ngay</a>
+                            <a href="{{url('listProduct')}}" class="btn btn--default" style="background-color: white;">Xem ngay</a>
 
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                                         <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
                                     </div>
                                     <div class="product__info">
-                                        <h3 class="product__name"><a href="#">{{$row->ten}}</a></h3>
+                                        <h3 class="product__name"><a href="{{url('product')}}" style="color:#0daf74">{{$row->ten}}</a></h3>
                                         <div class="product__price">
                                             <div class="price__new" style="text-align: right; color: red;">{{ $row->gia}} <span class="price__unit">đ</span></div>
                                         </div>
@@ -238,8 +238,6 @@
                                             <span class="product__sale-text">Giảm</span>
                                         </div>
                                     </div>
-                                    <a href="{{url('chitietsanpham')}}" class="viewDetail">Xem chi tiết</a>
-                                    <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
                                 </div>
                             </div>
                             @endforeach
@@ -250,37 +248,35 @@
             </div>
         </div>
         <!-- HightLight  -->
-        <div class="main__frame">
-    <div class="grid wide">
-        <h3 class="category__title">Nhóm 2 Cometics</h3>
-        <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
-        <div class="owl-carousel hight owl-theme" id="productCarousel">
-            @foreach($data as $index => $row)
-            <div class="product">
-                <div class="product__avt" style="background: url('{{asset('img/product/' . $row->hinh)}}')"></div>
-                <div class="product__info">
-                    <h3 class="product__name">{{$row->ten}}</h3>
-                    <div class="product__price">
-                        <div class="price__new" style ="color: red">{{ $row->gia }}<span class="price__unit">đ</span></div>
+        <div class="main__frame" style="background: #f2fbf7;">
+            <div class="grid wide">
+                <h3 class="category__title">Nhóm 2 Cometics</h3>
+                <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
+                <div class="owl-carousel hight owl-theme" id="productCarousel">
+                    @foreach($data as $index => $row)
+                    <div class="product">
+                        <div class="product__avt" style="background: url('{{asset('img/product/' . $row->hinh)}}')"></div>
+                        <div class="product__info">
+                            <h3 class="product__name"><a href="{{url('listProduct')}}" style="color:#0daf74">{{$row->ten}}</a></h3>
+                            <div class="product__price">
+                                <div class="price__new" style="color: red">{{ $row->gia }}<span class="price__unit">đ</span></div>
+                            </div>
+                            <div class="product__sale">
+                                <span class="product__sale-percent">23</span>
+                                <span class="product__sale-text">Giảm</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="product__sale">
-                        <span class="product__sale-percent">23</span>
-                        <span class="product__sale-text">Giảm</span>
-                    </div>
+                    @endforeach
                 </div>
-                <a href="{{url('listProduct')}}" class="viewDetail">Xem chi tiết</a>
-                <a href="{{url('cart')}}" class="addToCart">Thêm vào giỏ</a>
             </div>
-            @endforeach
         </div>
-    </div>
-</div>
 
         <!-- Sales Policy -->
         <div class="main__policy">
             <div class="row">
                 <div class="col l-3 m-6">
-                    <div class="policy bg-1" style="background-color: rgb(94, 233, 94);">
+                    <div class="policy bg-1">
                         <img src="{{asset('img/policy/policy1.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">GIAO HÀNG MIỄN PHÍ</h3>
@@ -289,7 +285,7 @@
                     </div>
                 </div>
                 <div class="col l-3 m-6">
-                    <div class="policy bg-2">
+                    <div class="policy bg-2" style="background: #0daf74;">
                         <img src="{{asset('img/policy/policy2.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">ĐỔI TRẢ HÀNG</h3>
@@ -298,7 +294,7 @@
                     </div>
                 </div>
                 <div class="col l-3 m-6">
-                    <div class="policy bg-1" style="background-color: rgb(94, 233, 94);">
+                    <div class="policy bg-1">
                         <img src="{{asset('img/policy/policy3.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">HÀNG CHÍNH HÃNG</h3>
@@ -307,7 +303,7 @@
                     </div>
                 </div>
                 <div class="col l-3 m-6">
-                    <div class="policy bg-2">
+                    <div class="policy bg-2" style="background: #0daf74;">
                         <img src="{{asset('img/policy/policy4.png')}}" class="policy__img"></img>
                         <div class="policy__info">
                             <h3 class="policy__title">TƯ VẤN 24/24</h3>
@@ -315,7 +311,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- News -->
@@ -363,10 +358,12 @@
                 </div>
             </div>
         </div>
+
+        <div class="line1"></div>
         <div class="main__bands">
             <div class="grid wide">
                 <div class="owl-carousel bands">
-                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band1.png)"></a>
+                    <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band1.png);"></a>
                     <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band2.png)"></a>
                     <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band3.png)"></a>
                     <a href="{{url('listProduct')}}" class="band__item" style="background-image: url(img/band/band4.png)"></a>
@@ -376,7 +373,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="line"></div>
     </div>
     <div class="footer">
         <div class="grid wide">
@@ -456,13 +453,13 @@
                     <h3 class="footer__title">Đăng kí</h3>
                     <ul class="footer__list">
                         <li class="footer__item">
-                            <span class="footer__text">Đăng ký để nhận được được thông tin ưu đãi mới nhất từ chúng tôi.</span>
+                            <span class="footer__text" >Đăng ký để nhận được được thông tin ưu đãi mới nhất từ chúng tôi.</span>
                         </li>
                         <li class="footer__item">
-                            <div class="send-email">
+                            <div class="send-email" style="background: #000;">
                                 <input class="send-email__input" type="email" placeholder="Nhập Email...">
-                                <a href="#" class="send-email__link">
-                                    <i class="fas fa-paper-plane"></i>
+                                <a href="#" class="send-email__link" >
+                                    <i class="fas fa-paper-plane" style="color: white;"></i>
                                 </a>
                             </div>
                         </li>
@@ -471,7 +468,7 @@
             </div>
         </div>
         <div class="copyright">
-            <span class="footer__text"> &copy Bản quyền thuộc về <a class="footer__link" href="#">Nhóm 2</a></span>
+            <span class="footer__text"> &copy Bản quyền thuộc về <a class="footer__link1" href="#">Nhóm 2</a></span>
         </div>
     </div>
     <!-- Modal Form -->

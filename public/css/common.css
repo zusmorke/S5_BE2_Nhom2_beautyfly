@@ -185,7 +185,7 @@ input[type=checkbox]:checked:after {
 }
 
 .bg-3 {
-    background-color: var(--white-cl-3)
+    background-color: var(--white-cl-3);
 }
 
 

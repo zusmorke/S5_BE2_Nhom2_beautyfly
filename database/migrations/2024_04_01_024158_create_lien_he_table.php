@@ -20,8 +20,12 @@ return new class extends Migration
             $table->string('sdt', 255);
             $table->string('loinhan', 255);
             $table->timestamps();
+
         });
+
     }
+
+
 
     /**
      * Reverse the migrations.
@@ -33,3 +37,4 @@ return new class extends Migration
         Schema::dropIfExists('lienhe');
     }
 };
+

@@ -413,6 +413,9 @@
                                     </div>
                                     <input type="submit " class="btn btn--default" value="Đánh giá">
                                 </div>
+
+                                @if(isset($danhgia))
+                                @foreach($danhgia as $row)
                                 <ul class="rate__list">
                                     <li class="rate__item">
                                         <div class="rate__info">
@@ -420,36 +423,16 @@
                                             <h3 class="rate__user">Giang Tuấn Phương</h3>
                                             <div class="rate__star">
                                                 <div class="group-star">
+                                                    {{$row->sao}}
                                                     <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star-half-alt"></i>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="rate__comment">Sản phẩm chất lượng rất tốt thật tuyệt vời</div>
-                                    </li>
-                                    <li class="rate__item">
-                                        <div class="rate__info">
-                                            <img src="https://lh3.googleusercontent.com/ogw/ADGmqu9PFgn_rHIm9i3eIlVr5RwzwY2w8EystHF213wj=s32-c-mo" alt="">
-                                            <h3 class="rate__user">Giang Tuấn Phương</h3>
-                                            <div class="rate__star">
-
-                                            </div>
-                                        </div>
-                                        <div class="rate__comment">Sản phẩm chất lượng rất tốt</div>
-                                    </li>
-                                    <li class="rate__item">
-                                        <div class="rate__info">
-                                            <img src="https://lh3.googleusercontent.com/ogw/ADGmqu9PFgn_rHIm9i3eIlVr5RwzwY2w8EystHF213wj=s32-c-mo" alt="">
-                                            <h3 class="rate__user">Giang Tuấn Phương</h3>
-                                            <div class="rate__star">
-
-                                            </div>
-                                        </div>
-                                        <div class="rate__comment">Sản phẩm chất lượng rất tốt</div>
+                                        <div class="rate__comment">{{$row->binhluan}}</div>
                                     </li>
                                 </ul>
+                                @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -475,7 +458,7 @@
                                 <span class="product__sale-text ">Giảm</span>
                             </div>
                         </a>
-                        <a href="# " class="product ">
+                        <a href="#" class="product" >
                             <div class="product__avt " style="background-image: url(img/product/product1.jpg) ">
                             </div>
                             <div class="product__info ">
