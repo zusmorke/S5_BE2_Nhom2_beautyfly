@@ -10,12 +10,13 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
+
     public function page($page = "index")
     {
         $sanPham = SanPham::all();
         $lienhe = LienHe::all();
         $cate = Category::all();
-        return view($page, ['data' => $sanPham, 'cate' => $cate, 'contact' => $lienhe]); // Chỉ sử dụng một mảng để truyền dữ liệu
+        return view($page, ['data' => $sanPham, 'cate' => $cate, 'contact' => $lienhe]);
     }
 
     public function contact($page = "contact")
@@ -24,12 +25,13 @@ class WelcomeController extends Controller
         return view($page, ['contact' => $lienhe]);
     }
 
-    public function danhgia( $page = "danhgia"){
+    public function danhgia($page = "danhgia")
+    {
         $danhgia = DanhGia::all();
         if ($danhgia->isEmpty()) {
-            var_dump("Loi") ;
+            var_dump("Loi");
         }
-        return view($page, ['danhgia'=> $danhgia]);
+        return view($page, ['danhgia' => $danhgia]);
     }
     public function product($page = "product")
     {
