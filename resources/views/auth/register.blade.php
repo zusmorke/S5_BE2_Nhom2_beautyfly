@@ -39,6 +39,10 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- Chuyển Hướng  Register -->
+        <br>
+        <p style="font-size: 15px;">If you already have an account, please click <a href="{{url('login')}}" style="text-decoration: underline;color: red;">Login</p></h6>
+        
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}

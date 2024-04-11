@@ -23,7 +23,7 @@
 
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
-
+        
         <!-- Remember Me -->
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
@@ -31,6 +31,10 @@
                 <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
             </label>
         </div>
+
+        <!-- Chuyển Hướng  Register -->
+        <br>
+        <p style="font-size: 15px;">If you don't have an account, please click <a href="{{url('register')}}" style="text-decoration: underline;color: red;">Register</p></h6>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))

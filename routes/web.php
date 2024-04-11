@@ -4,22 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
+Route::get('/danhgia', [WelcomeController::class, 'danhgia'])->name('danhgia');
+Route::get('/product', [WelcomeController::class, 'product'])->name('product');
 
-Route::get('/', [WelcomeController::class, 'page'])->middleware('auth');
+
+Route::get('/', [WelcomeController::class, 'page'])->middleware('auth')->name('index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
