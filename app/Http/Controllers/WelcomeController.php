@@ -31,4 +31,9 @@ class WelcomeController extends Controller
         }
         return view($page, ['danhgia'=> $danhgia]);
     }
+    public function product($page = "product")
+    {
+        $sanPham = SanPham::all();
+        return view($page, ['product' => $sanPham]);
+    }
 }

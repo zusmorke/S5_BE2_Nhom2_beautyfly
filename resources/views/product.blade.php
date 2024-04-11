@@ -159,66 +159,7 @@
                                 <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
                             </li>
                         </ul>
-                        <ul class="sub-nav">
-                            <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
-                        </ul>
-                        <ul class="sub-nav">
-                            <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
-                        </ul>
-                        <ul class="sub-nav">
-                            <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
-                        </ul>
+                        
                     </div>
                 </li>
                 <li class="header__nav-item">
@@ -234,43 +175,16 @@
         <div class="grid wide">
             <div class="productInfo">
                 <div class="row">
+                @foreach($data as $row)
                     <div class="col l-5 m-12 s-12">
                         <div class="owl-carousel owl-theme" id="sync1">
                             <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product1.jpg)">
+                                <div class="product__avt" style="background-image: url(img/product/'.$row->hinh))">
                                 </div>
                             </a>
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product1.jpg)">
-                                </div>
-                            </a>
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product2.jpg)">
-                                </div>
-                            </a>
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product3.jpg)">
-                                </div>
-                            </a>
+                      
                         </div>
-                        <div class="owl-carousel owl-theme" id="sync2">
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product1.jpg)">
-                                </div>
-                            </a>
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product1.jpg)">
-                                </div>
-                            </a>
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product2.jpg)">
-                                </div>
-                            </a>
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/product3.jpg)">
-                                </div>
-                            </a>
-                        </div>
+                       
 
                     </div>
                     <div class="col l-7 m-12s s-12 pl">
@@ -286,13 +200,13 @@
                             </div>
                         </div>
                         <h3 class="productInfo__name">
-                            Azrouel dress variable
+                        {{$row->ten}}
                         </h3>
                         <div class="productInfo__price">
-                            330.000 <span class="priceInfo__unit">đ</span>
+                        {{$row->gia}} <span class="priceInfo__unit"></span>
                         </div>
                         <div class="productInfo__description">
-                            <span> Lorem Ipsum </span> chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành công nghiệp in ấn
+                            <span>{{$row->ten}}</span> {{$row->mota}}
                         </div>
 
                         <div class="productInfo__addToCart">
@@ -342,6 +256,7 @@
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
             <div class="productDetail ">
                 <div class="main__tabnine ">
@@ -360,6 +275,7 @@
                         <div class="tab-content ">
                             <div class="tab-pane active ">
                                 <div class="productDes ">
+                               
                                     <div class="productDes__title ">Lorem Ipsum là gì?</div>
                                     <p class="productDes__text "> <a href="# " class="productDes__link ">Lorem Ipsum </a> chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành
                                         công nghiệp in ấn từ những năm 1500, khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học
@@ -373,6 +289,7 @@
                                         như Aldus PageMaker.
                                     </p>
                                 </div>
+                               
                             </div>
                             <div class="tab-pane ">
                                 <div class="productDes__ratting ">
