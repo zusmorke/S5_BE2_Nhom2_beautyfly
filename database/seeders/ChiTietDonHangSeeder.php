@@ -18,7 +18,7 @@ class ChiTietDonHangSeeder extends Seeder
         DB::table('chitietdonhang')->insert([
             [
                 'donhang_id' => 1,
-                'sanpham_id' => 1,
+                'sanpham_id' => 21,
                 'soluong' => 2,
                 'gia_sp' => 50.00,
                 'created_at' => now(),
@@ -26,7 +26,7 @@ class ChiTietDonHangSeeder extends Seeder
             ],
             [
                 'donhang_id' => 2,
-                'sanpham_id' => 2,
+                'sanpham_id' => 22,
                 'soluong' => 1,
                 'gia_sp' => 25.00,
                 'created_at' => now(),
@@ -34,7 +34,7 @@ class ChiTietDonHangSeeder extends Seeder
             ],
             [
                 'donhang_id' => 3,
-                'sanpham_id' => 3,
+                'sanpham_id' => 23,
                 'soluong' => 1,
                 'gia_sp' => 28.00,
                 'created_at' => now(),
@@ -42,7 +42,7 @@ class ChiTietDonHangSeeder extends Seeder
             ],
             [
                 'donhang_id' => 4,
-                'sanpham_id' => 4,
+                'sanpham_id' => 24,
                 'soluong' => 1,
                 'gia_sp' => 30.00,
                 'created_at' => now(),
