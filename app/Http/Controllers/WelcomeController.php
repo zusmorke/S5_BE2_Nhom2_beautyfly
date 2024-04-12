@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
 {
-
+    
     public function page($page = "index")
     {
         $sanPham = SanPham::all();
@@ -36,6 +36,7 @@ class WelcomeController extends Controller
     public function product($page = "product")
     {
         $sanPham = SanPham::all();
-        return view($page, ['product' => $sanPham]);
+        $listProduct = SanPham::all();
+        return view($page, ['product' => $sanPham], ['data' => $listProduct]);
     }
 }

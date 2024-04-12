@@ -46,10 +46,17 @@
                         </a>
                     </div>
                 </div>
-                <div class="header__account">
-                    <a href="#my-Login" class="header__account-login">Đăng Nhập</a>
-                    <a href="#my-Register" class="header__account-register">Đăng Kí</a>
-                </div>
+                @auth
+                <p style="font-size: 18px;">Xin chào, {{ auth()->user()->name }}!</p>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" style="font-size: 14px;">Đăng xuất</button>
+                </form>
+                @else
+                
+                <a href="{{ route('login') }}" style="font-size: 18px;">Đăng nhập |</a>
+                <a href="{{ route('register')}}" style="font-size: 18px;">Đăng ký</a>
+                @endauth
                 <!-- Cart -->
                 <div class="header__cart have" href="#">
                     <i class="fas fa-shopping-basket"></i>
@@ -453,12 +460,12 @@
                     <h3 class="footer__title">Đăng kí</h3>
                     <ul class="footer__list">
                         <li class="footer__item">
-                            <span class="footer__text" >Đăng ký để nhận được được thông tin ưu đãi mới nhất từ chúng tôi.</span>
+                            <span class="footer__text">Đăng ký để nhận được được thông tin ưu đãi mới nhất từ chúng tôi.</span>
                         </li>
                         <li class="footer__item">
                             <div class="send-email" style="background: #000;">
                                 <input class="send-email__input" type="email" placeholder="Nhập Email...">
-                                <a href="#" class="send-email__link" >
+                                <a href="#" class="send-email__link">
                                     <i class="fas fa-paper-plane" style="color: white;"></i>
                                 </a>
                             </div>
