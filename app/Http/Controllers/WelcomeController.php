@@ -16,6 +16,7 @@ class WelcomeController extends Controller
         $sanPham = SanPham::all();
         $lienhe = LienHe::all();
         $cate = Category::all();
+       
         return view($page, ['data' => $sanPham, 'cate' => $cate, 'contact' => $lienhe]);
     }
 
@@ -42,5 +43,10 @@ class WelcomeController extends Controller
     public function news() {
         return view('news');
     }
-    
+    public function cart(){
+        return view('cart');
+    }
+    public function pay(){
+        return view('pay');
+    } 
 }

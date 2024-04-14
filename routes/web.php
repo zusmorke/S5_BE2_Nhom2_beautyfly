@@ -8,8 +8,9 @@ Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/danhgia', [WelcomeController::class, 'danhgia'])->name('danhgia');
 Route::get('/product', [WelcomeController::class, 'product'])->name('product');
 Route::get('/listProduct', [WelcomeController::class, 'product']);
+Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 Route::get('/news', [WelcomeController::class, 'news'])->name('news');
-
+Route::get('/pay', [WelcomeController::class, 'pay'])->name('pay');
 
 Route::get('/', [WelcomeController::class, 'page'])->middleware('auth')->name('index');
 

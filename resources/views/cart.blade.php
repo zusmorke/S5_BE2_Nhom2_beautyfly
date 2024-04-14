@@ -37,8 +37,8 @@
                     <span></span>
                     <span></span>
                 </div>
-                <a href="{{ asset('index') }}" class="header__logo">
-                    <img src="logo.png" alt="">
+                <a href="{{url('index')}}" class="header__logo">
+                    <img src="{{asset('img/logomoi.png')}}" alt="" style="width: 130px; height: 130px;">
                 </a>
                 <div class="header__search">
                     <div class="header__search-wrap">
@@ -214,20 +214,33 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{url('index')}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{route('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
                
                 <li class="header__nav-item">
                     <a href="{{url('listProduct')}}" class="header__nav-link">Sản Phẩm</a>
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
-                            @foreach($cate as $row)
                             <li class="sub-nav__item">
-                                <a href="{{url('listProduct')}}" class="sub-nav__link heading">{{$row->ten}}</a>
+                                <a href="" class="sub-nav__link heading">Nước hoa</a>
                             </li>
-                            @endforeach
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Nước hoa</a>
+                            </li>
+                            <li class="sub-nav__item">
+                                <a href="{{ asset('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
+                            </li>
                         </ul>
-                    </div>
+</div>   
                 </li>
                 <li class="header__nav-item">
                     <a href="{{route('news')}}" class="header__nav-link">Tin Tức</a>

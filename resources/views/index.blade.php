@@ -103,7 +103,7 @@
                             </li>
                         </ul>
                         <div class="total-money">Tổng cộng: 120.000đ</div>
-                        <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
+                        <a href="{{route('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
                         <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a>
                         <!-- norcart -->
                         <!-- <img class="header__cart-img-nocart" src="http://www.giaybinhduong.com/images/empty-cart.png" alt=""> -->
