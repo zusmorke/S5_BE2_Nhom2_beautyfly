@@ -50,10 +50,17 @@
                         </a>
                     </div>
                 </div>
-                <div class="header__account">
-                    <a href="#my-Login" class="header__account-login">Đăng Nhập</a>
-                    <a href="#my-Register" class="header__account-register">Đăng Kí</a>
-                </div>
+                @auth
+                <p style="font-size: 18px;">Xin chào ,{{ auth()->user()->name }}  </p>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" style="font-size: 14px;">Đăng xuất</button>
+                </form>
+                @else
+                
+                <a href="{{ route('login') }}" style="font-size: 18px;">Đăng nhập |</a>
+                <a href="{{ route('register')}}" style="font-size: 18px;">Đăng ký</a>
+                @endauth
                 <!-- Cart -->
                 <div class="header__cart have" href="#">
                     <i class="fas fa-shopping-basket"></i>
@@ -109,8 +116,8 @@
             </div>
         </div>
         <!-- Menu -->
-        <div class="header__nav">
-            <ul class="header__nav-list">
+        <div class="header__nav" >
+            <ul class="header__nav-list" >
                 <li class="header__nav-item nav__search">
                     <div class="nav__search-wrap">
                         <input class="nav__search-input" type="text" name="" id="" placeholder="Tìm sản phẩm...">
@@ -131,11 +138,9 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{url('index')}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{route('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
-                <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Giới Thiệu</a>
-                </li>
+              
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Sản Phẩm</a>
                     <div class="sub-nav-wrap grid wide">
@@ -163,10 +168,10 @@
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{url('news')}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{route('news')}}" class="header__nav-link">Tin Tức</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{url('contact')}}" class="header__nav-link">Liên Hệ</a>
+                    <a href="{{route('contact')}}" class="header__nav-link">Liên Hệ</a>
                 </li>
             </ul>
         </div>
@@ -178,24 +183,12 @@
                     @foreach($data as $row)
                     <div class="col l-5 m-12 s-12">
                         <div class="owl-carousel owl-theme" id="sync1">
-                            <a href="#" class="product">
-                                <div class="product__avt" style="background-image: url(img/product/'.$row->hinh))">
-                                </div>
-                            </a>
+                        <div class="product__avt">
+                                        <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
+                                    </div>
                         </div>
                     </div>
                     <div class="col l-7 m-12s s-12 pl">
-                        <div class="main__breadcrumb">
-                            <div class="breadcrumb__item">
-                                <a href="#" class="breadcrumb__link">Trang chủ</a>
-                            </div>
-                            <div class="breadcrumb__item">
-                                <a href="#" class="breadcrumb__link">Cửa hàng</a>
-                            </div>
-                            <div class="breadcrumb__item">
-                                <a href="#" class="breadcrumb__link">Hãng DHC</a>
-                            </div>
-                        </div>
                         <h3 class="productInfo__name">
                             {{$row->ten}}
                         </h3>
@@ -205,7 +198,7 @@
                         <div class="productInfo__description">
                             <span>{{$row->ten}}</span> {{$row->mota}}
                         </div>
-
+                       
                         <div class="productInfo__addToCart">
                             <div class="buttons_added">
                                 <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
@@ -245,15 +238,17 @@
                             </div>
                         </div>
                         <div class="productIndfo__category ">
-                            <p class="productIndfo__category-text"> Danh mục : <a href="# " class="productIndfo__category-link ">Nail</a></p>
-                            <p class="productIndfo__category-text"> Hãng : <a href="# " class="productIndfo__category-link ">The Face Shop</a></p>
-                            <p class="productIndfo__category-text"> Số lượng đã bán : 322</p>
-                            <p class="productIndfo__category-text"> Số lượng trong kho : 322</p>
+                            <p class="productIndfo__category-text"> Danh mục : <a href="# " class="productIndfo__category-link ">{{$row->danhmucsp_id}}</a></p>
+
+                            <p class="productIndfo__category-text"> Số lượng đã bán : <span>{{$row->soluongdaban}}</span>  </p>
+                            <p class="productIndfo__category-text"> Số lượng trong kho : <span>{{$row->soluongtrongkho}}</span>  </p>
 
                         </div>
                     </div>
+                    @endforeach
+                    <br>
                 </div>
-                @endforeach
+                
             </div>
             <div class="productDetail ">
                 <div class="main__tabnine ">

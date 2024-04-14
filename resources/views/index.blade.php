@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 @auth
-                <p style="font-size: 18px;">Xin chào, {{ auth()->user()->name }}!</p>
+                <p style="font-size: 18px;">Xin chào ,{{ auth()->user()->name }}  </p>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" style="font-size: 14px;">Đăng xuất</button>
@@ -134,11 +134,9 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{url('index')}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{route('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
-                <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Giới Thiệu</a>
-                </li>
+               
                 <li class="header__nav-item">
                     <a href="{{url('listProduct')}}" class="header__nav-link">Sản Phẩm</a>
                     <div class="sub-nav-wrap grid wide">
@@ -152,7 +150,8 @@
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{url('news')}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{route('news')}}" class="header__nav-link">Tin Tức</a>
+
                 </li>
                 <li class="header__nav-item">
                     <a href="{{url('contact')}}" class="header__nav-link">Liên Hệ</a>
@@ -262,7 +261,9 @@
                 <div class="owl-carousel hight owl-theme" id="productCarousel">
                     @foreach($data as $index => $row)
                     <div class="product">
-                        <div class="product__avt" style="background: url('{{asset('img/product/' . $row->hinh)}}')"></div>
+                        <div class="product__avt">
+                        <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
+                        </div>
                         <div class="product__info">
                             <h3 class="product__name"><a href="{{url('listProduct')}}" style="color:#0daf74">{{$row->ten}}</a></h3>
                             <div class="product__price">

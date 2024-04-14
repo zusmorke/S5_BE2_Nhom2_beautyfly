@@ -39,4 +39,8 @@ class WelcomeController extends Controller
         $listProduct = SanPham::all();
         return view($page, ['product' => $sanPham], ['data' => $listProduct]);
     }
+    public function news() {
+        return view('news');
+    }
+    
 }

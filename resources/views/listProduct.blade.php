@@ -24,6 +24,7 @@
 </head>
 
 <body>
+    test
     <div class="header scrolling" id="myHeader">
         <div class="grid wide">
             <div class="header__top">
@@ -70,7 +71,7 @@
                             </li>
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ asset('product')}}" class="order-img">
+                                    <a href="{{route('product')}}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
@@ -117,7 +118,7 @@
                     <a href="#" class="header__nav-link">Tài Khoản</a>
                     <ul class="sub-nav">
                         <li class="sub-nav__item">
-                            <a href="#my-Login" class="sub-nav__link">Đăng Nhập</a>
+                            <a href="#my-Login" class="sub-nav__link">Đăng Nhậpppp</a>
                         </li>
                         <li class="sub-nav__item">
                             <a href="#my-Register" class="sub-nav__link">Đăng Kí</a>
@@ -125,7 +126,7 @@
                     </ul>
                 </li>
                 <li class="header__nav-item index">
-                    <a href="{{ asset('index')}}" class="header__nav-link">Trang chủ</a>
+                    <a href="{{route('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
                 <li class="header__nav-item">
                     <a href="#" class="header__nav-link">Giới Thiệu</a>
@@ -216,10 +217,10 @@
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ asset('news')}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{route('news')}}" class="header__nav-link">Tin Tức</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ asset('contact')}}" class="header__nav-link">Liên Hệ</a>
+                    <a href="{{route('contact')}}" class="header__nav-link">Liên Hệ</a>
                 </li>
             </ul>
         </div>
@@ -258,7 +259,8 @@
                         @foreach($data as $row)
                         <div class="col l-2 m-4 s-6">
                             <div class="product">
-                                <div class="product__avt" style="background: url('{{asset('img/product/' . $row->hinh)}}')">
+                                <div class="product__avt" >
+                                   <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
                                 </div>
                                 <div class="product__info">
                                     <h3 class="product__name">{{$row->ten}}</h3>

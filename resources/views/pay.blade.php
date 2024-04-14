@@ -48,10 +48,17 @@
                         </a>
                     </div>
                 </div>
-                <div class="header__account">
-                    <a href="#my-Login" class="header__account-login">Đăng Nhập</a>
-                    <a href="#my-Register" class="header__account-register">Đăng Kí</a>
-                </div>
+                @auth
+                <p style="font-size: 18px;">Xin chào ,{{ auth()->user()->name }}  </p>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" style="font-size: 14px;">Đăng xuất</button>
+                </form>
+                @else
+                
+                <a href="{{ route('login') }}" style="font-size: 18px;">Đăng nhập |</a>
+                <a href="{{ route('register')}}" style="font-size: 18px;">Đăng ký</a>
+                @endauth
                 <!-- Cart -->
                 <div class="header__cart have" href="#">
                     <i class="fas fa-shopping-basket"></i>
@@ -86,7 +93,7 @@
                             </li>
                             <li class="item-order">
                                 <div class="order-wrap">
-                                    <a href="{{ url('product') }}" class="order-img">
+                                    <a href="{{route('product') }}" class="order-img">
                                         <img src="img/product/product1.jpg" alt="">
                                     </a>
                                     <div class="order-main">
@@ -131,40 +138,24 @@
                 <li class="header__nav-item index">
                     <a href="{{ url('index')}}" class="header__nav-link">Trang chủ</a>
                 </li>
+              
                 <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Giới Thiệu</a>
-                </li>
-                <li class="header__nav-item">
-                    <a href="#" class="header__nav-link">Sản Phẩm</a>
+                    <a href="{{url('listProduct')}}" class="header__nav-link">Sản Phẩm</a>
                     <div class="sub-nav-wrap grid wide">
                         <ul class="sub-nav">
+                            @foreach($cate as $row)
                             <li class="sub-nav__item">
-                                <a href="" class="sub-nav__link heading">Nước hoa</a>
+                                <a href="{{url('listProduct')}}" class="sub-nav__link heading">{{$row->ten}}</a>
                             </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ url('listProduct')}}" class="sub-nav__link">Chăm sóc toàn thân vvv</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ url('listProduct')}}" class="sub-nav__link">Khuyến mãi</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ url('listProduct')}}" class="sub-nav__link">Chăm sóc cơ thể</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ url('listProduct')}}" class="sub-nav__link">Nước hoa</a>
-                            </li>
-                            <li class="sub-nav__item">
-                                <a href="{{ url('listProduct')}}" class="sub-nav__link">Chăm sóc miệng</a>
-                            </li>
+                            @endforeach
                         </ul>
-                       
                     </div>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ url('news')}}" class="header__nav-link">Tin Tức</a>
+                    <a href="{{route('news')}}" class="header__nav-link">Tin Tức</a>
                 </li>
                 <li class="header__nav-item">
-                    <a href="{{ url('contact')}}" class="header__nav-link">Liên Hệ</a>
+                    <a href="{{route('contact')}}" class="header__nav-link">Liên Hệ</a>
                 </li>
             </ul>
         </div>
