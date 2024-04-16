@@ -1,6 +1,6 @@
-<div class="footer">
+<div class="footer" >
         <div class="grid wide">
-            <div class="row">
+            <div class="row" >
                 <div class="col l-3 m-6 s-12">
                     <h3 class="footer__title">Menu</h3>
                     <ul class="footer__list">

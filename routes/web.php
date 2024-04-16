@@ -13,15 +13,12 @@ Route::get('/danhgia', [WelcomeController::class, 'danhgia'])->name('danhgia');
 Route::get('/product', [WelcomeController::class, 'product'])->name('product');
 Route::get('/listProduct', [WelcomeController::class, 'product']);
 Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
-<<<<<<< HEAD
+
 Route::get('/news', [WelcomeController::class, 'news'])->name('news');  
 Route::get('/pay', [WelcomeController::class, 'pay'])->name('pay');
 Route::get('/header', [WelcomeController::class, 'cate'])->name('header');
 
-=======
-Route::get('/news', [WelcomeController::class, 'news'])->name('news');
-Route::get('/pay', [WelcomeController::class, 'pay'])->name('pay');
->>>>>>> 0a1083de38872e07658b2ed8ee7bf9013b57a239
+
 
 
 Route::get('/dashboard', function () {

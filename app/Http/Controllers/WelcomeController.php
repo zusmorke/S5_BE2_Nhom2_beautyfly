@@ -20,14 +20,8 @@ class WelcomeController extends Controller
     {
         $sanPham = SanPham::all();
         $lienhe = LienHe::all();
-<<<<<<< HEAD
-        // $tintuc = Tintuc::all();
-        return view('index', ['data' => $sanPham,  'contact' => $lienhe]);
-=======
         $cate = Category::all();
-       
-        return view($page, ['data' => $sanPham, 'cate' => $cate, 'contact' => $lienhe]);
->>>>>>> 0a1083de38872e07658b2ed8ee7bf9013b57a239
+        return view('index', ['data' => $sanPham,  'cate' => $cate, 'contact' => $lienhe]);
     }
 
     public function category()
@@ -52,11 +46,6 @@ class WelcomeController extends Controller
         return view('about', ['about' => $gioithieu, 'data' => $sanPham]);
     }
 
-    // public function news($page = "news")
-    // {
-    //     $tintuc = Tintuc::all();
-    //     return view($page, ['news' => $tintuc]);
-    // }
 
     public function danhgia($page = "danhgia")
     {
@@ -73,7 +62,6 @@ class WelcomeController extends Controller
         $listProduct = SanPham::all();
         return view($page, ['product' => $sanPham], ['data' => $listProduct]);
     }
-<<<<<<< HEAD
     public function cart($page = "cart")
     {
         $cart = DonHang::all();
@@ -89,15 +77,4 @@ class WelcomeController extends Controller
         $news = News::all();
         return view($page, ['news' => $news]);
     }
-=======
-    public function news() {
-        return view('news');
-    }
-    public function cart(){
-        return view('cart');
-    }
-    public function pay(){
-        return view('pay');
-    } 
->>>>>>> 0a1083de38872e07658b2ed8ee7bf9013b57a239
 }
