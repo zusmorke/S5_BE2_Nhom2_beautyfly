@@ -177,11 +177,11 @@ input[type=checkbox]:checked:after {
 }
 
 .bg-1 {
-    background-color: var(--black-cl-1);
+    background-color: rgb(2, 188, 141);
 }
 
 .bg-2 {
-    background-color: var(--black-cl-2);
+    background-color: rgb(1, 140, 101);
 }
 
 .bg-3 {
@@ -285,7 +285,7 @@ input[type=checkbox]:checked:after {
     right: 0;
     left: 0;
     z-index: 9;
-    background-color: var(--white-cl-1);
+    background-color: #00ab6d;
 }
 
 .header__top {
@@ -494,12 +494,13 @@ textarea.form-control {
 
 .header__search-wrap {
     border-radius: 18px;
-    border: 1px solid var(--default-cl);
+    border: 1px solid white;
     width: 60%;
     display: flex;
     height: 36px;
     margin: 0 auto;
     align-items: center;
+  
 }
 
 .header__search-input {
@@ -509,7 +510,7 @@ textarea.form-control {
     padding: 0 16px;
     font-size: 1.6rem;
     flex-grow: 1;
-    color: var(--black-cl-2);
+    color: white;
 }
 
 .header__search-icon {
@@ -532,6 +533,7 @@ textarea.form-control {
     position: relative;
     cursor: pointer;
     padding: 12px;
+   
 }
 
 .text__no-cart {
@@ -565,7 +567,7 @@ textarea.form-control {
     position: absolute;
     border-radius: 50%;
     padding: 4px 7px;
-    background-color: var(--default-cl);
+    background-color: green;
     color: var(--white-cl-1);
     font-size: 1.2rem;
     font-weight: 500;
@@ -692,7 +694,7 @@ textarea.form-control {
 
 .header__nav {
     height: var(--hight-header-nav);
-    background-color: var(--black-cl-1);
+    background-color: #00ab6d;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -854,9 +856,10 @@ textarea.form-control {
 /* Footer */
 
 .footer {
-    background-color: var(--black-cl-1);
+    background-color: white;
     padding-top: 45px;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color:#000;
 }
 
 .footer .row {
@@ -871,7 +874,7 @@ textarea.form-control {
 }
 
 .footer__title {
-    color: var(--white-cl-1);
+    color: #00ab6d;
     font-size: 1.8rem;
     text-transform: uppercase;
     margin-bottom: 16px;
@@ -880,16 +883,17 @@ textarea.form-control {
 .footer__link,
 .footer__text {
     display: block;
-    color: var(--white-cl-2);
+    color: black;
     font-size: 1.6rem;
     line-height: 2.4rem;
     padding: 6px 0;
     align-items: center;
     font-weight: 300;
+    background: white
 }
 
 .footer__link:hover {
-    color: var(--white-cl-1);
+    color: #66f9c3;
 }
 
 .footer__text i,
