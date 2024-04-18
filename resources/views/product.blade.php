@@ -209,7 +209,12 @@
                                 <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
                                 <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
                             </div>
-                            <div class=" btn btn--default orange ">Thêm vào giỏ</div>
+                            <form method="post" action="{{ route('cart.add') }}">
+                                @csrf
+                                <input type="hidden" value="{{ $sanpham->sanpham_id }}" name='sanpham_id'>
+                                <button type="submit" class=" btn btn--default orange ">Thêm vào giỏ</button> 
+                            </form>
+                            
                         </div>
                         <div class="productIndfo__policy ">
                             <div class="policy bg-1 ">
