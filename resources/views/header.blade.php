@@ -18,10 +18,10 @@
                 </div>
             </div>
             @auth
-            <p style="font-size: 18px;">Xin chào, {{ auth()->user()->name }}!</p>
+            <p style="font-size: 18px;">{{ auth()->user()->name }}!</p>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" style="font-size: 14px;">Đăng xuất</button>
+                <button type="submit" style="font-size: 12px;">Đăng xuất</button>
             </form>
             @else
 

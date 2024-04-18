@@ -67,253 +67,67 @@
             <div class="productList">
                 <div class="listProduct">
                     <div class="row">
+                        @foreach($data as $row)
                         <div class="col l-2 m-4 s-6">
                             <div class="product">
-                                </div>
+                                <div class="owl-carousel owl-theme" id="sync1">
+                                    <div class="product__avt">
+                                                    <img src="{{asset('img/product/' . $sanpham->hinh)}}" alt="" class="product__image">
+                                                </div>
+                                    </div>
                                 <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
+                                    <h3 class="product__name">{{$row->ten}}</h3>
                                     <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
+                                        <div class="price__new">{{$row->gia}} <span class="price__unit">đ</span></div>
                                     </div>
                                 </div>
                                 <div class="product__sale">
                                     <span class="product__sale-percent">22%</span>
                                     <span class="product__sale-text">Giảm</span>
                                 </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
+                                <a href="{{ asset('product')}}" class="viewDetail">Xem chi tiết</a>
+                                <a href="{{ asset('cart')}}" class="addToCart">Thêm vào giỏ</a>
                             </div>
                         </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
-                        <div class="col l-2 m-4 s-6">
-                            <div class="product">
-                                <div class="product__avt" style="background-image: url(assets/img/product/product1.jpg)">
-                                </div>
-                                <div class="product__info">
-                                    <h3 class="product__name">Framed-Sleeve Tops Group</h3>
-                                    <div class="product__price">
-                                        <div class="price__old">340.000 <span class="price__unit">đ</span></div>
-                                        <div class="price__new">320.000 <span class="price__unit">đ</span></div>
-                                    </div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">22%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                                <a href="#" class="viewDetail">Xem chi tiết</a>
-                                <a href="#" class="addToCart">Thêm vào giỏ</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="pagination">
                     <ul class="pagination__list">
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">
+                            <a href="#" class="pagination__link">
                                 <i class="fas fa-chevron-left"></i>
                             </a>
                         </li>
                         <li class="pagination__item active">
-                            <a href="listFilm.html" class="pagination__link">1</a>
+                            <a href="#" class="pagination__link">1</a>
                         </li>
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">2</a>
+                            <a href="#" class="pagination__link">2</a>
                         </li>
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">3</a>
+                            <a href="#" class="pagination__link">3</a>
                         </li>
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">4</a>
+                            <a href="#" class="pagination__link">4</a>
                         </li>
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">5</a>
+                            <a href="#" class="pagination__link">5</a>
                         </li>
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">...</a>
+                            <a href="#" class="pagination__link">...</a>
                         </li>
                         <li class="pagination__item active">
-                            <a href="listFilm.html" class="pagination__link">14</a>
+                            <a href="#" class="pagination__link">14</a>
                         </li>
                         <li class="pagination__item">
-                            <a href="listFilm.html" class="pagination__link">
+                            <a href="#" class="pagination__link">
                                 <i class="fas fa-chevron-right"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
     </div>
 </body>
 @endsection

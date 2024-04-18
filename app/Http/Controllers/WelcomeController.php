@@ -10,6 +10,7 @@ use App\Models\Category;
 use App\Models\DanhGia;
 use App\Models\DonHang;
 use App\Models\ThongTinThanhToan;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
@@ -76,5 +77,13 @@ class WelcomeController extends Controller
     {
         $news = News::all();
         return view($page, ['news' => $news]);
+    }
+    public function detail($id)
+    {
+        $sanPham = DB::select("select * from `sanpham` where `sanpham_id` = $id limit 1;");
+        if (count($sanPham)) {
+            return view('product', ['sanpham' => $sanPham[0]]);
+        }
+        return redirect('/');
     }
 }

@@ -31,7 +31,7 @@
                                         <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
                                     </div>
                                     <div class="product__info">
-                                        <h3 class="product__name"><a href="{{url('product')}}" style="color:#0daf74">{{$row->ten}}</a></h3>
+                                        <h3 class="product__name"><a href="{{url('product/' . $row->sanpham_id)}}" style="color:#0daf74">{{$row->ten}}</a></h3>
                                         <div class="product__price">
                                             <div class="price__new" style="text-align: right; color: red;">{{ $row->gia}} <span class="price__unit">đ</span></div>
                                         </div>
