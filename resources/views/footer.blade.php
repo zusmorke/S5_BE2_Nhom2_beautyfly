@@ -90,6 +90,7 @@
                 </div>
             </div>
         </div>
+        <hr style="margin-bottom: 5px;">
         <div class="copyright">
             <span class="footer__text"> &copy Bản quyền thuộc về <a class="footer__link1" href="#" style="color:aliceblue">Nhóm 2</a></span>
         </div>

@@ -856,7 +856,7 @@ textarea.form-control {
 /* Footer */
 
 .footer {
-    background:  rgb(115, 113, 113);
+    background:  #737171;
     padding-top: 45px;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     color:#000;
@@ -959,7 +959,7 @@ textarea.form-control {
 .copyright {
     background-color: var(--black-cl-2);
     text-align: center;
-    margin-top: 25px;
+    margin-top: auto;
 }
 
 .copyright .footer__link {
@@ -1037,6 +1037,10 @@ textarea.form-control {
 
 .tab-content {
     padding: 28px 0;
+}
+
+.custom-padding {
+    padding: 10px; /* Điều chỉnh giá trị padding theo nhu cầu */
 }
 
 .tab-pane {

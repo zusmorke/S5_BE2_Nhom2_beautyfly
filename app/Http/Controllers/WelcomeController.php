@@ -47,7 +47,6 @@ class WelcomeController extends Controller
         return view('about', ['about' => $gioithieu, 'data' => $sanPham]);
     }
 
-
     public function danhgia($page = "danhgia")
     {
         $danhgia = DanhGia::all();
@@ -60,30 +59,44 @@ class WelcomeController extends Controller
     public function product($page = "product")
     {
         $sanPham = SanPham::all();
-        $listProduct = SanPham::all();
-        return view($page, ['product' => $sanPham], ['data' => $listProduct]);
+        return view($page, ['product' => $sanPham]);
     }
+
+    public function showListProduct()
+    {
+        $phanTrang = SanPham::paginate(10); // Giả sử bạn muốn hiển thị 10 sản phẩm trên mỗi trang
+        return view('listProduct', compact('phanTrang'));
+    }
+
+
     public function cart($page = "cart")
     {
         $cart = DonHang::all();
         return view($page, ['cart' => $cart]);
     }
+
     public function pay($page = "pay")
     {
         $pay = ThongTinThanhToan::all();
         return view($page, ['pay' => $pay]);
     }
+
     public function news($page = "news")
     {
         $news = News::all();
         return view($page, ['news' => $news]);
     }
+
     public function detail($id)
     {
-        $sanPham = DB::select("select * from `sanpham` where `sanpham_id` = $id limit 1;");
-        if (count($sanPham)) {
+        $sanPham = DB::select("select * from `sanpham` where `sanpham_id` = ?", [$id]);
+
+
+        if (!empty($sanPham)) {
             return view('product', ['sanpham' => $sanPham[0]]);
+        } else {
+            return redirect('/')->with('error', 'Sản phẩm không tồn tại');
         }
-        return redirect('/');
     }
+
 }

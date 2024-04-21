@@ -28,6 +28,7 @@
             <a href="{{ route('login') }}" style="font-size: 18px;">Đăng nhập |</a>
             <a href="{{ route('register')}}" style="font-size: 18px;">Đăng ký</a>
             @endauth
+
             <!-- Cart -->
             <div class="header__cart have" href="#">
                 <i class="fas fa-shopping-basket"></i>
@@ -35,8 +36,8 @@
                     3
                 </div>
                 <div class="header__cart-wrap">
-                    <ul class="order__list">
-                        <li class="item-order">
+                    <!-- <ul class="order__list"> -->
+                        <!-- <li class="item-order">
                             <div class="order-wrap">
                                 <a href="product.blade.php" class="order-img">
                                     <img src="img/product/product1.jpg" alt="">
@@ -71,9 +72,9 @@
                                 </div>
                                 <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
                             </div>
-                        </li>
-                    </ul>
-                    <div class="total-money">Tổng cộng: 120.000đ</div>
+                        </li> -->
+                    <!-- </ul>
+                    <div class="total-money">Tổng cộng: 120.000đ</div> -->
                     <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
                     <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a>
                     <!-- norcart -->
