@@ -17,6 +17,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('user')->insert([
+            'name' => 'Halo76',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('admin123'), // Bạn có thể sử dụng Hash để mã hóa mật khẩu
+            'role' => 'admin',
+        ]);
     }
 }

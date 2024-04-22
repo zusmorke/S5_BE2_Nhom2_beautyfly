@@ -1,10 +1,11 @@
 @extends('layout')
 
 @section('main')
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gio hang</title>
     <!-- Font roboto -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,19 +20,20 @@
     <!-- Layout -->
     <link rel="stylesheet" href="{{asset('css/common.css')}}">
     <!-- index -->
-    
+
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl caroucel Js-->
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 </head>
 <link rel="stylesheet" type="text/css" href="{{asset('css/cart.css')}}">
+
 <body>
 
     <div class="main">
         <div class="grid wide">
             <h3 class="main__notify">
-               
+
             </h3>
             <div class="row">
                 <div class="col l-8 m-12 s-12">
@@ -47,6 +49,8 @@
                         @php
                         $totalPrice = 0; // Khởi tạo biến tổng giá trị của giỏ hàng
                         @endphp
+
+                        @if(isset($cart) && is_array($cart) && count($cart) > 0)
                         @foreach($cart as $id => $item)
                         <div class="row item">
                             <div class="col l-1 m-1 s-0">
@@ -69,12 +73,12 @@
                                 </div>
                             </div>
                             <div class="col l-2 m-2 s-4">
-                                <div class="main__cart-price" >                 
+                                <div class="main__cart-price">
                                     @php
                                     $subtotal = $item['price'] * $item['quantity']; // Tính tổng giá trị của mỗi mặt hàng
                                     $totalPrice += $subtotal; // Cộng dồn vào tổng giá trị của giỏ hàng
-                                    @endphp 
-                                {{$subtotal}}    
+                                    @endphp
+                                    {{$subtotal}}
                                 </div>
                             </div>
                             <div class="col l-1 m-1 s-0">
@@ -84,11 +88,14 @@
                                         <input type="hidden" value="{{$id}}" name="sanpham_id">
                                         <button class="btn btn-primary" type="submit"><i class="far fa-times-circle "></i></button>
                                     </form>
-                                {{-- <i class="far fa-times-circle "></i> --}}
-                            </span>
+                                    {{-- <i class="far fa-times-circle "></i> --}}
+                                </span>
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <!-- Xử lý khi không có giỏ hàng hoặc giỏ hàng rỗng -->
+                        @endif
                         <div class="btn btn--default">
                             Cập nhật giỏ hàng
                         </div>
@@ -101,7 +108,7 @@
                             <div class="main__pay-text">
                                 Tổng phụ</div>
                             <div class="main__pay-price">
-                                {{$totalPrice}}  đ
+                                {{$totalPrice}} đ
                             </div>
                         </div>
                         <div class="pay-info">

@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name', // Thêm trường 'name' vào đây
         'email',
         'password',
+        'role',
     ];
 
     /**

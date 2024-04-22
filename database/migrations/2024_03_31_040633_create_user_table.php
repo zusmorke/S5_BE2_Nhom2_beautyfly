@@ -15,13 +15,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->increments("user_id"); // Sử dụng increments() thay vì id() để tạo khóa chính tăng dần
-            $table->string('name', 50); // Sử dụng string() thay vì ten() và chỉ định độ dài tối đa của chuỗi
-            $table->string('password', 255); // Sử dụng string() thay vì password() và chỉ định độ dài tối đa của chuỗi
+            $table->increments('user_id');
+            $table->string('name', 50);
+            $table->string('password', 255);
             $table->string('email', 100)->unique();
+            $table->enum('role', ['admin', 'user'])->default('user'); // Thêm trường role với giá trị mặc định là 'user'
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

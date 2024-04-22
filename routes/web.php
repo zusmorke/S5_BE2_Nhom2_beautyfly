@@ -4,6 +4,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ProductController;
 
 
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
@@ -26,6 +27,10 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
 
+
+
+Route::get('/admin', [ProductController::class, 'admin'])->middleware('role:admin')->name('admin.dashboard');
+Route::get('/user', [ProductController::class, 'index'])->middleware('role:user')->name('user.dashboard');
 
 
 Route::get('/dashboard', function () {

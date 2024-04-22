@@ -25,7 +25,6 @@ class WelcomeController extends Controller
 
         // Lấy từ khóa tìm kiếm từ request
         $query = $request->input('query');
-
         // Nếu có từ khóa tìm kiếm, thực hiện tìm kiếm sản phẩm
         if ($query) {
             $results = SanPham::where('ten', 'LIKE', "%{$query}%")
@@ -34,7 +33,6 @@ class WelcomeController extends Controller
         } else {
             $results = [];
         }
-
         return view('index', compact('sanPham', 'cate', 'lienhe', 'results', 'query'));
     }
 

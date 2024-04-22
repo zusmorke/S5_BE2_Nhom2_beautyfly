@@ -68,12 +68,7 @@
             <div class="tab-item active" style="color: green;">
                 Bán Chạy
             </div>
-            <div class="tab-item" style="color: green;">
-                Giá tốt
-            </div>
-            <div class="tab-item" style="color: green;">
-                Mới Nhập
-            </div>
+            
             <div class="line" style="background-color: green;"></div>
         </div>
         <!-- Tab content -->
