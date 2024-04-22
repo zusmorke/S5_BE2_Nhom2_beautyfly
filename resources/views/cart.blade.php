@@ -52,6 +52,7 @@
 
                         @if(isset($cart) && is_array($cart) && count($cart) > 0)
                         @foreach($cart as $id => $item)
+
                         <div class="row item">
                             <div class="col l-1 m-1 s-0">
                                 <input type="checkbox" name="a">
@@ -92,6 +93,7 @@
                                 </span>
                             </div>
                         </div>
+                        
                         @endforeach
                         @else
                         <!-- Xử lý khi không có giỏ hàng hoặc giỏ hàng rỗng -->
@@ -141,6 +143,8 @@
     </div>
 
     <!-- Script common -->
+
+
     <script src="js/commonscript.js"></script>
 
 </body>

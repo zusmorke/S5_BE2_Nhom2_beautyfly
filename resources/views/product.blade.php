@@ -58,16 +58,18 @@
                         </div>
 
                         <div class="productInfo__addToCart">
-                            <div class="buttons_added">
-                                <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
-                                <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
-                                <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
-                            </div>
+                        <div class="buttons_added">
+                        <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
+                        <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                        <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
+                        </div>
+
                             <form method="post" action="{{ route('cart.add') }}">
                                 @csrf
                                 <input type="hidden" value="{{ $sanpham->sanpham_id }}" name='sanpham_id'>
                                 <button type="submit" class=" btn btn--default orange ">Thêm vào giỏ</button>
                             </form>
+                            
 
                         </div>
                         <div class="productIndfo__policy ">
@@ -392,6 +394,30 @@
     <!-- Your Plugin chat code -->
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
+
+    <script>
+       function minusProduct() {
+    var inputQty = document.querySelector('.input-qty');
+    var currentValue = parseInt(inputQty.value);
+    if (currentValue > 1) {
+        inputQty.value = currentValue - 1;
+        updateCartQuantity(currentValue - 1);
+    }
+}
+
+function plusProduct() {
+    var inputQty = document.querySelector('.input-qty');
+    var currentValue = parseInt(inputQty.value);
+    var maxValue = parseInt(inputQty.getAttribute('max'));
+    if (currentValue < maxValue) {
+        inputQty.value = currentValue + 1;
+        updateCartQuantity(currentValue + 1);
+    }
+}
+
+
+
+    </script>
 
     <script>
         var chatbox = document.getElementById('fb-customer-chat');
