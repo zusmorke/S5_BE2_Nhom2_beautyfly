@@ -35,34 +35,20 @@
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 </head>
 
-<div class="grid wide">
-    <!-- Tab items -->
-    <div class="tabs">
-        <div class="tab-item active" style="color: green;">
-            Bán Chạy
-        </div>
-        <div class="tab-item" style="color: green;">
-            Giá tốt
-        </div>
-        <div class="tab-item" style="color: green;">
-            Mới Nhập
-        </div>
-        <div class="line" style="background-color: green;"></div>
-    </div>
-    <!-- Tab content -->
-    <div class="tab-content">
-        <div class="tab-pane active">
-            <div class="row">
-                @foreach($data as $row)
+@if(!empty($results))
+    <div class="grid wide">
+        <h1 style="padding: 20px;font-size: 20px;">Kết quả tìm kiếm cho "{{ $query }}"</h1>
+        <div class="row">
+            @foreach($results as $product)
                 <div class="col l-2 m-4 s-6 custom-padding">
                     <div class="product">
                         <div class="product__avt">
-                            <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
+                            <img src="{{asset('img/product/' . $product->hinh)}}" alt="" class="product__image">
                         </div>
                         <div class="product__info">
-                            <h3 class="product__name"><a href="{{url('product/' . $row->sanpham_id)}}" style="color:#0daf74">{{$row->ten}}</a></h3>
+                            <h3 class="product__name"><a href="{{url('product/' . $product->sanpham_id)}}" style="color:#0daf74">{{$product->ten}}</a></h3>
                             <div class="product__price">
-                                <div class="price__new" style="text-align: right; color: red;">{{ $row->gia}} <span class="price__unit">đ</span></div>
+                                <div class="price__new" style="text-align: right; color: red;">{{ $product->gia}} <span class="price__unit">đ</span></div>
                             </div>
                             <div class="product__sale">
                                 <span class="product__sale-percent">24%%</span>
@@ -71,12 +57,52 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
+        </div>
+    </div>
+@else
+<!-- Danh sách sản phẩm mặc định -->
+<div class="grid wide">
+        <!-- Tab items -->
+        <div class="tabs">
+            <div class="tab-item active" style="color: green;">
+                Bán Chạy
+            </div>
+            <div class="tab-item" style="color: green;">
+                Giá tốt
+            </div>
+            <div class="tab-item" style="color: green;">
+                Mới Nhập
+            </div>
+            <div class="line" style="background-color: green;"></div>
+        </div>
+        <!-- Tab content -->
+        <div class="tab-content">
+            <div class="tab-pane active">
+                <div class="row">
+                    @foreach($sanPham as $product)
+                    <div class="col l-2 m-4 s-6 custom-padding">
+                        <div class="product">
+                            <div class="product__avt">
+                                <img src="{{asset('img/product/' . $product->hinh)}}" alt="" class="product__image">
+                            </div>
+                            <div class="product__info">
+                                <h3 class="product__name"><a href="{{url('product/' . $product->sanpham_id)}}" style="color:#0daf74">{{$product->ten}}</a></h3>
+                                <div class="product__price">
+                                    <div class="price__new" style="text-align: right; color: red;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                                </div>
+                                <div class="product__sale">
+                                    <span class="product__sale-percent">24%%</span>
+                                    <span class="product__sale-text">Giảm</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
-
-</div>
 </div>
 
 <!-- HightLight  -->
@@ -85,7 +111,7 @@
         <h3 class="category__title">Nhóm 2 Cometics</h3>
         <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
         <div class="owl-carousel hight owl-theme" id="productCarousel">
-            @foreach($data as $index => $row)
+            @foreach($sanPham as $index => $row)
             <div class="product">
                 <div class="product__avt">
                     <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
@@ -146,6 +172,7 @@
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 <!-- News -->

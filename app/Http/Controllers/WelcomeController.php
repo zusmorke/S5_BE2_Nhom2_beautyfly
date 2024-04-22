@@ -22,7 +22,20 @@ class WelcomeController extends Controller
         $sanPham = SanPham::all();
         $lienhe = LienHe::all();
         $cate = Category::all();
-        return view('index', ['data' => $sanPham,  'cate' => $cate, 'contact' => $lienhe]);
+
+        // Lấy từ khóa tìm kiếm từ request
+        $query = $request->input('query');
+
+        // Nếu có từ khóa tìm kiếm, thực hiện tìm kiếm sản phẩm
+        if ($query) {
+            $results = SanPham::where('ten', 'LIKE', "%{$query}%")
+                              ->orWhere('mota', 'LIKE', "%{$query}%")
+                              ->get();
+        } else {
+            $results = [];
+        }
+
+        return view('index', compact('sanPham', 'cate', 'lienhe', 'results', 'query'));
     }
 
     public function category()
@@ -42,7 +55,6 @@ class WelcomeController extends Controller
     public function about()
     {
         $sanPham = SanPham::all();
-        $cate = Category::all();
         $gioithieu = GioiThieu::all();
         return view('about', ['about' => $gioithieu, 'data' => $sanPham]);
     }
@@ -64,9 +76,10 @@ class WelcomeController extends Controller
 
     public function showListProduct()
     {
-        $phanTrang = SanPham::paginate(10); // Giả sử bạn muốn hiển thị 10 sản phẩm trên mỗi trang
+        $phanTrang = SanPham::paginate(7); // Giả sử bạn muốn hiển thị 10 sản phẩm trên mỗi trang
         return view('listProduct', compact('phanTrang'));
     }
+
 
 
     public function cart($page = "cart")
@@ -98,5 +111,4 @@ class WelcomeController extends Controller
             return redirect('/')->with('error', 'Sản phẩm không tồn tại');
         }
     }
-
 }

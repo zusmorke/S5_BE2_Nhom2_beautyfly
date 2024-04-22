@@ -9,19 +9,17 @@
             <a href="{{ route('index') }}" class="header__logo">
                 <img src="{{asset('img/logomoi.png')}}" alt="" style="width: 130px; height: 130px;">
             </a>
-            <div class="header__search">
-                <div class="header__search-wrap">
-                    <input type="text" class="header__search-input" placeholder="Tìm kiếm">
-                    <a class="header__search-icon" href="#">
-                        <i class="fas fa-search"></i>
-                    </a>
-                </div>
-            </div>
+
+            <form action="{{ route('search') }}" method="GET">
+                <input type="text" name="query" placeholder="Tìm kiếm sản phẩm..." required>
+                <button type="submit">Tìm kiếm</button>
+            </form>
+
             @auth
-            <p style="font-size: 18px;">{{ auth()->user()->name }}!</p>
+            <p style="font-size: 18px; margin-left: 170px;">{{ auth()->user()->name }}!</p>
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
-                <button type="submit" style="font-size: 12px;">Đăng xuất</button>
+                <button type="submit" style="font-size: 16px; margin-left: 20px; background: black; color:white;">Đăng xuất</button>
             </form>
             @else
 
@@ -36,49 +34,8 @@
                     3
                 </div>
                 <div class="header__cart-wrap">
-                    <!-- <ul class="order__list"> -->
-                        <!-- <li class="item-order">
-                            <div class="order-wrap">
-                                <a href="product.blade.php" class="order-img">
-                                    <img src="img/product/product1.jpg" alt="">
-                                </a>
-                                <div class="order-main">
-                                    <a href="product.blade.php" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
-                                    <div class="order-main-price">2 x 45,000 ₫</div>
-                                </div>
-                                <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
-                            </div>
-                        </li>
-                        <li class="item-order">
-                            <div class="order-wrap">
-                                <a href="product.blade.php" class="order-img">
-                                    <img src="img/product/product1.jpg" alt="">
-                                </a>
-                                <div class="order-main">
-                                    <a href="product.blade.php" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
-                                    <div class="order-main-price">2 x 45,000 ₫</div>
-                                </div>
-                                <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
-                            </div>
-                        </li>
-                        <li class="item-order">
-                            <div class="order-wrap">
-                                <a href="product.blade.php" class="order-img">
-                                    <img src="img/product/product1.jpg" alt="">
-                                </a>
-                                <div class="order-main">
-                                    <a href="product.blade.php" class="order-main-name">Áo sơ mi caro kèm belt caro kèm belt Áo sơ mi caro kèm belt</a>
-                                    <div class="order-main-price">2 x 45,000 ₫</div>
-                                </div>
-                                <a href="product.blade.php" class="order-close"><i class="far fa-times-circle"></i></a>
-                            </div>
-                        </li> -->
-                    <!-- </ul>
-                    <div class="total-money">Tổng cộng: 120.000đ</div> -->
                     <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
-                    <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a>
-                    <!-- norcart -->
-                    <!-- <img class="header__cart-img-nocart" src="http://www.giaybinhduong.com/images/empty-cart.png" alt=""> -->
+                    <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a
                 </div>
             </div>
         </div>

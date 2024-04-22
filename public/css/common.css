@@ -483,50 +483,47 @@ textarea.form-control {
     color: var(--default-cl);
     transition: all 0.3s;
 }
-
-
-/* -------Search------- */
-
-.header__search {
-    flex-grow: 1;
-    text-align: center;
-}
-
-.header__search-wrap {
-    border-radius: 18px;
-    border: 1px solid white;
-    width: 60%;
+/* Sreach */
+.header__top {
     display: flex;
-    height: 36px;
-    margin: 0 auto;
     align-items: center;
-  
+    justify-content: space-between; /* Căn phần tử bên trong theo chiều ngang */
 }
 
-.header__search-input {
-    border: none;
-    outline: none;
-    background: none;
-    padding: 0 16px;
-    font-size: 1.6rem;
-    flex-grow: 1;
-    color: white;
+.header__logo {
+    flex-shrink: 0; /* Ngăn chặn logo bị co lại khi không đủ không gian */
 }
 
-.header__search-icon {
-    border: none;
-    outline: none;
-    background: none;
+.header__top form {
+    display: flex; /* Sử dụng flexbox để các phần tử bên trong form sắp xếp theo hàng ngang */
+    align-items: center; /* Căn các phần tử bên trong form theo trục dọc */
 }
 
-.header__search-icon i {
-    font-size: 2rem;
-    color: var(--black-cl-1);
-    font-weight: 400;
-    padding-right: 16px;
+.header__top form input[type="text"] {
+    width: 300px; /* Form tìm kiếm sẽ chiếm toàn bộ không gian được phép */
+    padding: 10px; /* Khoảng cách nội dung trong input */
+    font-size: 16px; /* Kích thước chữ cho input */
+    border: 1px solid #ccc; /* Đường viền của input */
+    border-radius: 5px; /* Bo tròn viền của input */
+    margin-left: 200px;
 }
 
+.header__top form button[type="submit"] {
+    padding: 10px 20px; /* Khoảng cách nội dung trong button */
+    font-size: 16px; /* Kích thước chữ cho button */
+    background-color: #007bff; /* Màu nền của button */
+    color: #fff; /* Màu chữ của button */
+    border: none; /* Loại bỏ đường viền của button */
+    border-radius: 5px; /* Bo tròn viền của button */
+    cursor: pointer; /* Biến con trỏ thành hình bàn tay khi di chuột qua button */
+    width: 120px;
+    margin-left: 10px;
+}
 
+.header__top p,
+.header__top a {
+    margin-left: 10px; /* Khoảng cách giữa các phần tử */
+}
 /* ----Cart---- */
 
 .header__cart {

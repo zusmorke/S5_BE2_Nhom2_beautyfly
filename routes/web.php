@@ -15,6 +15,7 @@ Route::get('/product', [WelcomeController::class, 'product'])->name('product');
 Route::get('/product/{id}', [WelcomeController::class, 'detail'])->name('product.detail');
 Route::get('/listProduct', [WelcomeController::class, 'showListProduct']);
 
+Route::get('/search', [WelcomeController::class, 'index'])->name('search');
 
 Route::get('/news', [WelcomeController::class, 'news'])->name('news');  
 Route::get('/pay', [WelcomeController::class, 'pay'])->name('pay');
