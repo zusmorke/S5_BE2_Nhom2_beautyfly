@@ -132,7 +132,8 @@
                                 {{$totalPrice}} đ
                             </div>
                         </div>
-                        <button type="submit" class="btn btn--default">Tiến hành thanh toán</button>
+                        <button id="proceedToCheckoutBtn" type="submit" class="btn btn--default">Tiến hành thanh toán</button>
+
                         <div class="main__pay-title">Phiếu ưu đãi</div>
                         <form method="POST" action="{{ route('discount.apply') }}">
                             @csrf
@@ -170,6 +171,18 @@
         }
     });
 });
+
+
+
+    $(document).ready(function() {
+        // Lắng nghe sự kiện click trên nút
+        $('#proceedToCheckoutBtn').on('click', function() {
+            // Chuyển hướng người dùng đến trang thanh toán
+            window.location.href = "{{ route('pay') }}"; // Thay 'route('checkout')' bằng đường dẫn thực tế đến trang thanh toán của bạn
+        });
+    });
+
+
 
 </script>
 
