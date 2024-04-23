@@ -24,6 +24,7 @@ Route::get('/header', [WelcomeController::class, 'cate'])->name('header');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
 

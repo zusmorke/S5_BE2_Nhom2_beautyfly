@@ -52,6 +52,9 @@
 
                         @if(isset($cart) && is_array($cart) && count($cart) > 0)
                         @foreach($cart as $id => $item)
+                        <input aria-label="quantity" class="input-qty" data-product-id="{{ $id }}" data-quantity="{{ $item['quantity'] }}" max="10" min="1" name="" type="number" value="{{ $item['quantity'] }}">
+
+
 
                         <div class="row item">
                             <div class="col l-1 m-1 s-0">
@@ -143,6 +146,32 @@
     </div>
 
     <!-- Script common -->
+    <script>
+    $('.input-qty').on('change', function() {
+    var productId = $(this).data('product-id');
+    var newQuantity = $(this).val();
+
+    // Gửi yêu cầu cập nhật số lượng bằng Ajax
+    $.ajax({
+        url: '/cart/update',
+        method: 'POST',
+        data: {
+            _token: '{{ csrf_token() }}',
+            product_id: productId,
+            quantity: newQuantity
+        },
+        success: function(response) {
+            // Nếu cập nhật thành công, làm gì đó (ví dụ: cập nhật tổng giá tiền, hiển thị thông báo, vv...)
+            console.log('Số lượng đã được cập nhật thành công');
+        },
+        error: function(xhr, status, error) {
+            // Xử lý lỗi nếu có
+            console.error('Lỗi khi cập nhật số lượng sản phẩm: ' + error);
+        }
+    });
+});
+
+</script>
 
 
     <script src="js/commonscript.js"></script>

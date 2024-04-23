@@ -39,6 +39,24 @@ class CartController extends Controller
         }
         return redirect()->route('index');
     }
+    public function update(Request $request)
+{
+    $productId = $request->input('product_id');
+    $newQuantity = $request->input('quantity');
+
+    $cart = session()->get('cart');
+
+    if (isset($cart[$productId])) {
+        // Nếu sản phẩm tồn tại trong giỏ hàng, cập nhật số lượng mới
+        $cart[$productId]['quantity'] = $newQuantity;
+        session()->put('cart', $cart);
+        return response()->json(['success' => true]);
+    } else {
+        // Nếu sản phẩm không tồn tại trong giỏ hàng, trả về lỗi
+        return response()->json(['error' => 'Sản phẩm không tồn tại trong giỏ hàng'], 404);
+    }
+}
+
     public function remove(Request $request)
     {
         $productId = $request->input('sanpham_id');
