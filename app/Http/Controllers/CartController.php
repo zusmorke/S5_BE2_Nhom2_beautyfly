@@ -39,7 +39,7 @@ class CartController extends Controller
 
             session()->put('cart', $cart);
         }
-        return redirect()->route('index');
+        return redirect()->route('cart.index');
     }
     public function update(Request $request)
 {
