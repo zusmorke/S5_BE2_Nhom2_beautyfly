@@ -30,9 +30,7 @@
             <!-- Cart -->
             <div class="header__cart have" href="#">
                 <i class="fas fa-shopping-basket"></i>
-                <div class="header__cart-amount" style="background-color: green;">
-                    3
-                </div>
+               
                 <div class="header__cart-wrap">
                     <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
                     <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a </div>
