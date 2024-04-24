@@ -62,6 +62,7 @@
                         <option value="3">Giá : Thấp đến cao</option>
                     </select>
                 </div>
+                
             </div>
             <div class="productList">
                 <div class="listProduct">
@@ -108,5 +109,6 @@
             </div>
         </div>
     </div>
+    
 </body>
 @endsection

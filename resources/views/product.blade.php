@@ -67,6 +67,7 @@
                             <form method="post" action="{{ route('cart.add') }}">
                                 @csrf
                                 <input type="hidden" value="{{ $sanpham->sanpham_id }}" name='sanpham_id'>
+                                
                                 <button type="submit" class=" btn btn--default orange ">Thêm vào giỏ</button>
                             </form>
                             
@@ -105,7 +106,7 @@
                         <div class="productIndfo__category ">
                             <p class="productIndfo__category-text"> Danh mục : <a href="# " class="productIndfo__category-link ">{{$sanpham->danhmucsp_id}}</a></p>
 
-                            <p class="productIndfo__category-text"> Số lượng đã bán : <span>{{$sanpham->soluongdaban}}</span> </p>
+                            <p class="productIndfo__category-text"> Số lượng đã bán : <span>{{$sanpham->soluongdaban }}</span> </p>
                             <p class="productIndfo__category-text"> Số lượng trong kho : <span>{{$sanpham->soluongtrongkho}}</span> </p>
                         </div>
                     </div>

@@ -95,7 +95,7 @@ class WelcomeController extends Controller
     public function news($page = "news")
     {
         $news = News::all();
-        return view($page, ['news' => $news]);
+        return view('news', ['news' => $news]);
     }
 
     public function detail($id)

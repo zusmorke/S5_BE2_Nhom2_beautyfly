@@ -33,6 +33,7 @@ Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('
 Route::get('/admin', [ProductController::class, 'admin'])->middleware('role:admin')->name('admin.dashboard');
 Route::get('/user', [ProductController::class, 'index'])->middleware('role:user')->name('user.dashboard');
 
+Route::get('/sort-products', [ProductController::class, 'sortProducts'])->name('sort-products');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::post('/product/{id}/updateQuantity', 'ProductController@updateProductQuantity')->name('sanpham.updateQuantity');
 
 require __DIR__.'/auth.php';
 

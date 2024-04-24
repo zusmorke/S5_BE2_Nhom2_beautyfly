@@ -68,3 +68,13 @@ tabs.forEach((tab, index) => {
 //     }
 //     document.querySelector('.input-qty').value = value;
 // }
+
+document.getElementById('addToCartBtn').addEventListener('click', function() {
+    // Hiển thị thông báo khi nhấn nút
+    document.getElementById('notification').style.display = 'block';
+
+    // Ẩn thông báo sau một khoảng thời gian
+    setTimeout(function() {
+        document.getElementById('notification').style.display = 'none';
+    }, 3000); // Thời gian hiển thị thông báo (3 giây)
+});

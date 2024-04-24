@@ -853,7 +853,7 @@ textarea.form-control {
 /* Footer */
 
 .footer {
-    background:  #737171;
+    background:  #cccaca;
     padding-top: 45px;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     color:#000;
@@ -886,7 +886,7 @@ textarea.form-control {
     padding: 6px 0;
     align-items: center;
     font-weight: 300;
-    background: rgb(115, 113, 113);
+    background: bfb8b8;
 }
 
 .footer__link:hover {

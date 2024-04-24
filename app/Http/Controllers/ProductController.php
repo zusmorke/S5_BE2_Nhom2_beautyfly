@@ -16,11 +16,20 @@ class ProductController extends Controller
         return view('role');
     }
     
-    public function index()
+    public function index(Request $request)
     {
-        //
-    }
+        $sortType = $request->input('sort');
 
+        if ($sortType == '2') {
+            $products = SanPham::orderBy('gia', 'mota')->get();
+        } elseif ($sortType == '3') {
+            $products = SanPham::orderBy('gia', 'asc')->get();
+        } else {
+            $products = SanPham::all();
+        }
+
+        return view('index', compact('sanpham'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -39,7 +48,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**
@@ -86,4 +95,19 @@ class ProductController extends Controller
     {
         //
     }
+    public function updateProductQuantity(Request $request, $id)
+{
+    $sanpham = SanPham::find($sid);
+    $soluongMua = $request->input('soluongMua');
+
+    // Cập nhật số lượng đã bán và số lượng trong kho
+    $sanpham->soluongdaban += $soluongMua;
+    $sanpham->soluongtrongkho -= $soluongMua;
+    
+    // Lưu thay đổi vào cơ sở dữ liệu
+    $sanpham->save();
+
+    return view('product', ['product' => $sanpham]);
+}
+
 }

@@ -31,6 +31,7 @@
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 
 <body>
+    
     <div class="container">
         <h1>BeautyFly - Thương hiệu mỹ phẩm hàng đầu</h1>
         <p>BeautyFly là một thương hiệu mỹ phẩm nổi tiếng với nhiều năm kinh nghiệm trong ngành. Chúng tôi cam kết mang đến sự hoàn hảo cho khách hàng và làm đẹp cho mọi phụ nữ.</p>
