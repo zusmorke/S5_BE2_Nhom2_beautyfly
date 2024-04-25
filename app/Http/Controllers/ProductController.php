@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\SanPham;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -97,7 +97,7 @@ class ProductController extends Controller
     }
     public function updateProductQuantity(Request $request, $id)
 {
-    $sanpham = SanPham::find($sid);
+    $sanpham = SanPham::find($id);
     $soluongMua = $request->input('soluongMua');
 
     // Cập nhật số lượng đã bán và số lượng trong kho

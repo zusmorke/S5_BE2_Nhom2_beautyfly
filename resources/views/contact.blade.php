@@ -94,7 +94,7 @@
     </div>
     
 
-    <div class="container">
+    <!-- <div class="container">
     <h2 style="font-size: 34px; text-align: center; color: red;">Thông tin liên hệ</h2>
     <div class="contact-wrapper">
         @foreach ($contact as $row)
@@ -125,6 +125,6 @@
             </li>
         </ul>
         @endforeach
-    </div>
+    </div> -->
 </div>
 @endsection

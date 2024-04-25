@@ -187,7 +187,7 @@
                                         </div>
                                         <textarea class="ratecomment" name=" " id=" " cols="30 " rows="1" placeholder="Vui lòng viết đánh giá của bạn "></textarea>
                                     </div>
-                                    <input type="submit " class="btn btn--default" value="Đánh giá">
+                                    <button type="submit " class="btn btn--default" >Đánh giá</button>
                                 </div>
 
                                 @if(isset($danhgia))

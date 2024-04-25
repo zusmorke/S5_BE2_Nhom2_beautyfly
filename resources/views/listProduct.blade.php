@@ -81,7 +81,7 @@
                                                 <div class="price__new" style="text-align: right; color: red;">{{ $row->gia}} <span class="price__unit">đ</span></div>
                                             </div>
                                             <div class="product__sale">
-                                                <span class="product__sale-percent">24%%</span>
+                                                <span class="product__sale-percent">30%</span>
                                                 <span class="product__sale-text">Giảm</span>
                                             </div>
                                         </div>
@@ -95,13 +95,13 @@
                     <div class="pagination">
                         <!-- Hiển thị liên kết đến trang trước nếu có -->
                         @if ($phanTrang->previousPageUrl())
-                        <a href="{{ $phanTrang->previousPageUrl() }}" class="page-link">&laquo; Trang trước</a>
+                        <a href="{{ $phanTrang->previousPageUrl() }}" class="page-link">&laquo; Previous </a>
                         @endif 
                         <!-- Hiển thị số trang -->
                         Trang {{ $phanTrang->currentPage() }}/{{ $phanTrang->lastPage() }}
                         <!-- Hiển thị liên kết đến trang kế tiếp nếu có -->
                         @if ($phanTrang->nextPageUrl())
-                        <a href="{{ $phanTrang->nextPageUrl() }}" class="page-link">Trang sau &raquo;</a>
+                        <a href="{{ $phanTrang->nextPageUrl() }}" class="page-link"> Next &raquo ;</a>
                         @endif
                     </div>
 

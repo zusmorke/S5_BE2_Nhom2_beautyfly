@@ -74,7 +74,7 @@ class WelcomeController extends Controller
 
     public function showListProduct()
     {
-        $phanTrang = SanPham::paginate(7); // Giả sử bạn muốn hiển thị 10 sản phẩm trên mỗi trang
+        $phanTrang = SanPham::paginate(7);
         return view('listProduct', compact('phanTrang'));
     }
 

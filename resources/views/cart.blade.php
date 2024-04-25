@@ -72,7 +72,7 @@
                             <div class="col l-2 m-2 s-0">
     <div class="buttons_added">
         <input class="minus is-form" type="button" value="-" data-product-id="{{$id}}">
-        <span class="quantity">{{ $item['quantity'] }}</span>
+        <span class="quantity" style="font-size:20px">{{ $item['quantity'] }}</span>
         <input class="plus is-form" type="button" value="+" data-product-id="{{$id}}">
     </div>
 </div>
