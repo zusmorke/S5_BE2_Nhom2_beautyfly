@@ -50,27 +50,30 @@
                         <h3 class="productInfo__name">
                             {{$sanpham->ten}}
                         </h3>
-                        <div class="productInfo__price">
-                            {{$sanpham->gia}} <span class="priceInfo__unit"></span>
+                        @php
+                        $giaMoi = $sanpham->gia - $sanpham->sale;
+                        @endphp
+                        <div class="productInfo__price" style="color:red">
+                            {{$giaMoi}} <span class="priceInfo__unit"></span>
                         </div>
                         <div class="productInfo__description">
                             <span>{{$sanpham->ten}}</span> {{$sanpham->mota}}
                         </div>
 
                         <div class="productInfo__addToCart">
-                        <div class="buttons_added">
-                        <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
-                        <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
-                        <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
-                        </div>
+                            <div class="buttons_added">
+                                <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
+                                <input aria-label="quantity" class="input-qty" max="10" min="1" name="" type="number" value="1">
+                                <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
+                            </div>
 
                             <form method="post" action="{{ route('cart.add') }}">
                                 @csrf
                                 <input type="hidden" value="{{ $sanpham->sanpham_id }}" name='sanpham_id'>
-                                
+
                                 <button type="submit" class=" btn btn--default orange ">Thêm vào giỏ</button>
                             </form>
-                            
+
 
                         </div>
                         <div class="productIndfo__policy ">
@@ -110,7 +113,6 @@
                             <p class="productIndfo__category-text"> Số lượng trong kho : <span>{{$sanpham->soluongtrongkho}}</span> </p>
                         </div>
                     </div>
-
                     <br>
                 </div>
                 @else
@@ -187,7 +189,7 @@
                                         </div>
                                         <textarea class="ratecomment" name=" " id=" " cols="30 " rows="1" placeholder="Vui lòng viết đánh giá của bạn "></textarea>
                                     </div>
-                                    <button type="submit " class="btn btn--default" >Đánh giá</button>
+                                    <button type="submit " class="btn btn--default">Đánh giá</button>
                                 </div>
 
                                 @if(isset($danhgia))
@@ -213,340 +215,163 @@
                         </div>
                     </div>
                 </div>
+            </div>            
+            @yield('content')
+            <!-- Messenger Plugin chat Code -->
+            <div id="fb-root"></div>
+
+            <!-- Your Plugin chat code -->
+            <div id="fb-customer-chat" class="fb-customerchat">
             </div>
-            <div class="main__frame ">
-                <div class="grid wide ">
-                    <h3 class="category__title ">Ngọc Ánh Cometics</h3>
-                    <h3 class="category__heading ">Sản Phẩm Tương tự</h3>
-                    <div class="owl-carousel hight owl-theme ">
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product1.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__avt " style="background-image: url(img/product/product1.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product2.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product3.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product4.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product5.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product6.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product4.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product6.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product1.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                        <a href="# " class="product ">
-                            <div class="product__avt " style="background-image: url(img/product/product4.jpg) ">
-                            </div>
-                            <div class="product__info ">
-                                <h3 class="product__name ">Framed-Sleeve Tops Group</h3>
-                                <div class="product__price ">
-                                    <div class="price__old ">340.000 <span class="price__unit ">đ</span></div>
-                                    <div class="price__new ">320.000 <span class="price__unit ">đ</span></div>
-                                </div>
-                            </div>
-                            <div class="product__sale ">
-                                <span class="product__sale-percent ">22%</span>
-                                <span class="product__sale-text ">Giảm</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @yield('content')
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
 
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
+            <script>
+                function minusProduct() {
+                    var inputQty = document.querySelector('.input-qty');
+                    var currentValue = parseInt(inputQty.value);
+                    if (currentValue > 1) {
+                        inputQty.value = currentValue - 1;
+                        updateCartQuantity(currentValue - 1);
+                    }
+                }
 
-    <script>
-       function minusProduct() {
-    var inputQty = document.querySelector('.input-qty');
-    var currentValue = parseInt(inputQty.value);
-    if (currentValue > 1) {
-        inputQty.value = currentValue - 1;
-        updateCartQuantity(currentValue - 1);
-    }
-}
+                function plusProduct() {
+                    var inputQty = document.querySelector('.input-qty');
+                    var currentValue = parseInt(inputQty.value);
+                    var maxValue = parseInt(inputQty.getAttribute('max'));
+                    if (currentValue < maxValue) {
+                        inputQty.value = currentValue + 1;
+                        updateCartQuantity(currentValue + 1);
+                    }
+                }
+            </script>
 
-function plusProduct() {
-    var inputQty = document.querySelector('.input-qty');
-    var currentValue = parseInt(inputQty.value);
-    var maxValue = parseInt(inputQty.getAttribute('max'));
-    if (currentValue < maxValue) {
-        inputQty.value = currentValue + 1;
-        updateCartQuantity(currentValue + 1);
-    }
-}
+            <script>
+                var chatbox = document.getElementById('fb-customer-chat');
+                chatbox.setAttribute("page_id", "105913298384666");
+                chatbox.setAttribute("attribution", "biz_inbox");
+                window.fbAsyncInit = function() {
+                    FB.init({
+                        xfbml: true,
+                        version: 'v10.0'
+                    });
+                };
 
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <script>
+                $(document).ready(function() {
+                    var sync1 = $("#sync1 ");
+                    var sync2 = $("#sync2 ");
+                    var slidesPerPage = 4;
+                    var syncedSecondary = true;
+                    sync1.owlCarousel({
+                        items: 1,
+                        loop: true,
+                        margin: 20,
+                        nav: true,
+                        dots: false,
+                        autoplay: true,
+                        autoplayTimeout: 4000,
+                        autoplayHoverPause: true
+                    })
+                    sync2
+                        .on('initialized.owl.carousel', function() {
+                            sync2.find(".owl-item ").eq(0).addClass("current ");
+                        })
+                        .owlCarousel({
+                            items: 4,
+                            dots: false,
+                            nav: false,
+                            margin: 30,
+                            smartSpeed: 200,
+                            slideSpeed: 500,
+                            slideBy: 4,
+                            responsiveRefreshRate: 100
+                        }).on('changed.owl.carousel', syncPosition2);
 
+                    function syncPosition(el) {
+                        var count = el.item.count - 1;
+                        var current = Math.round(el.item.index - (el.item.count / 2) - .5);
 
-    </script>
+                        if (current < 0) {
+                            current = count;
+                        }
+                        if (current > count) {
+                            current = 0;
+                        }
 
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "105913298384666");
-        chatbox.setAttribute("attribution", "biz_inbox");
-        window.fbAsyncInit = function() {
-            FB.init({
-                xfbml: true,
-                version: 'v10.0'
-            });
-        };
+                        //end block
 
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script>
-        $(document).ready(function() {
-            var sync1 = $("#sync1 ");
-            var sync2 = $("#sync2 ");
-            var slidesPerPage = 4;
-            var syncedSecondary = true;
-            sync1.owlCarousel({
-                items: 1,
-                loop: true,
-                margin: 20,
-                nav: true,
-                dots: false,
-                autoplay: true,
-                autoplayTimeout: 4000,
-                autoplayHoverPause: true
-            })
-            sync2
-                .on('initialized.owl.carousel', function() {
-                    sync2.find(".owl-item ").eq(0).addClass("current ");
-                })
-                .owlCarousel({
-                    items: 4,
+                        sync2
+                            .find(".owl-item ")
+                            .removeClass("current ")
+                            .eq(current)
+                            .addClass("current ");
+                        var onscreen = sync2.find('.owl-item.active').length - 1;
+                        var start = sync2.find('.owl-item.active').first().index();
+                        var end = sync2.find('.owl-item.active').last().index();
+
+                        if (current > end) {
+                            sync2.data('owl.carousel').to(current, 100, true);
+                        }
+                        if (current < start) {
+                            sync2.data('owl.carousel').to(current - onscreen, 100, true);
+                        }
+                    }
+
+                    function syncPosition2(el) {
+                        if (syncedSecondary) {
+                            var number = el.item.index;
+                            sync1.data('owl.carousel').to(number, 100, true);
+                        }
+                    }
+
+                    sync2.on("click ", ".owl-item ", function(e) {
+                        e.preventDefault();
+                        var number = $(this).index();
+                        sync1.data('owl.carousel').to(number, 300, true);
+                    });
+                });
+
+                $('.owl-carousel.hight').owlCarousel({
+                    loop: true,
+                    margin: 20,
+                    nav: true,
                     dots: false,
-                    nav: false,
-                    margin: 30,
-                    smartSpeed: 200,
-                    slideSpeed: 500,
-                    slideBy: 4,
-                    responsiveRefreshRate: 100
-                }).on('changed.owl.carousel', syncPosition2);
+                    autoplay: true,
+                    autoplayTimeout: 2000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 2
+                        },
+                        600: {
+                            items: 3
+                        },
+                        1000: {
+                            items: 6
+                        }
+                    }
+                })
+            </script>
 
-            function syncPosition(el) {
-                var count = el.item.count - 1;
-                var current = Math.round(el.item.index - (el.item.count / 2) - .5);
-
-                if (current < 0) {
-                    current = count;
+            <!-- Script common -->
+            <script src="{{asset('js/commonscript.js')}} ">
+            </script>
+            <script>
+                function calcRate(r) {
+                    const f = ~~r, //Tương tự Math.floor(r)
+                        id = 'star' + f + (r % f ? 'half' : '')
+                    id && (document.getElementById(id).checked = !0)
                 }
-                if (current > count) {
-                    current = 0;
-                }
-
-                //end block
-
-                sync2
-                    .find(".owl-item ")
-                    .removeClass("current ")
-                    .eq(current)
-                    .addClass("current ");
-                var onscreen = sync2.find('.owl-item.active').length - 1;
-                var start = sync2.find('.owl-item.active').first().index();
-                var end = sync2.find('.owl-item.active').last().index();
-
-                if (current > end) {
-                    sync2.data('owl.carousel').to(current, 100, true);
-                }
-                if (current < start) {
-                    sync2.data('owl.carousel').to(current - onscreen, 100, true);
-                }
-            }
-
-            function syncPosition2(el) {
-                if (syncedSecondary) {
-                    var number = el.item.index;
-                    sync1.data('owl.carousel').to(number, 100, true);
-                }
-            }
-
-            sync2.on("click ", ".owl-item ", function(e) {
-                e.preventDefault();
-                var number = $(this).index();
-                sync1.data('owl.carousel').to(number, 300, true);
-            });
-        });
-
-        $('.owl-carousel.hight').owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: true,
-            dots: false,
-            autoplay: true,
-            autoplayTimeout: 2000,
-            autoplayHoverPause: true,
-            responsive: {
-                0: {
-                    items: 2
-                },
-                600: {
-                    items: 3
-                },
-                1000: {
-                    items: 6
-                }
-            }
-        })
-    </script>
-
-    <!-- Script common -->
-    <script src="{{asset('js/commonscript.js')}} ">
-    </script>
-    <script>
-        function calcRate(r) {
-            const f = ~~r, //Tương tự Math.floor(r)
-                id = 'star' + f + (r % f ? 'half' : '')
-            id && (document.getElementById(id).checked = !0)
-        }
-    </script>
+            </script>
 </body>
 
 </html>

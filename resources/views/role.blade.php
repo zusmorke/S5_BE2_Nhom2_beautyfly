@@ -7,7 +7,6 @@
         <title>Admin Dashboard</title>
         <link rel="stylesheet" href="{{asset('css/role.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <script src="{{asset('js/role.js')}}"></script>
     </head>
 
     <body>
@@ -25,6 +24,12 @@
         </header>
 
         <main>
+            @if (session('success'))
+            <div id="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+
             <section id="news-section" class="admin-section">
                 <h2>Quản lý tin tức</h2>
                 <!-- Form thêm, sửa, xóa tin tức -->
@@ -35,12 +40,12 @@
             <!-- Trong section "Quản lý sản phẩm" -->
             <section id="products-section" class="admin-section">
                 <h2>Quản lý sản phẩm</h2>
-              
+
                 <!-- Button to trigger the popup -->
                 <button id="openPopupButton" class="btn btn-primary">Thêm sản phẩm</button>
                 <!-- Popup form -->
                 <div id="popupForm" style="display: none;">
-                    <form id="addProductForm" action="{{ route('admin.store') }}" method="POST">
+                    <form id="addProductForm" action="{{ route('admin.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="ten">Tên sản phẩm:</label>
@@ -62,6 +67,18 @@
                             <label for="soluongtrongkho">Số lượng trong kho:</label>
                             <input type="number" id="soluongtrongkho" name="soluongtrongkho" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="soluongdaban">Số lượng đã bán:</label>
+                            <input type="number" id="soluongdaban" name="soluongdaban" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="danhmucsp_id">Danh mục sản phẩm:</label>
+                            <input type="number" id="danhmucsp_id" name="danhmucsp_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="hinh">Hình:</label>
+                            <input type="file" id="hinh" name="hinh" class="form-control">
+                        </div>
                         <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                     </form>
                     <button id="closePopupButton" class="btn btn-danger">Đóng</button>
@@ -75,7 +92,10 @@
                             <th>Mô tả</th>
                             <th>Giá</th>
                             <th>Sale</th>
+                            <th>Hình</th>
                             <th>Số lượng trong kho</th>
+                            <th>Số lượng đã bán</th>
+                            <th>Danh mục sản phẩm</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -87,7 +107,10 @@
                             <td>{{ $sanpham->mota }}</td>
                             <td>{{ $sanpham->gia }}</td>
                             <td>{{ $sanpham->sale }}</td>
+                            <td><img src="{{ url('img/product/' . $sanpham->hinh)}}" alt="Hình ảnh sản phẩm"></td>
                             <td>{{ $sanpham->soluongtrongkho }}</td>
+                            <td>{{ $sanpham->soluongdaban }}</td>
+                            <td>{{ $sanpham->danhmucsp_id }}</td>
                             <td>
                                 <button class="btnedit">
                                     <a href="{{ route('admin.sanpham.edit', $sanpham->sanpham_id) }}" class="btn btn-sm btn-primary">Chỉnh sửa</a>
@@ -107,20 +130,19 @@
                 <p>Không có sản phẩm nào.</p>
                 @endif
                 </div>
+            </section>
 
+            <section id="accounts-section" class="admin-section">
+                <h2>Quản lý tài khoản</h2>
+                <!-- Form thêm, sửa, xóa tài khoản -->
+                <!-- Bảng hiển thị tài khoản -->
 
+            </section>
 
-                <section id="accounts-section" class="admin-section">
-                    <h2>Quản lý tài khoản</h2>
-                    <!-- Form thêm, sửa, xóa tài khoản -->
-                    <!-- Bảng hiển thị tài khoản -->
+            <section id="statistics-section" class="admin-section">
+                <h2>Thống kê</h2>
 
-                </section>
-
-                <section id="statistics-section" class="admin-section">
-                    <h2>Thống kê</h2>
-
-                </section>
+            </section>
 
         </main>
 
@@ -131,6 +153,7 @@
     </body>
 
     </html>
+    <script src="{{asset('js/role.js')}}"></script>
     <script>
         // pop-up add sp
         document.getElementById('openPopupButton').addEventListener('click', function() {

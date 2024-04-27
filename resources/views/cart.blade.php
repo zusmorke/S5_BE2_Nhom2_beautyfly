@@ -52,8 +52,6 @@
 
                         @if(isset($cart) && is_array($cart) && count($cart) > 0)
                         @foreach($cart as $id => $item)
-                        
-
 
 
                         <div class="row item">
@@ -67,15 +65,15 @@
                                 </div>
                             </div>
                             <div class="col l-2 m-2 s-0">
-                                <div class="main__cart-price">{{$item['price']}} đ</div>
+                                <div class="main__cart-price" style="color: red;">{{$item['price']}} đ</div>
                             </div>
                             <div class="col l-2 m-2 s-0">
-    <div class="buttons_added">
-        <input class="minus is-form" type="button" value="-" data-product-id="{{$id}}">
-        <span class="quantity" style="font-size:20px">{{ $item['quantity'] }}</span>
-        <input class="plus is-form" type="button" value="+" data-product-id="{{$id}}">
-    </div>
-</div>
+                                <div class="buttons_added">
+                                    <input class="minus is-form" type="button" value="-" data-product-id="{{$id}}">
+                                    <span class="quantity" style="font-size:20px">{{ $item['quantity'] }}</span>
+                                    <input class="plus is-form" type="button" value="+" data-product-id="{{$id}}">
+                                </div>
+                            </div>
 
                             <div class="col l-2 m-2 s-4">
                                 <div class="main__cart-price">
@@ -97,7 +95,7 @@
                                 </span>
                             </div>
                         </div>
-                        
+
                         @endforeach
                         @else
                         <!-- Xử lý khi không có giỏ hàng hoặc giỏ hàng rỗng -->
@@ -118,13 +116,13 @@
                             </div>
                         </div>
                         <div class="pay-info">
-    <div class="main__pay-text">
-        Tổng thành tiền
-    </div>
-    <div class="main__pay-price" id="totalPrice">
-        {{$totalPrice}} đ
-    </div>
-</div>
+                            <div class="main__pay-text">
+                                Tổng thành tiền
+                            </div>
+                            <div class="main__pay-price" id="totalPrice">
+                                {{$totalPrice}} đ
+                            </div>
+                        </div>
 
                         <div class="pay-info">
                             <div class="main__pay-text">
@@ -149,61 +147,58 @@
 
     <!-- Script common -->
     <script>
-   // Lắng nghe sự kiện click trên nút tăng/giảm số lượng
-$('.plus, .minus').on('click', function() {
-    var productId = $(this).data('product-id');
-    var quantityElement = $(this).siblings('.quantity');
-    var currentQuantity = parseInt(quantityElement.text());
+        // Lắng nghe sự kiện click trên nút tăng/giảm số lượng
+        $('.plus, .minus').on('click', function() {
+            var productId = $(this).data('product-id');
+            var quantityElement = $(this).siblings('.quantity');
+            var currentQuantity = parseInt(quantityElement.text());
 
-    if ($(this).hasClass('plus')) {
-        // Tăng số lượng khi click vào nút +
-        quantityElement.text(currentQuantity + 1);
-    } else {
-        // Giảm số lượng khi click vào nút -
-        if (currentQuantity > 1) {
-            quantityElement.text(currentQuantity - 1);
-        }
-    }
+            if ($(this).hasClass('plus')) {
+                // Tăng số lượng khi click vào nút +
+                quantityElement.text(currentQuantity + 1);
+            } else {
+                // Giảm số lượng khi click vào nút -
+                if (currentQuantity > 1) {
+                    quantityElement.text(currentQuantity - 1);
+                }
+            }
 
-    // Gửi yêu cầu cập nhật giỏ hàng bằng Ajax
-    $.ajax({
-        url: '/cart/update',
-        method: 'POST',
-        data: {
-            _token: '{{ csrf_token() }}',
-            product_id: productId,
-            quantity: quantityElement.text()
-        },
-        success: function(response) {
-            // Nếu cập nhật thành công, cập nhật giá tiền sản phẩm và tổng giá tiền
-            var newPrice = response.price; // Giả sử server trả về giá mới của sản phẩm
-            var subtotal = newPrice * parseInt(quantityElement.text());
-            var totalPrice = 0;
-            $('.main__cart-price').each(function() {
-                var productId = $(this).closest('.item').find('.plus, .minus').data('product-id');
-                var price = response.prices[productId]; // Lấy giá mới của sản phẩm từ phản hồi của server
-                $(this).text(price + ' đ'); // Cập nhật giá tiền của sản phẩm
-                totalPrice += parseInt(price) * parseInt($(this).siblings('.col.l-2.m-2.s-0').find('.quantity').text());
+            // Gửi yêu cầu cập nhật giỏ hàng bằng Ajax
+            $.ajax({
+                url: '/cart/update',
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    product_id: productId,
+                    quantity: quantityElement.text()
+                },
+                success: function(response) {
+                    // Nếu cập nhật thành công, cập nhật giá tiền sản phẩm và tổng giá tiền
+                    var newPrice = response.price; // Giả sử server trả về giá mới của sản phẩm
+                    var subtotal = newPrice * parseInt(quantityElement.text());
+                    var totalPrice = 0;
+                    $('.main__cart-price').each(function() {
+                        var productId = $(this).closest('.item').find('.plus, .minus').data('product-id');
+                        var price = response.prices[productId]; // Lấy giá mới của sản phẩm từ phản hồi của server
+                        $(this).text(price + ' đ'); // Cập nhật giá tiền của sản phẩm
+                        totalPrice += parseInt(price) * parseInt($(this).siblings('.col.l-2.m-2.s-0').find('.quantity').text());
+                    });
+                    $('#totalPrice').text(totalPrice + ' đ'); // Cập nhật tổng giá tiền
+                },
+                error: function(xhr, status, error) {
+                    // Xử lý lỗi nếu có
+                    console.error('Lỗi khi cập nhật giỏ hàng: ' + error);
+                }
             });
-            $('#totalPrice').text(totalPrice + ' đ'); // Cập nhật tổng giá tiền
-        },
-        error: function(xhr, status, error) {
-            // Xử lý lỗi nếu có
-            console.error('Lỗi khi cập nhật giỏ hàng: ' + error);
-        }
-    });
-});
-$(document).ready(function() {
-    // Lắng nghe sự kiện click trên nút "Tiến hành thanh toán"
-    $('#proceedToCheckoutBtn').on('click', function() {
-        // Chuyển hướng người dùng đến trang thanh toán
-        window.location.href = "{{ route('pay') }}";
-    });
-});
-
-
-
-</script>
+        });
+        $(document).ready(function() {
+            // Lắng nghe sự kiện click trên nút "Tiến hành thanh toán"
+            $('#proceedToCheckoutBtn').on('click', function() {
+                // Chuyển hướng người dùng đến trang thanh toán
+                window.location.href = "{{ route('pay') }}";
+            });
+        });
+    </script>
 
 
     <script src="js/commonscript.js"></script>

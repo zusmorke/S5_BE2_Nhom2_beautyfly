@@ -31,7 +31,7 @@ class CartController extends Controller
                 // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
                 $cart[$productId] = [
                     'name' => $sanPham->ten,
-                    'price' => $sanPham->gia,
+                    'price' => $sanPham->gia - $sanPham->sale,
                     'quantity' => 1,
                     'img' => $sanPham->hinh
                 ];

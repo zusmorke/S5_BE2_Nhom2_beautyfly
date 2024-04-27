@@ -18,8 +18,7 @@ class ProductController extends Controller
         $sanphams = SanPham::all();
         return view('role', compact('sanphams'));
     }
-
-
+    
     public function store(Request $request)
     {
         SanPham::create($request->all());

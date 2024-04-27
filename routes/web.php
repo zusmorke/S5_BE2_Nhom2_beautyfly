@@ -29,7 +29,7 @@ Route::post('/cart/update', [CartController::class, 'update'])->name('cart.updat
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
 
-Route::get('/admin', 'ProductController@admin')->name('admin.sanpham.role');
+Route::get('/admin', 'ProductController@admin')->name('admin.role');
 Route::post('/admin/store', 'ProductController@store')->name('admin.store');
 Route::get('/admin/sanpham/edit/{id}', 'ProductController@edit')->name('admin.sanpham.edit');
 Route::put('/admin/sanpham/update/{id}', 'ProductController@update')->name('admin.sanpham.update');

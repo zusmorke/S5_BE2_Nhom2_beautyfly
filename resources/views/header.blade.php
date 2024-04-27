@@ -42,8 +42,10 @@
                 <i class="fas fa-cogs" style="font-size: 26px; color:aliceblue"></i> <!-- Sử dụng Font Awesome icon, thay thế bằng icon setting của bạn -->
             </a>
             @else
+            <a href="{{ route('user.dashboard') }}">
             <!-- Hiển thị biểu tượng mặc định cho user -->
             <i class="fas fa-user" style="font-size: 26px; color:aliceblue"></i> <!-- Sử dụng Font Awesome icon, thay thế bằng icon của bạn -->
+            </a>
             @endif
         </div>
         <!-- Menu -->

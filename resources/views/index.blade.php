@@ -47,11 +47,15 @@
                 </div>
                 <div class="product__info">
                     <h3 class="product__name"><a href="{{url('product/' . $product->sanpham_id)}}" style="color:#0daf74">{{$product->ten}}</a></h3>
+                    @php
+                    $giaMoi = $product->gia - $product->sale;
+                    @endphp
                     <div class="product__price">
-                        <div class="price__new" style="text-align: right; color: red;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                        <div class="price__original" style="color: #999; text-decoration: line-through;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                        <div class="price__new" style="color: red; padding-left: 28px;">{{ $giaMoi}} <span class="price__unit">đ</span></div>
                     </div>
                     <div class="product__sale">
-                        <span class="product__sale-percent">24%%</span>
+                        <span class="product__sale-percent">{{$product->sale}}</span>
                         <span class="product__sale-text">Giảm</span>
                     </div>
                 </div>

@@ -27,12 +27,5 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.getElementById('add-product-button').addEventListener('click', function () {
-    var form = document.querySelector('#products-section form');
-    if (form.style.display === 'none') {
-        form.style.display = 'block';
-    } else {
-        form.style.display = 'none';
-    }
-});
+
 

@@ -22,6 +22,10 @@ class AdminMiddleware
             return redirect('/login');
         }
 
+        if ($user->role === 'user') {
+            return redirect('/profile');
+        }
+
         foreach ($roles as $role) {
             if ($user->role === $role) {
                 return $next($request);
