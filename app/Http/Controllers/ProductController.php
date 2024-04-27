@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\SanPham;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -13,101 +15,33 @@ class ProductController extends Controller
      */
     public function admin()
     {
-        return view('role');
-    }
-    
-    public function index(Request $request)
-    {
-        $sortType = $request->input('sort');
-
-        if ($sortType == '2') {
-            $products = SanPham::orderBy('gia', 'mota')->get();
-        } elseif ($sortType == '3') {
-            $products = SanPham::orderBy('gia', 'asc')->get();
-        } else {
-            $products = SanPham::all();
-        }
-
-        return view('index', compact('sanpham'));
-    }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $sanphams = SanPham::all();
+        return view('role', compact('sanphams'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-       
+        SanPham::create($request->all());
+        return redirect('admin')->with('success', 'Sản phẩm đã được tạo thành công.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $sanpham = SanPham::find($id);
+        return view('admin.sanpham.edit', compact('sanpham'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function delete($id)
+    {
+        SanPham::destroy($id);
+        return redirect('admin')->with('success', 'Sản phẩm đã được xóa thành công.');
+    }
+
     public function update(Request $request, $id)
     {
-        //
+        $sanpham = SanPham::find($id);
+        $sanpham->update($request->all());
+        return redirect()->route('sanpham.role')->with('success', 'Sản phẩm đã được cập nhật thành công.');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-    public function updateProductQuantity(Request $request, $id)
-{
-    $sanpham = SanPham::find($id);
-    $soluongMua = $request->input('soluongMua');
-
-    // Cập nhật số lượng đã bán và số lượng trong kho
-    $sanpham->soluongdaban += $soluongMua;
-    $sanpham->soluongtrongkho -= $soluongMua;
-    
-    // Lưu thay đổi vào cơ sở dữ liệu
-    $sanpham->save();
-
-    return view('product', ['product' => $sanpham]);
-}
-
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
 
 
+
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 Route::get('/about', [WelcomeController::class, 'about'])->name('about');
@@ -27,6 +28,13 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
+
+Route::get('/admin', 'ProductController@admin')->name('admin.sanpham.role');
+Route::post('/admin/store', 'ProductController@store')->name('admin.store');
+Route::get('/admin/sanpham/edit/{id}', 'ProductController@edit')->name('admin.sanpham.edit');
+Route::put('/admin/sanpham/update/{id}', 'ProductController@update')->name('admin.sanpham.update');
+Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
+
 
 
 

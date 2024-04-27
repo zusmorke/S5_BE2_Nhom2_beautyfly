@@ -36,10 +36,46 @@
 </head>
 
 @if(!empty($results))
-    <div class="grid wide">
-        <h1 style="padding: 20px;font-size: 20px;">Kết quả tìm kiếm cho "{{ $query }}"</h1>
-        <div class="row">
-            @foreach($results as $product)
+<div class="grid wide">
+    <h1 style="padding: 20px;font-size: 20px;">Kết quả tìm kiếm cho "{{ $query }}"</h1>
+    <div class="row">
+        @foreach($results as $product)
+        <div class="col l-2 m-4 s-6 custom-padding">
+            <div class="product">
+                <div class="product__avt">
+                    <img src="{{asset('img/product/' . $product->hinh)}}" alt="" class="product__image">
+                </div>
+                <div class="product__info">
+                    <h3 class="product__name"><a href="{{url('product/' . $product->sanpham_id)}}" style="color:#0daf74">{{$product->ten}}</a></h3>
+                    <div class="product__price">
+                        <div class="price__new" style="text-align: right; color: red;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                    </div>
+                    <div class="product__sale">
+                        <span class="product__sale-percent">24%%</span>
+                        <span class="product__sale-text">Giảm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+@else
+<!-- Danh sách sản phẩm mặc định -->
+<div class="grid wide">
+    <!-- Tab items -->
+    <div class="tabs">
+        <div class="tab-item active" style="color: green;">
+            Bán Chạy
+        </div>
+
+        <div class="line" style="background-color: green;"></div>
+    </div>
+    <!-- Tab content -->
+    <div class="tab-content">
+        <div class="tab-pane active">
+            <div class="row">
+                @foreach($sanPham as $product)
                 <div class="col l-2 m-4 s-6 custom-padding">
                     <div class="product">
                         <div class="product__avt">
@@ -47,57 +83,25 @@
                         </div>
                         <div class="product__info">
                             <h3 class="product__name"><a href="{{url('product/' . $product->sanpham_id)}}" style="color:#0daf74">{{$product->ten}}</a></h3>
+                            @php
+                            $giaMoi = $product->gia - $product->sale;
+                            @endphp
                             <div class="product__price">
-                                <div class="price__new" style="text-align: right; color: red;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                                <div class="price__original" style="color: #999; text-decoration: line-through;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                                <div class="price__new" style="color: red; padding-left: 28px;">{{ $giaMoi}} <span class="price__unit">đ</span></div>
                             </div>
                             <div class="product__sale">
-                                <span class="product__sale-percent">24%%</span>
+                                <span class="product__sale-percent">{{$product->sale}}</span>
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            @endforeach
-        </div>
-    </div>
-@else
-<!-- Danh sách sản phẩm mặc định -->
-<div class="grid wide">
-        <!-- Tab items -->
-        <div class="tabs">
-            <div class="tab-item active" style="color: green;">
-                Bán Chạy
-            </div>
-            
-            <div class="line" style="background-color: green;"></div>
-        </div>
-        <!-- Tab content -->
-        <div class="tab-content">
-            <div class="tab-pane active">
-                <div class="row">
-                    @foreach($sanPham as $product)
-                    <div class="col l-2 m-4 s-6 custom-padding">
-                        <div class="product">
-                            <div class="product__avt">
-                                <img src="{{asset('img/product/' . $product->hinh)}}" alt="" class="product__image">
-                            </div>
-                            <div class="product__info">
-                                <h3 class="product__name"><a href="{{url('product/' . $product->sanpham_id)}}" style="color:#0daf74">{{$product->ten}}</a></h3>
-                                <div class="product__price">
-                                    <div class="price__new" style="text-align: right; color: red;">{{ $product->gia}} <span class="price__unit">đ</span></div>
-                                </div>
-                                <div class="product__sale">
-                                    <span class="product__sale-percent">24%%</span>
-                                    <span class="product__sale-text">Giảm</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <!-- HightLight  -->
@@ -111,13 +115,17 @@
                 <div class="product__avt">
                     <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
                 </div>
+                @php
+                $giaMoi = $product->gia - $product->sale;
+                @endphp
                 <div class="product__info">
                     <h3 class="product__name"><a href="{{url('listProduct')}}" style="color:#0daf74">{{$row->ten}}</a></h3>
                     <div class="product__price">
-                        <div class="price__new" style="color: red">{{ $row->gia }}<span class="price__unit">đ</span></div>
+                        <div class="price__original" style="color: #999; text-decoration: line-through; margin-left: -20px;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                        <div class="price__new" style="color: red; padding-left: 70px;">{{ $giaMoi}} <span class="price__unit">đ</span></div>
                     </div>
                     <div class="product__sale">
-                        <span class="product__sale-percent">23</span>
+                        <span class="product__sale-percent">{{ $row->sale}}</span>
                         <span class="product__sale-text">Giảm</span>
                     </div>
                 </div>

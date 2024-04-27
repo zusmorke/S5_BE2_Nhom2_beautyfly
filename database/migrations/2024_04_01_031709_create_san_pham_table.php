@@ -17,8 +17,8 @@ return new class extends Migration
             $table->increments('sanpham_id');
             $table->string('ten', 255);
             $table->string('mota', 255);
-            $table->decimal('gia', 10, 2);
-            $table->decimal('sale', 10, 2);
+            $table->integer('gia'); 
+            $table->integer('sale');
             $table->string('hinh', 255)->nullable();
             $table->integer('soluongtrongkho');
             $table->integer('soluongdaban')->default(0);

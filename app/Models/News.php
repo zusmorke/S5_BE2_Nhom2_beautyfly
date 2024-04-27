@@ -13,7 +13,7 @@ class News extends Model
     
     protected $table = 'news';
     public $primaryKey = 'id';
-    protected $fillable =[
-        'title','image_url','description', 'content'
-    ];
+    // protected $fillable =[
+    //     'title','image_url','description', 'content', 'posted_date'
+    // ];
 }

@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 
 </head>
+
 <body>
 
     <div class="main">
@@ -62,7 +63,7 @@
                         <option value="3">Giá : Thấp đến cao</option>
                     </select>
                 </div>
-                
+
             </div>
             <div class="productList">
                 <div class="listProduct">
@@ -77,11 +78,15 @@
                                         </div>
                                         <div class="product__info">
                                             <h3 class="product__name"><a href="{{url('product/' . $row->sanpham_id)}}" style="color:#0daf74">{{$row->ten}}</a></h3>
+                                            @php
+                                            $giaMoi = $row->gia - $row->sale;
+                                            @endphp
                                             <div class="product__price">
-                                                <div class="price__new" style="text-align: right; color: red;">{{ $row->gia}} <span class="price__unit">đ</span></div>
+                                                <div class="price__original" style="color: #999; text-decoration: line-through;">{{ $row->gia}} <span class="price__unit">đ</span></div>
+                                                <div class="price__new" style="color: red; padding-left: 32px;">{{ $giaMoi}} <span class="price__unit">đ</span></div>
                                             </div>
                                             <div class="product__sale">
-                                                <span class="product__sale-percent">30%</span>
+                                                <span class="product__sale-percent">{{$row->sale}}</span>
                                                 <span class="product__sale-text">Giảm</span>
                                             </div>
                                         </div>
@@ -96,12 +101,12 @@
                         <!-- Hiển thị liên kết đến trang trước nếu có -->
                         @if ($phanTrang->previousPageUrl())
                         <a href="{{ $phanTrang->previousPageUrl() }}" class="page-link">&laquo; Previous </a>
-                        @endif 
+                        @endif
                         <!-- Hiển thị số trang -->
                         Trang {{ $phanTrang->currentPage() }}/{{ $phanTrang->lastPage() }}
                         <!-- Hiển thị liên kết đến trang kế tiếp nếu có -->
                         @if ($phanTrang->nextPageUrl())
-                        <a href="{{ $phanTrang->nextPageUrl() }}" class="page-link"> Next &raquo ;</a>
+                        <a href="{{ $phanTrang->nextPageUrl() }}" class="page-link"> Next &raquo</a>
                         @endif
                     </div>
 
@@ -109,6 +114,6 @@
             </div>
         </div>
     </div>
-    
+
 </body>
 @endsection
