@@ -15,8 +15,6 @@ return new class extends Migration
     {
         Schema::create('don_hang', function (Blueprint $table) {
             $table->increments('donhang_id');
-            $table->unsignedInteger('user_id'); // Sử dụng cùng kiểu dữ liệu như trong bảng users
-            $table->foreign('user_id')->references('user_id')->on('user'); // Thay 'id' thành 'user_id'
             $table->date('ngaydat');
             $table->decimal('tongtien', 10, 2);
             $table->timestamps();

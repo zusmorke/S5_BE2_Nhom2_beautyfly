@@ -114,18 +114,18 @@
         <h3 class="category__title">Nhóm 2 Cometics</h3>
         <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
         <div class="owl-carousel hight owl-theme" id="productCarousel">
-            @foreach($sanPham as $index => $row)
+        @foreach($sanPham as $row)
             <div class="product">
                 <div class="product__avt">
                     <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
                 </div>
                 @php
-                $giaMoi = $product->gia - $product->sale;
+                $giaMoi = $row->gia - $row->sale;
                 @endphp
                 <div class="product__info">
                     <h3 class="product__name"><a href="{{url('listProduct')}}" style="color:#0daf74">{{$row->ten}}</a></h3>
                     <div class="product__price">
-                        <div class="price__original" style="color: #999; text-decoration: line-through; margin-left: -20px;">{{ $product->gia}} <span class="price__unit">đ</span></div>
+                        <div class="price__original" style="color: #999; text-decoration: line-through; margin-left: -20px;">{{ $row->gia}} <span class="price__unit">đ</span></div>
                         <div class="price__new" style="color: red; padding-left: 70px;">{{ $giaMoi}} <span class="price__unit">đ</span></div>
                     </div>
                     <div class="product__sale">

@@ -15,6 +15,7 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
+        
         // Thêm dữ liệu mẫu cho bảng news
         DB::table('news')->insert([
             [

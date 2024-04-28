@@ -10,4 +10,5 @@ class SanPham extends Model
     use HasFactory;
     protected $table = 'sanpham';
     protected $primaryKey = 'sanpham_id';
+    protected $fillable = [ 'ten', 'mota', 'gia', 'sale', 'soluongtrongkho', 'soluongdaban', 'danhmucsp_id','hinh'];
 }

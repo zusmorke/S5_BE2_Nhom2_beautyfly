@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 
 class LienHeSeeder extends Seeder
 {
+    
     /**
      * Run the database seeds.
      *
