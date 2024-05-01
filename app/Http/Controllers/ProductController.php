@@ -96,7 +96,7 @@ class ProductController extends Controller
 
         return redirect('admin')->with('success', 'Sản phẩm đã được xóa thành công.');
     }
-
+    /*Hien thi binh luan*/
     public function showProduct($sanphamId)
     {
         $sanpham = SanPham::find($sanphamId);

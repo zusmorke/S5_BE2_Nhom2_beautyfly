@@ -12,8 +12,6 @@ class CartController extends Controller
     {
         $cart = Session::get('cart');
         return view('cart', ['cart' => $cart]);
-
-
     }
     public function add(Request $request)
     {
@@ -42,22 +40,22 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
     public function update(Request $request)
-{
-    $productId = $request->input('product_id');
-    $newQuantity = $request->input('quantity');
+    {
+        $productId = $request->input('product_id');
+        $newQuantity = $request->input('quantity');
 
-    $cart = session()->get('cart');
+        $cart = session()->get('cart');
 
-    if (isset($cart[$productId])) {
-        // Nếu sản phẩm tồn tại trong giỏ hàng, cập nhật số lượng mới
-        $cart[$productId]['quantity'] = $newQuantity;
-        session()->put('cart', $cart);
-        return response()->json(['success' => true]);
-    } else {
-        // Nếu sản phẩm không tồn tại trong giỏ hàng, trả về lỗi
-        return response()->json(['error' => 'Sản phẩm không tồn tại trong giỏ hàng'], 404);
+        if (isset($cart[$productId])) {
+            // Nếu sản phẩm tồn tại trong giỏ hàng, cập nhật số lượng mới
+            $cart[$productId]['quantity'] = $newQuantity;
+            session()->put('cart', $cart);
+            return response()->json(['success' => true]);
+        } else {
+            // Nếu sản phẩm không tồn tại trong giỏ hàng, trả về lỗi
+            return response()->json(['error' => 'Sản phẩm không tồn tại trong giỏ hàng'], 404);
+        }
     }
-}
 
     public function remove(Request $request)
     {
@@ -71,21 +69,18 @@ class CartController extends Controller
 
         return redirect()->route('cart.index')->with('success', 'Sản phẩm đã được xóa khỏi giỏ hàng');
     }
-    public function applyDiscount(Request $request) {
+    public function applyDiscount(Request $request)
+    {
         // Lấy số tiền từ phiếu ưu đãi nhập từ form
         $discountAmount = $request->input('discount_amount');
-    
+
         // Lấy tổng tiền từ biến đã tính từ trước
         $totalPrice = $request->session()->get('totalPrice');
-    
+
         // Tính toán số tiền giảm
         $totalPriceAfterDiscount = $totalPrice - $discountAmount;
-    
+
         // Chuyển hướng trở lại trang giỏ hàng
         return redirect('/cart')->with('discountApplied', true);
-
     }
-    
-    
-
 }

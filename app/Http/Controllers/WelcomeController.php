@@ -124,4 +124,18 @@ class WelcomeController extends Controller
 
         return back()->with('success', 'Bình luận đã được thêm!');
     }
+
+    public function add(Request $request)
+    {
+        $request->validate([
+            'hovaten' => 'required|string|max:255',
+            'email' => 'required|email',
+            'diachi' => 'required|string|max:255',
+            'sdt' => 'required|string|max:20',
+            'loinhan' => 'required|string',
+        ]);
+
+        LienHe::create($request->all());
+        return back()->with('success', 'Thông tin liên hệ đã được gửi thành công!');
+    }
 }

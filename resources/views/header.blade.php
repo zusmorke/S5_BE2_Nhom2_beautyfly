@@ -29,9 +29,8 @@
 
             <!-- Cart -->
             <div class="header__cart have" href="#">
-                <i class="fas fa-shopping-basket"></i>
-               
-                <div class="header__cart-wrap">
+                <i class="fas fa-shopping-basket"></i>  
+                <div class="header__cart-wrap" >
                     <a href="{{url('cart')}}" class="btn btn--default cart-btn">Xem giỏ hàng</a>
                     <a href="{{url('pay')}}" class="btn btn--default cart-btn orange">Thanh toán</a </div>
                 </div>
@@ -88,3 +87,24 @@
             </ul>
         </div>
     </div>
+    <script>
+    function updateCartHint() {
+    var cartItems = document.querySelectorAll('.cart-item'); // Thay '.cart-item' bằng class hoặc id của các mục sản phẩm trong giỏ hàng
+    var cartItemCount = cartItems.length;
+    var cartHintElement = document.querySelector('.header__cart .cart-hint'); // Thay '.header__cart .cart-hint' bằng selector của phần hiển thị gợi ý số sản phẩm
+
+    if (cartHintElement) {
+        if (cartItemCount > 0) {
+            cartHintElement.textContent = cartItemCount;
+            cartHintElement.style.display = 'inline-block';
+        } else {
+            cartHintElement.style.display = 'none';
+        }
+    }
+}
+
+// Gọi hàm updateCartHint() khi trang tải hoặc khi có thay đổi trong giỏ hàng
+document.addEventListener('DOMContentLoaded', function() {
+    updateCartHint(); // Cập nhật số lượng sản phẩm khi trang được tải
+});
+</script>

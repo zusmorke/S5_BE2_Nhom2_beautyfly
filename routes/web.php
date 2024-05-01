@@ -37,6 +37,10 @@ Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
 
+/*Admin: Crud User */
+// Route::get('/admin', 'UserController@admin')->name('admin');
+
+Route::post('/contact', [WelcomeController::class, 'add'])->name('contact.add');
 
 Route::get('/admin', [ProductController::class, 'admin'])->middleware('role:admin')->name('admin.dashboard');
 Route::get('/user', [ProductController::class, 'index'])->middleware('role:user')->name('user.dashboard');

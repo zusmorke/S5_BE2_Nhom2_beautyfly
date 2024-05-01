@@ -30,71 +30,72 @@
     <!-- Owl caroucel Js-->
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 </head>
-    <div class="main">
-        <div class="grid wide">
-            <div class="main__breadcrumb">
-                <div class="breadcrumb__item">
-
-                </div>
-                <div class="breadcrumb__item">
-                    <a href="#" class="breadcrumb__link">Liên hệ</a>
-                </div>
+<div class="main">
+    <div class="grid wide">
+        <div class="main__breadcrumb">
+            <div class="breadcrumb__item">
+                <a href="#" class="breadcrumb__link">Liên hệ</a>
             </div>
-            <div class="row">
-                <div class="col l-6 m-12 s-12">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4749789206066!2d106.75548917471203!3d10.851432489301928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752797e321f8e9%3A0xb3ff69197b10ec4f!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEPDtG5nIG5naOG7hyBUaOG7pyDEkOG7qWM!5e0!3m2!1svi!2s!4v1711348810647!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </iframe>
-                </div>
-                <div class="col l-6 m-12 s-12">
-                    <div class="contact__wrap">
-                        <div class="contact__img">
-                            <img src="http://mauweb.monamedia.net/vanihome/wp-content/uploads/2018/04/logo-mona.png" alt="">
-                        </div>
-                        <ul class="contact__info">
-                            <li class="contact__text">
-                                <i class="fas fa-map-marked-alt"></i> 22/3 Võ Văn Ngân,Linh Chiểu,TP Thủ Đức
-                            </li>
-                            <li>
-                                <a href="tel:076 922 0162" class="contact__link">
-                                    <i class="fas fa-phone"></i> 012 345 6789
-                                </a>
-                                <a href="tel:076 922 0162" class="contact__link">
-                                    &#8212; 023 567 8912
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="contact__link">
-                                    <i class="fas fa-envelope"></i> nhom2@mail.com
-                                </a>
-                            </li>
-                        </ul>
+        </div>
+        <div class="row">
+            <div class="col l-6 m-12 s-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4749789206066!2d106.75548917471203!3d10.851432489301928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752797e321f8e9%3A0xb3ff69197b10ec4f!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEPDtG5nIG5naOG7hyBUaOG7pyDEkOG7qWM!5e0!3m2!1svi!2s!4v1711348810647!5m2!1svi!2s" width="600" height="480" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </iframe>
+            </div>
+            <div class="col l-6 m-12 s-12">
+                <div class="contact__wrap">
+                    <div class="contact__img">
+                        <img src="http://mauweb.monamedia.net/vanihome/wp-content/uploads/2018/04/logo-mona.png" alt="">
                     </div>
-                    <div class="about-us">
-                        <div class="about-us__heading">Liên hệ với chúng tôi</div>
+                    <ul class="contact__info">
+                        <li class="contact__text">
+                            <i class="fas fa-map-marked-alt"></i> 22/3 Võ Văn Ngân,Linh Chiểu,TP Thủ Đức
+                        </li>
+                        <li>
+                            <a href="tel:076 922 0162" class="contact__link">
+                                <i class="fas fa-phone"></i> 012 345 6789
+                            </a>
+                            <a href="tel:076 922 0162" class="contact__link">
+                                &#8212; 023 567 8912
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="contact__link">
+                                <i class="fas fa-envelope"></i> nhom2@mail.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-us">
+                    <div class="about-us__heading">Liên hệ với chúng tôi</div>
+                    <form method="POST" action="{{ route('contact.add') }}">
+                        @csrf <!-- CSRF Token -->
                         <div class="form__group">
                             <div>
-                                <input type="text" name="hoTen"  placeholder="Họ Và Tên">
+                                <input type="text" name="hovaten" placeholder="Họ Và Tên">
                             </div>
                             <div>
                                 <input type="text" name="email" placeholder="Email">
                             </div>
                             <div>
-                                <input type="text" name="diaChi" placeholder="Địa chỉ">
+                                <input type="text" name="diachi" placeholder="Địa chỉ">
                             </div>
                             <div>
-                                <input type="text" name="soDienThoai"  placeholder="Số điện thoại">
+                                <input type="text" name="sdt" placeholder="Số điện thoại">
                             </div>
                         </div>
-                        <textarea name="loiNhan" id="" cols="30" rows="5" placeholder="Lời nhắn"></textarea>
+                        <textarea name="loinhan" id="" cols="30" rows="5" placeholder="Lời nhắn"></textarea>
                         <button type="submit" class="btn btn--default">Gửi</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    
+</div>
 
-    <!-- <div class="container">
+
+@if(auth()->check() && auth()->user()->role === 'admin')
+<div class="container">
     <h2 style="font-size: 34px; text-align: center; color: red;">Thông tin liên hệ</h2>
     <div class="contact-wrapper">
         @foreach ($contact as $row)
@@ -121,10 +122,12 @@
             </li>
             <li class="contact-item">
                 <label>Ngày tạo:</label>
-                <span>{{ $row->created_at}}</span>
+                <span>{{ $row->created_at }}</span>
             </li>
         </ul>
         @endforeach
-    </div> -->
+    </div>
+</div>
+@endif
 </div>
 @endsection

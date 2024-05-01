@@ -31,44 +31,6 @@
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-
-    <style>
-    .dsbl {
-        margin-top: 20px;
-        padding: 15px;
-        border: 1px solid #e0e0e0;
-        border-radius: 8px;
-    }
-
-    .binhluan-item {
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 15px;
-        margin-bottom: 15px;
-    }
-
-    .user-info {
-        display: flex;
-        align-items: center;
-    }
-
-    .star-rating {
-        font-size: 20px;
-        color: #FFD700;
-    }
-
-    .created-at {
-        margin-top: 10px;
-    }
-
-    .binhluan-content {
-        padding-left: 20px;
-    }
-    i{
-        font-size: 4.6rem;
-        margin: 10px;
-        padding-top: 10px;
-    }
-</style>
 </head>
 
 <body>
@@ -198,7 +160,7 @@
                                 </div>
 
                                 <!-- Danh sách bình luận -->
-                                <h1 style="text-align: center;font-size: 2.6rem;">Danh sách bình luận</h1>
+                                <h1 style="text-align: center;font-size: 2.6rem;padding-top: 20px;">Danh sách bình luận</h1>
                                 <div class="dsbl">
                                     <div class="binhluan-list">
                                         @foreach($binhluans as $binhluan)
