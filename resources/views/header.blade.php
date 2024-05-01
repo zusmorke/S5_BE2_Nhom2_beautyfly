@@ -78,17 +78,6 @@
                 </li>
                 <li class="header__nav-item">
                     <a href="{{url('listProduct')}}" class="header__nav-link">Sản Phẩm</a>
-                    <div class="sub-nav-wrap grid wide">
-                        <ul class="sub-nav">
-                            @if(isset($cate) && count($cate) > 0)
-                            @foreach($cate as $row)
-                            <li class="sub-nav__item">
-                                <a href="{{ url('listProduct') }}" class="sub-nav__link heading">{{ $row->ten }}</a>
-                            </li>
-                            @endforeach
-                            @endif
-                        </ul>
-                    </div>
                 </li>
                 <li class="header__nav-item">
                     <a href="{{url('news')}}" class="header__nav-link">Tin Tức</a>

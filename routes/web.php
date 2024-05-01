@@ -15,8 +15,10 @@ Route::get('/news', [WelcomeController::class, 'news'])->name('news');
 Route::get('/danhgia', [WelcomeController::class, 'danhgia'])->name('danhgia');
 Route::get('/product', [WelcomeController::class, 'product'])->name('product');
 Route::get('/product/{id}', [WelcomeController::class, 'detail'])->name('product.detail');
-Route::get('/listProduct', [WelcomeController::class, 'showListProduct']);
+Route::get('/listProduct/{danhmucsp_id?}/{sort?}', 'App\Http\Controllers\WelcomeController@showListProduct')->name('listProduct.filter');
 
+Route::post('/binhluan', [WelcomeController::class, 'store'])->name('binhluan.store');
+Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product.show');
 Route::get('/search', [WelcomeController::class, 'index'])->name('search');
 
 Route::get('/news', [WelcomeController::class, 'news'])->name('news');  
@@ -29,12 +31,11 @@ Route::post('/cart/update', [CartController::class, 'update'])->name('cart.updat
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
 
-
+/*Admin: Crud San Pham */
 Route::get('/admin', 'ProductController@admin')->name('admin');
 Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('admin.sanpham.store');
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
-
 
 
 Route::get('/admin', [ProductController::class, 'admin'])->middleware('role:admin')->name('admin.dashboard');
@@ -55,4 +56,3 @@ Route::middleware('auth')->group(function () {
 Route::post('/product/{id}/updateQuantity', 'ProductController@updateProductQuantity')->name('sanpham.updateQuantity');
 
 require __DIR__.'/auth.php';
-

@@ -7,7 +7,7 @@ use App\Models\LienHe;
 use App\Models\GioiThieu;
 use App\Models\News;
 use App\Models\Category;
-use App\Models\DanhGia;
+use App\Models\BinhLuan;
 use App\Models\DonHang;
 use App\Models\ThongTinThanhToan;
 use Illuminate\Support\Facades\DB;
@@ -28,18 +28,33 @@ class WelcomeController extends Controller
         // Nếu có từ khóa tìm kiếm, thực hiện tìm kiếm sản phẩm
         if ($query) {
             $results = SanPham::where('ten', 'LIKE', "%{$query}%")
-                              ->orWhere('mota', 'LIKE', "%{$query}%")
-                              ->get();
+                ->orWhere('mota', 'LIKE', "%{$query}%")
+                ->get();
         } else {
             $results = [];
         }
         return view('index', compact('sanPham', 'cate', 'lienhe', 'results', 'query'));
     }
 
-    public function category()
+    public function showListProduct(Request $request)
     {
-        $cate = Category::all();
-        return view('category', ['category' => $cate]);
+        $cates = Category::all();
+        $query = SanPham::select('*', DB::raw('gia - sale as giaMoi'));
+
+        if ($request->has('danhmuc_id')) {
+            $query->where('danhmucsp_id', $request->danhmuc_id);
+        }
+
+        if ($request->sort) {
+            if ($request->sort == '2') {
+                $query->orderBy('giaMoi', 'asc'); // Giá đã giảm từ thấp đến cao
+            } elseif ($request->sort == '3') {
+                $query->orderBy('giaMoi', 'desc'); // Giá đã giảm từ cao đến thấp
+            }
+        }
+
+        $phanTrang = $query->paginate(7);
+        return view('listProduct', compact('cates', 'phanTrang'));
     }
 
     public function contact()
@@ -57,27 +72,12 @@ class WelcomeController extends Controller
         return view('about', ['about' => $gioithieu, 'data' => $sanPham]);
     }
 
-    public function danhgia($page = "danhgia")
-    {
-        $danhgia = DanhGia::all();
-        if ($danhgia->isEmpty()) {
-            var_dump("Loi");
-        }
-        return view($page, ['danhgia' => $danhgia]);
-    }
 
     public function product($page = "product")
     {
         $sanPham = SanPham::all();
         return view($page, ['product' => $sanPham]);
     }
-
-    public function showListProduct()
-    {
-        $phanTrang = SanPham::paginate(7);
-        return view('listProduct', compact('phanTrang'));
-    }
-
 
 
     public function cart($page = "cart")
@@ -108,5 +108,20 @@ class WelcomeController extends Controller
         } else {
             return redirect('/')->with('error', 'Sản phẩm không tồn tại');
         }
+    }
+
+    /* Binh Luan Store*/
+    public function store(Request $request)
+    {
+        $request->validate([
+            'sanpham_id' => 'required|integer',
+            'user_id' => 'required|integer',
+            'sao' => 'required|numeric',
+            'binhluan' => 'required|string|max:255',
+        ]);
+
+        BinhLuan::create($request->all());
+
+        return back()->with('success', 'Bình luận đã được thêm!');
     }
 }

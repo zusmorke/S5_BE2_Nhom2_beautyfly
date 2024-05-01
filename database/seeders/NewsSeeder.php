@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class NewsSeeder extends Seeder
 {
@@ -15,8 +15,6 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        
-        // Thêm dữ liệu mẫu cho bảng news
         DB::table('news')->insert([
             [
                 'title' => 'Tiêu đề tin tức 1',

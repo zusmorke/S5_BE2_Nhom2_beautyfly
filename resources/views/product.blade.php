@@ -31,6 +31,44 @@
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
 
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+
+    <style>
+    .dsbl {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+    }
+
+    .binhluan-item {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+    }
+
+    .star-rating {
+        font-size: 20px;
+        color: #FFD700;
+    }
+
+    .created-at {
+        margin-top: 10px;
+    }
+
+    .binhluan-content {
+        padding-left: 20px;
+    }
+    i{
+        font-size: 4.6rem;
+        margin: 10px;
+        padding-top: 10px;
+    }
+</style>
 </head>
 
 <body>
@@ -119,259 +157,228 @@
                 <p>Sản phẩm không tồn tại.</p>
                 @endif
             </div>
-            <div class="productDetail ">
-                <div class="main__tabnine ">
-                    <div class="grid wide ">
+
+            <div class="productDetail">
+                <div class="main__tabnine">
+                    <div class="grid wide">
                         <!-- Tab items -->
-                        <div class="tabs ">
-                            <div class="tab-item active ">
-                                Mô tả
+                        <div class="tabs">
+                            <div class="tab-item active">
+                                Bình Luận
                             </div>
-                            <div class="tab-item ">
-                                Đánh giá
-                            </div>
-                            <div class="line "></div>
+                            <div class="line"></div>
                         </div>
                         <!-- Tab content -->
-                        <div class="tab-content ">
-                            <div class="tab-pane active ">
-                                <div class="productDes ">
-
-                                    <div class="productDes__title ">Lorem Ipsum là gì?</div>
-                                    <p class="productDes__text "> <a href="# " class="productDes__link ">Lorem Ipsum </a> chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành
-                                        công nghiệp in ấn từ những năm 1500, khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học
-                                        văn phòng, nội dung của nó vẫn không hề bị thay đổi. Nó đã được phổ biến trong những năm 1960 nhờ việc bán những bản giấy Letraset in những đoạn Lorem Ipsum, và gần đây hơn, được sử dụng trong các ứng dụng dàn trang,
-                                        như Aldus PageMaker.
-                                    </p>
-                                    <div class="productDes__title ">Lorem Ipsum là gì?</div>
-                                    <p class="productDes__text "> <a href="# " class="productDes__link ">Lorem Ipsum </a> chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn. Lorem Ipsum đã được sử dụng như một văn bản chuẩn cho ngành
-                                        công nghiệp in ấn từ những năm 1500, khi một họa sĩ vô danh ghép nhiều đoạn văn bản với nhau để tạo thành một bản mẫu văn bản. Đoạn văn bản này không những đã tồn tại năm thế kỉ, mà khi được áp dụng vào tin học
-                                        văn phòng, nội dung của nó vẫn không hề bị thay đổi. Nó đã được phổ biến trong những năm 1960 nhờ việc bán những bản giấy Letraset in những đoạn Lorem Ipsum, và gần đây hơn, được sử dụng trong các ứng dụng dàn trang,
-                                        như Aldus PageMaker.
-                                    </p>
-                                </div>
-
-                            </div>
-                            <div class="tab-pane ">
-                                <div class="productDes__ratting ">
-                                    <div class="productDes__ratting-title ">Đánh giá của bạn</div>
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+                                <div class="productDes__ratting">
+                                    <div class="productDes__ratting-title">Bình luận của bạn</div>
                                     <div class="productDes__ratting-wrap">
-                                        <div id="rating">
-                                            <input type="radio" id="star5" name="rating" value="5" />
-                                            <label class="full" for="star5" title="Awesome - 5 stars"></label>
-
-                                            <input type="radio" id="star4half" name="rating" value="4 and a half" />
-                                            <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-
-                                            <input type="radio" id="star4" name="rating" value="4" />
-                                            <label class="full" for="star4" title="Pretty good - 4 stars"></label>
-
-                                            <input type="radio" id="star3half" name="rating" value="3 and a half" />
-                                            <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-
-                                            <input type="radio" id="star3" name="rating" value="3" />
-                                            <label class="full" for="star3" title="Meh - 3 stars"></label>
-
-                                            <input type="radio" id="star2half" name="rating" value="2 and a half" />
-                                            <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-
-                                            <input type="radio" id="star2" name="rating" value="2" />
-                                            <label class="full" for="star2" title="Kinda bad - 2 stars"></label>
-
-                                            <input type="radio" id="star1half" name="rating" value="1 and a half" />
-                                            <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-
-                                            <input type="radio" id="star1" name="rating" value="1" />
-                                            <label class="full" for="star1" title="Sucks big time - 1 star"></label>
-
-                                            <input type="radio" id="starhalf" name="rating" value="half" />
-                                            <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                                        </div>
-                                        <textarea class="ratecomment" name=" " id=" " cols="30 " rows="1" placeholder="Vui lòng viết đánh giá của bạn "></textarea>
+                                        <form action="{{ route('binhluan.store') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="sanpham_id" value="{{ $sanpham->sanpham_id }}">
+                                            <input type="hidden" name="user_id" value="{{ auth()->user()->user_id }}">
+                                            <div id="rating">
+                                                <!-- Các input radio giữ nguyên -->
+                                                <input type="radio" id="star5" name="sao" value="5" />
+                                                <label class="full" for="star5" title="Awesome - 5 stars"></label>
+                                                <input type="radio" id="star4" name="sao" value="4" />
+                                                <label class="full" for="star4" title="Awesome - 4 stars"></label>
+                                                <input type="radio" id="star3" name="sao" value="3" />
+                                                <label class="full" for="star3" title="Awesome - 3 stars"></label>
+                                                <input type="radio" id="star2" name="sao" value="2" />
+                                                <label class="full" for="star2" title="Awesome - 2 stars"></label>
+                                                <input type="radio" id="star1" name="sao" value="1" />
+                                                <label class="full" for="star1" title="Awesome - 1 stars"></label>
+                                            </div>
+                                            <textarea class="ratecomment" name="binhluan" id="" cols="30" rows="1" placeholder="Vui lòng viết đánh giá của bạn"></textarea>
+                                            <button type="submit" class="btn btn--default">Gửi</button>
+                                        </form>
                                     </div>
-                                    <button type="submit " class="btn btn--default">Đánh giá</button>
                                 </div>
 
-                                @if(isset($danhgia))
-                                @foreach($danhgia as $row)
-                                <ul class="rate__list">
-                                    <li class="rate__item">
-                                        <div class="rate__info">
-                                            <img src="https://lh3.googleusercontent.com/ogw/ADGmqu9PFgn_rHIm9i3eIlVr5RwzwY2w8EystHF213wj=s32-c-mo" alt="">
-                                            <h3 class="rate__user">Giang Tuấn Phương</h3>
-                                            <div class="rate__star">
-                                                <div class="group-star">
-                                                    {{$row->sao}}
-                                                    <i class="fas fa-star"></i>
+                                <!-- Danh sách bình luận -->
+                                <h1 style="text-align: center;font-size: 2.6rem;">Danh sách bình luận</h1>
+                                <div class="dsbl">
+                                    <div class="binhluan-list">
+                                        @foreach($binhluans as $binhluan)
+                                        <div class="binhluan-item">
+                                            <div class="binhluan-header">
+                                                <div class="user-info">
+                                                    <i class="icon-user"></i>
+                                                    <div class="user-name" style="padding-left: 10px;font-size: 2rem;">{{ $binhluan->user->name ?? 'Người dùng không tồn tại' }}</div>
                                                 </div>
+                                                <!-- Add star rating here -->
+                                                <div class="star-rating" style="font-size: 20px; color: #FFD700;padding-left: 70px;">
+                                                    @for ($i = 0; $i < $binhluan->sao; $i++)
+                                                        &#9733; <!-- Unicode star character to display filled star -->
+                                                        @endfor
+                                                        @for ($i = $binhluan->sao; $i < 5; $i++) &#9734; <!-- Unicode star character to display empty star -->
+                                                            @endfor
+                                                </div>
+                                                <!-- End star rating -->
+                                                <p class="created-at" style="padding-left: 70px;">{{ $binhluan->created_at }}</p>
                                             </div>
+                                            <p class="binhluan-content" style="padding-left: 70px;font-size: 1.8rem;">{{ $binhluan->binhluan }}</p>
                                         </div>
-                                        <div class="rate__comment">{{$row->binhluan}}</div>
-                                    </li>
-                                </ul>
-                                @endforeach
-                                @endif
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>            
-            @yield('content')
-            <!-- Messenger Plugin chat Code -->
-            <div id="fb-root"></div>
-
-            <!-- Your Plugin chat code -->
-            <div id="fb-customer-chat" class="fb-customerchat">
             </div>
+        </div>
 
-            <script>
-                function minusProduct() {
-                    var inputQty = document.querySelector('.input-qty');
-                    var currentValue = parseInt(inputQty.value);
-                    if (currentValue > 1) {
-                        inputQty.value = currentValue - 1;
-                        updateCartQuantity(currentValue - 1);
-                    }
+        @yield('content')
+        <!-- Messenger Plugin chat Code -->
+        <div id="fb-root"></div>
+
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat">
+        </div>
+
+        <script>
+            function minusProduct() {
+                var inputQty = document.querySelector('.input-qty');
+                var currentValue = parseInt(inputQty.value);
+                if (currentValue > 1) {
+                    inputQty.value = currentValue - 1;
+                    updateCartQuantity(currentValue - 1);
                 }
+            }
 
-                function plusProduct() {
-                    var inputQty = document.querySelector('.input-qty');
-                    var currentValue = parseInt(inputQty.value);
-                    var maxValue = parseInt(inputQty.getAttribute('max'));
-                    if (currentValue < maxValue) {
-                        inputQty.value = currentValue + 1;
-                        updateCartQuantity(currentValue + 1);
-                    }
+            function plusProduct() {
+                var inputQty = document.querySelector('.input-qty');
+                var currentValue = parseInt(inputQty.value);
+                var maxValue = parseInt(inputQty.getAttribute('max'));
+                if (currentValue < maxValue) {
+                    inputQty.value = currentValue + 1;
+                    updateCartQuantity(currentValue + 1);
                 }
-            </script>
+            }
+        </script>
 
-            <script>
-                var chatbox = document.getElementById('fb-customer-chat');
-                chatbox.setAttribute("page_id", "105913298384666");
-                chatbox.setAttribute("attribution", "biz_inbox");
-                window.fbAsyncInit = function() {
-                    FB.init({
-                        xfbml: true,
-                        version: 'v10.0'
-                    });
-                };
-
-                (function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
-            </script>
-            <script>
-                $(document).ready(function() {
-                    var sync1 = $("#sync1 ");
-                    var sync2 = $("#sync2 ");
-                    var slidesPerPage = 4;
-                    var syncedSecondary = true;
-                    sync1.owlCarousel({
-                        items: 1,
-                        loop: true,
-                        margin: 20,
-                        nav: true,
-                        dots: false,
-                        autoplay: true,
-                        autoplayTimeout: 4000,
-                        autoplayHoverPause: true
-                    })
-                    sync2
-                        .on('initialized.owl.carousel', function() {
-                            sync2.find(".owl-item ").eq(0).addClass("current ");
-                        })
-                        .owlCarousel({
-                            items: 4,
-                            dots: false,
-                            nav: false,
-                            margin: 30,
-                            smartSpeed: 200,
-                            slideSpeed: 500,
-                            slideBy: 4,
-                            responsiveRefreshRate: 100
-                        }).on('changed.owl.carousel', syncPosition2);
-
-                    function syncPosition(el) {
-                        var count = el.item.count - 1;
-                        var current = Math.round(el.item.index - (el.item.count / 2) - .5);
-
-                        if (current < 0) {
-                            current = count;
-                        }
-                        if (current > count) {
-                            current = 0;
-                        }
-
-                        //end block
-
-                        sync2
-                            .find(".owl-item ")
-                            .removeClass("current ")
-                            .eq(current)
-                            .addClass("current ");
-                        var onscreen = sync2.find('.owl-item.active').length - 1;
-                        var start = sync2.find('.owl-item.active').first().index();
-                        var end = sync2.find('.owl-item.active').last().index();
-
-                        if (current > end) {
-                            sync2.data('owl.carousel').to(current, 100, true);
-                        }
-                        if (current < start) {
-                            sync2.data('owl.carousel').to(current - onscreen, 100, true);
-                        }
-                    }
-
-                    function syncPosition2(el) {
-                        if (syncedSecondary) {
-                            var number = el.item.index;
-                            sync1.data('owl.carousel').to(number, 100, true);
-                        }
-                    }
-
-                    sync2.on("click ", ".owl-item ", function(e) {
-                        e.preventDefault();
-                        var number = $(this).index();
-                        sync1.data('owl.carousel').to(number, 300, true);
-                    });
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "105913298384666");
+            chatbox.setAttribute("attribution", "biz_inbox");
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml: true,
+                    version: 'v10.0'
                 });
+            };
 
-                $('.owl-carousel.hight').owlCarousel({
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script>
+            $(document).ready(function() {
+                var sync1 = $("#sync1 ");
+                var sync2 = $("#sync2 ");
+                var slidesPerPage = 4;
+                var syncedSecondary = true;
+                sync1.owlCarousel({
+                    items: 1,
                     loop: true,
                     margin: 20,
                     nav: true,
                     dots: false,
                     autoplay: true,
-                    autoplayTimeout: 2000,
-                    autoplayHoverPause: true,
-                    responsive: {
-                        0: {
-                            items: 2
-                        },
-                        600: {
-                            items: 3
-                        },
-                        1000: {
-                            items: 6
-                        }
-                    }
+                    autoplayTimeout: 4000,
+                    autoplayHoverPause: true
                 })
-            </script>
+                sync2
+                    .on('initialized.owl.carousel', function() {
+                        sync2.find(".owl-item ").eq(0).addClass("current ");
+                    })
+                    .owlCarousel({
+                        items: 4,
+                        dots: false,
+                        nav: false,
+                        margin: 30,
+                        smartSpeed: 200,
+                        slideSpeed: 500,
+                        slideBy: 4,
+                        responsiveRefreshRate: 100
+                    }).on('changed.owl.carousel', syncPosition2);
 
-            <!-- Script common -->
-            <script src="{{asset('js/commonscript.js')}} ">
-            </script>
-            <script>
-                function calcRate(r) {
-                    const f = ~~r, //Tương tự Math.floor(r)
-                        id = 'star' + f + (r % f ? 'half' : '')
-                    id && (document.getElementById(id).checked = !0)
+                function syncPosition(el) {
+                    var count = el.item.count - 1;
+                    var current = Math.round(el.item.index - (el.item.count / 2) - .5);
+
+                    if (current < 0) {
+                        current = count;
+                    }
+                    if (current > count) {
+                        current = 0;
+                    }
+
+                    //end block
+
+                    sync2
+                        .find(".owl-item ")
+                        .removeClass("current ")
+                        .eq(current)
+                        .addClass("current ");
+                    var onscreen = sync2.find('.owl-item.active').length - 1;
+                    var start = sync2.find('.owl-item.active').first().index();
+                    var end = sync2.find('.owl-item.active').last().index();
+
+                    if (current > end) {
+                        sync2.data('owl.carousel').to(current, 100, true);
+                    }
+                    if (current < start) {
+                        sync2.data('owl.carousel').to(current - onscreen, 100, true);
+                    }
                 }
-            </script>
+
+                function syncPosition2(el) {
+                    if (syncedSecondary) {
+                        var number = el.item.index;
+                        sync1.data('owl.carousel').to(number, 100, true);
+                    }
+                }
+
+                sync2.on("click ", ".owl-item ", function(e) {
+                    e.preventDefault();
+                    var number = $(this).index();
+                    sync1.data('owl.carousel').to(number, 300, true);
+                });
+            });
+
+            $('.owl-carousel.hight').owlCarousel({
+                loop: true,
+                margin: 20,
+                nav: true,
+                dots: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 2
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 6
+                    }
+                }
+            })
+        </script>
+
+        <!-- Script common -->
+        <script src="{{asset('js/commonscript.js')}} "> </script>
 </body>
 
 </html>

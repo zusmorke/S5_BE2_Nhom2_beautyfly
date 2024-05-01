@@ -13,19 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('danhgia', function (Blueprint $table) {
+        Schema::create('binhluan', function (Blueprint $table) {
             // Định nghĩa cột
+            $table->increments('binhluansp_id');
             $table->unsignedInteger('sanpham_id');
+            $table->unsignedInteger('user_id'); // Thêm cột user_id
             $table->float('sao');
             $table->string('binhluan', 255);
-            
-            // Định nghĩa khóa chính đa cột
-            $table->primary('sanpham_id');
+            $table->timestamps();
             
             // Định nghĩa ràng buộc ngoại
             $table->foreign('sanpham_id')->references('sanpham_id')->on('sanpham');
+            $table->foreign('user_id')->references('user_id')->on('user'); // Thêm ràng buộc ngoại cho user_id
         });
-        
     }
 
     /**
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('danhgia');
+        Schema::dropIfExists('binhluan');
     }
 };

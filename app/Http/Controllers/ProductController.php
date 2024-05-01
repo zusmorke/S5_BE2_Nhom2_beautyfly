@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BinhLuan;
 use App\Models\SanPham;
 use App\Models\Category;
 use App\Models\DanhGia;
@@ -88,11 +89,18 @@ class ProductController extends Controller
     public function delete($id)
     {
         // Delete related records in the danhgia table
-        DanhGia::where('sanpham_id', $id)->delete();
+        BinhLuan::where('sanpham_id', $id)->delete();
 
         // Delete the SanPham record
         SanPham::destroy($id);
 
         return redirect('admin')->with('success', 'Sản phẩm đã được xóa thành công.');
+    }
+
+    public function showProduct($sanphamId)
+    {
+        $sanpham = SanPham::find($sanphamId);
+        $binhluans = BinhLuan::where('sanpham_id', $sanphamId)->get(); // Lấy tất cả bình luận của sản phẩm
+        return view('product', compact('sanpham', 'binhluans'));
     }
 }

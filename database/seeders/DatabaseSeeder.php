@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\BinhLuan;
 use App\Models\News;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -19,10 +20,11 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(SanPhamSeeder::class);
         $this->call(LienHeSeeder::class);
-        $this->call(DanhGiaSeeder::class);
+        $this->call(News::class);
+        $this->call(BinhLuan::class);
         $this->call(DonHangSeeder::class);
         $this->call(ChiTietDonHangSeeder::class);
         $this->call(ThongTinThanhToanSeeder::class);    
-        $this->call(News::class);       
+               
     }
 }

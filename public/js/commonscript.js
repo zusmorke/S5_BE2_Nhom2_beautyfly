@@ -78,3 +78,11 @@ document.getElementById('addToCartBtn').addEventListener('click', function() {
         document.getElementById('notification').style.display = 'none';
     }, 3000); // Thời gian hiển thị thông báo (3 giây)
 });
+
+/*Product*/
+function calcRate(r) {
+    const f = ~~r, //Tương tự Math.floor(r)
+        id = 'star' + f + (r % f ? 'half' : '')
+    id && (document.getElementById(id).checked = !0)
+}
+    

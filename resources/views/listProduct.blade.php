@@ -47,23 +47,27 @@
                         <a href="{{asset('/')}}" class="breadcrumb__link">Trang chủ</a>
                     </div>
                     <div class="breadcrumb__item">
-                        <a href="{{asset('listProduct')}}" class="breadcrumb__link">Cửa hàng</a>
+                        <a href="{{ route('listProduct.filter') }}" class="breadcrumb__link">Cửa hàng</a>
                     </div>
-                    <!-- <div class="breadcrumb__item">
-                        <a href="#" class="breadcrumb__link">Hãng DHC</a>
-                    </div> -->
+                    <!-- Dropdown để chọn danh mục -->
+                    <!-- Dropdown để chọn danh mục -->
+                    <select onchange="location = this.value;" style="width: 150px;height: 36px;font-size: 1.6rem;">
+                        <option value="{{ route('listProduct.filter') }}">Danh Mục</option>
+                        @foreach ($cates as $cate)
+                        <option value="{{ route('listProduct.filter', ['danhmuc_id' => $cate->danhmucsp_id]) }}" {{ request('danhmuc_id') == $cate->danhmucsp_id ? 'selected' : '' }}>{{ $cate->ten }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="main__sort">
                     <h3 class="sort__title">
                         Hiển thị kết quả theo
                     </h3>
-                    <select class="sort__select"> name="" id="">
-                        <option value="1">Thứ tự mặc định</option>
-                        <option value="2">Giá : Cao đến thấp</option>
-                        <option value="3">Giá : Thấp đến cao</option>
+                    <select class="sort__select" onchange="sortProducts(this.value)">
+                        <option value="" {{ request('sort') == '' ? 'selected' : '' }}>Thứ tự mặc định</option>
+                        <option value="2" {{ request('sort') == '2' ? 'selected' : '' }}>Giá : Thấp đến cao</option>
+                        <option value="3" {{ request('sort') == '3' ? 'selected' : '' }}>Giá : Cao đến thấp</option>
                     </select>
                 </div>
-
             </div>
             <div class="productList">
                 <div class="listProduct">
@@ -109,11 +113,17 @@
                         <a href="{{ $phanTrang->nextPageUrl() }}" class="page-link"> Next &raquo</a>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
+    <script>
+        function sortProducts(sortValue) {
+            var currentUrl = window.location.href;
+            var newUrl = new URL(currentUrl);
+            newUrl.searchParams.set('sort', sortValue); // Đảm bảo rằng chỉ tham số sort được thay đổi
+            window.location.href = newUrl.toString(); // Sử dụng toString() để chuyển URL object thành string
+        }
+    </script>
 </body>
 @endsection
