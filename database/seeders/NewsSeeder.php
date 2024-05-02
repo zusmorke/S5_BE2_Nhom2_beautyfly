@@ -17,24 +17,32 @@ class NewsSeeder extends Seeder
     {
         DB::table('news')->insert([
             [
-                'title' => 'Tiêu đề tin tức 1',
-                'image_url' => 'https://example.com/image1.jpg',
-                'description' => 'Mô tả ngắn về tin tức 1',
-                'content' => 'Nội dung chi tiết của tin tức 1',
+                'title' => 'News 1',
+                'image_url' => 'image1.jpg',
+                'description' => 'Description of News 1',
+                'content' => 'Content of News 1',
                 'posted_date' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-
-                'title' => 'Tiêu đề tin tức 2',
-                'image_url' => 'https://example.com/image2.jpg',
-                'description' => 'Mô tả ngắn về tin tức 2',
-                'content' => 'Nội dung chi tiết của tin tức 2',
+                'title' => 'News 2',
+                'image_url' => 'image2.jpg',
+                'description' => 'Description of News 2',
+                'content' => 'Content of News 2',
                 'posted_date' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
-            ]
+            ],
+            [
+                'title' => 'News 3',
+                'image_url' => 'image3.jpg',
+                'description' => 'Description of News 3',
+                'content' => 'Content of News 3',
+                'posted_date' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

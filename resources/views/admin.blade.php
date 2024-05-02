@@ -64,10 +64,6 @@
                             <input type="number" id="sale" name="sale" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="hinh">Hình:</label>
-                            <input type="file" id="hinh" name="hinh" class="form-control">
-                        </div>
-                        <div class="form-group">
                             <label for="soluongtrongkho">Số lượng trong kho:</label>
                             <input type="number" id="soluongtrongkho" name="soluongtrongkho" class="form-control">
                         </div>
@@ -78,6 +74,10 @@
                         <div class="form-group">
                             <label for="danhmucsp_id">Danh mục sản phẩm:</label>
                             <input type="number" id="danhmucsp_id" name="danhmucsp_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="hinh">Hình:</label>
+                            <input type="file" id="hinh" name="hinh" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
                     </form>
@@ -109,7 +109,7 @@
                             <td>{{ $sanpham->mota }}</td>
                             <td>{{ $sanpham->gia }}</td>
                             <td>{{ $sanpham->sale }}</td>
-                            <td><img src="{{ url('img/product/' . $sanpham->hinh)}}" alt="Hình ảnh sản phẩm"></td>
+                            <td><img src="{{ asset('img/product/' . $sanpham->hinh)}}" alt="Hình ảnh sản phẩm"></td>
                             <td>{{ $sanpham->soluongtrongkho }}</td>
                             <td>{{ $sanpham->soluongdaban }}</td>
                             <td>{{ $sanpham->danhmucsp_id }}</td>
@@ -192,7 +192,7 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
-                        <tr>
+                        <tr>    
                             <td>{{ $user->user_id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->password }}</td>
@@ -202,7 +202,7 @@
                             <td>{{ $user->update_at }}</td>
                             <td>{{ $user->email_verified_at }}</td>
                             <td>
-                               
+
                             </td>
                         </tr>
                         @endforeach
@@ -227,4 +227,15 @@
     </body>
 
     </html>
+    <script>
+        // Script để hiển thị popup khi click vào nút "Thêm sản phẩm"
+        document.getElementById('openPopupButton').addEventListener('click', function() {
+            document.getElementById('popupForm').style.display = 'block';
+        });
+
+        // Script để đóng popup khi click vào nút "Đóng"
+        document.getElementById('closePopupButton').addEventListener('click', function() {
+            document.getElementById('popupForm').style.display = 'none';
+        });
+    </script>
     <script src="{{asset('js/admin.js')}}"></script>

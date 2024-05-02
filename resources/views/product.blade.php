@@ -192,7 +192,7 @@
                 </div>
             </div>
         </div>
-
+    
         @yield('content')
         <!-- Messenger Plugin chat Code -->
         <div id="fb-root"></div>

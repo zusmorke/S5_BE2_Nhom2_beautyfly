@@ -33,17 +33,23 @@ class ProductController extends Controller
         $sanpham = new Sanpham();
         $sanpham->ten = $request->input('ten');
         $sanpham->mota = $request->input('mota');
+        $sanpham->gia = $request->input('gia');
+        $sanpham->sale = $request->input('sale');
+        $sanpham->soluongtrongkho = $request->input('soluongtrongkho');
+        $sanpham->soluongdaban = $request->input('soluongdaban');
+        // Lấy danh mục sản phẩm đầu tiên trong trường hợp không có hàm controller để lấy danh mục
+        
+        $danhmucsp = Category::first();
+        if ($danhmucsp) {
+            $sanpham->danhmucsp_id = $danhmucsp->id;
+        }
         // Process file upload
         if ($request->hasFile('hinh')) {
             $file = $request->file('hinh');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $filepath = 'img/product/' . $filename;
-            // Move the uploaded file to the correct directory
-            $file->move(public_path('img/product'), $filename);
-            // Save $filepath in the 'hinh' column of the 'sanpham' table
-            $sanpham->hinh = $filepath;
+            $sanpham->hinh = $file->getClientOriginalName();
         }
-        SanPham::create($request->all());
+
+        $sanpham->save();
         return redirect('admin')->with('success', 'Sản phẩm đã được tạo thành công.');
     }
 

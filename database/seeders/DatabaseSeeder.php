@@ -20,11 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(SanPhamSeeder::class);
         $this->call(LienHeSeeder::class);
-        $this->call(News::class);
         $this->call(BinhLuan::class);
         $this->call(DonHangSeeder::class);
         $this->call(ChiTietDonHangSeeder::class);
         $this->call(ThongTinThanhToanSeeder::class);    
-               
     }
 }

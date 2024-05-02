@@ -79,7 +79,7 @@
     <div class="tab-content">
         <div class="tab-pane active">
             <div class="row">
-                @foreach($sanPham as $product)
+                @foreach($sanPhamBanChay as $product)
                 <div class="col l-2 m-4 s-6 custom-padding">
                     <div class="product">
                         <div class="product__avt">
@@ -106,7 +106,6 @@
         </div>
     </div>
 </div>
-</div>
 
 <!-- HightLight  -->
 <div class="main__frame" style="background: #f2fbf7;">
@@ -114,7 +113,7 @@
         <h3 class="category__title">Nhóm 2 Cometics</h3>
         <h3 class="category__heading">SẢN PHẨM NỔI BẬT</h3>
         <div class="owl-carousel hight owl-theme" id="productCarousel">
-        @foreach($sanPham as $row)
+            @foreach($sanPham as $row)
             <div class="product">
                 <div class="product__avt">
                     <img src="{{asset('img/product/' . $row->hinh)}}" alt="" class="product__image">
