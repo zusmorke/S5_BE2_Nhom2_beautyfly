@@ -7,6 +7,7 @@
         <title>Admin Dashboard</title>
         <link rel="stylesheet" href="{{asset('css/admin.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     </head>
 
     <body>
@@ -15,6 +16,7 @@
             <a href="{{url('/')}}"><i class="fa fa-home" style="color:#fff; font-size: 25px;"></i></a>
             <nav>
                 <ul>
+                  
                     <li><a href="#products" class="nav-link">Quản lý sản phẩm</a></li>
                     <li><a href="#news" class="nav-link">Quản lý tin tức</a></li>
                     <li><a href="#accounts" class="nav-link">Quản lý tài khoản</a></li>
@@ -89,6 +91,7 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            
                             <th>ID</th>
                             <th>Tên</th>
                             <th>Mô tả</th>
@@ -104,6 +107,7 @@
                     <tbody>
                         @foreach ($sanphams as $sanpham)
                         <tr>
+                           
                             <td>{{ $sanpham->sanpham_id }}</td>
                             <td>{{ $sanpham->ten }}</td>
                             <td>{{ $sanpham->mota }}</td>
@@ -158,17 +162,25 @@
                                     <button type="submit" class="btn btn-primary">Cập Nhật Sản Phẩm</button>
                                     <button type="button" class="btn btn-danger" onclick="closeEditForm()">Đóng</button>
                                 </form>
+                               
                             </div>
                         </tr>
                         @endforeach
                     </tbody>
+                  
                 </table>
+               
+
                 @else
                 <p>Không có sản phẩm nào.</p>
                 @endif
                 @endisset
+
+               
                 </div>
+                {{$sanphams->links()}}
             </section>
+            
 
             <section id="accounts-section" class="admin-section">
                 <h2>Quản lý tài khoản</h2>
@@ -178,29 +190,25 @@
                 @if ($users->count())
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th>ID</th>
+                        <tr> 
+                            
+                         
                             <th>Tên</th>
-                            <th>Mật Khẩu</th>
                             <th>Email</th>
+                            <th>Mật Khẩu</th>
                             <th>Quyền</th>
-                            <th>Ngày Tạo</th>
-                            <th>Cập Nhật</th>
-                            <th>Email thay thế</th>
-                            <th>Thao tác</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
                         <tr>    
-                            <td>{{ $user->user_id }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->password }}</td>
+                         
+                            <td>{{ $user->name }}</td>                           
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->password }}</td>
                             <td>{{ $user->role }}</td>
-                            <td>{{ $user->create_at }}</td>
-                            <td>{{ $user->update_at }}</td>
-                            <td>{{ $user->email_verified_at }}</td>
+                            
                             <td>
 
                             </td>
@@ -211,6 +219,8 @@
                 <p>Không có tài khoản nào.</p>
                 @endif
                 @endisset
+
+                
             </section>
 
             <section id="statistics-section" class="admin-section">

@@ -9,8 +9,10 @@ class UserController extends Controller
 {
     public function admin()
     {
-        $users = User::all();
-        return view('admin', compact('users'));
+        $users = User::paginate(5);
+        return view('admin', compact('users'))->with('i',(request()->input('page', 1) -1) *5);
+
+        
     }
 
     // public function store(Request $request)

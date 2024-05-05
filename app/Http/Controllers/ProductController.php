@@ -18,8 +18,8 @@ class ProductController extends Controller
      */
     public function admin()
     {
-        $sanphams = SanPham::all();
-        return view('admin', compact('sanphams'));
+        $sanphams = SanPham::paginate(5);
+        return view('admin', compact('sanphams'))->with('i',(request()->input('page', 1) -1) *5);
     }
 
     public function store(Request $request)
