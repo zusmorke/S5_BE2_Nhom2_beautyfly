@@ -109,4 +109,25 @@ class ProductController extends Controller
         $binhluans = BinhLuan::where('sanpham_id', $sanphamId)->get(); // Lấy tất cả bình luận của sản phẩm
         return view('product', compact('sanpham', 'binhluans'));
     }
+    public function purchaseProduct(Request $request) {
+       // Lấy thông tin sản phẩm từ request
+       $sanPhamId = $request->input('sanpham_id');
+       $soLuongDatHang = $request->input('so_luong');
+
+       // Lấy thông tin sản phẩm từ cơ sở dữ liệu
+       $sanPham = SanPham::find($sanPhamId);
+
+       if ($sanPham) {
+           // Cập nhật số lượng bán và số lượng trong kho
+           $sanPham->so_luong_ban += $soLuongDatHang;
+           $sanPham->so_luong_trong_kho -= $soLuongDatHang;
+
+           // Lưu lại thông tin cập nhật vào cơ sở dữ liệu
+           $sanPham->save();
+
+           // Điều hướng hoặc trả về thông báo thành công
+       } else {
+           // Trả về thông báo lỗi nếu sản phẩm không tồn tại
+       }
+    }
 }

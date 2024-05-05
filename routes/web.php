@@ -30,12 +30,15 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
+Route::post('/purchase-product', [ProductController::class, 'purchaseProduct'])->name('purchase.product');
+
 
 /*Admin: Crud San Pham */
 Route::get('/admin', 'ProductController@admin')->name('admin');
 Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('admin.sanpham.store');
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
+
 
 /*Admin: Crud User */
 // Route::get('/admin', 'UserController@admin')->name('admin');

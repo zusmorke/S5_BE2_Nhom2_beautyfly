@@ -83,4 +83,14 @@ class CartController extends Controller
         // Chuyển hướng trở lại trang giỏ hàng
         return redirect('/cart')->with('discountApplied', true);
     }
+    public function addToCart(Request $request)
+    {
+        $sanpham_id = $request->input('sanpham_id');
+        $so_luong = $request->input('so_luong');
+
+        // Thêm sản phẩm vào giỏ hàng với số lượng được truyền từ request
+        // Code xử lý thêm sản phẩm vào giỏ hàng ở đây
+
+        return redirect()->route('cart.index')->with('success', 'Sản phẩm đã được thêm vào giỏ hàng');
+    }
 }
