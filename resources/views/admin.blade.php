@@ -16,9 +16,8 @@
             <a href="{{url('/')}}"><i class="fa fa-home" style="color:#fff; font-size: 25px;"></i></a>
             <nav>
                 <ul>
-                  
+
                     <li><a href="#products" class="nav-link">Quản lý sản phẩm</a></li>
-                    <li><a href="#news" class="nav-link">Quản lý tin tức</a></li>
                     <li><a href="#accounts" class="nav-link">Quản lý tài khoản</a></li>
                     <li><a href="#statistics" class="nav-link">Thống kê</a></li>
                 </ul>
@@ -31,13 +30,6 @@
                 {{ session('success') }}
             </div>
             @endif
-
-            <section id="news-section" class="admin-section">
-                <h2>Quản lý tin tức</h2>
-                <!-- Form thêm, sửa, xóa tin tức -->
-                <!-- Bảng hiển thị tin tức -->
-
-            </section>
 
             <!-- Trong section "Quản lý sản phẩm" -->
             <section id="products-section" class="admin-section">
@@ -73,10 +65,13 @@
                             <label for="soluongdaban">Số lượng đã bán:</label>
                             <input type="number" id="soluongdaban" name="soluongdaban" class="form-control">
                         </div>
-                        <div class="form-group">
-                            <label for="danhmucsp_id">Danh mục sản phẩm:</label>
-                            <input type="number" id="danhmucsp_id" name="danhmucsp_id" class="form-control">
-                        </div>
+                        <select id="danhmucsp_id" name="danhmucsp_id" class="form-control" required>
+                            <option value="">Chọn danh mục</option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->danhmucsp_id }}">{{ $category->ten }}</option>
+                            @endforeach
+                        </select>
+
                         <div class="form-group">
                             <label for="hinh">Hình:</label>
                             <input type="file" id="hinh" name="hinh" class="form-control">
@@ -91,7 +86,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            
+
                             <th>ID</th>
                             <th>Tên</th>
                             <th>Mô tả</th>
@@ -107,7 +102,7 @@
                     <tbody>
                         @foreach ($sanphams as $sanpham)
                         <tr>
-                           
+
                             <td>{{ $sanpham->sanpham_id }}</td>
                             <td>{{ $sanpham->ten }}</td>
                             <td>{{ $sanpham->mota }}</td>
@@ -147,10 +142,13 @@
                                         <label for="sale">Khuyến mãi (%):</label>
                                         <input type="number" id="sale" name="sale" class="form-control" value="{{ $sanpham->sale ?? 0 }}" required>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="danhmucsp_id">Danh Mục:</label>
-                                        <input type="number" id="danhmucsp_id" name="danhmucsp_id" class="form-control" value="{{ $sanpham->danhmucsp_id }}" required>
-                                    </div>
+                                    <select id="danhmucsp_id" name="danhmucsp_id" class="form-control" required>
+                                        <option value="">Chọn danh mục</option>
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->danhmucsp_id }}">{{ $category->ten }}</option>
+                                        @endforeach
+                                    </select>
+
                                     <div class="form-group">
                                         <label for="soluongtrongkho">Số lượng trong kho:</label>
                                         <input type="number" id="soluongtrongkho" name="soluongtrongkho" class="form-control" value="{{ $sanpham->soluongtrongkho }}" required>
@@ -162,25 +160,25 @@
                                     <button type="submit" class="btn btn-primary">Cập Nhật Sản Phẩm</button>
                                     <button type="button" class="btn btn-danger" onclick="closeEditForm()">Đóng</button>
                                 </form>
-                               
+
                             </div>
                         </tr>
                         @endforeach
                     </tbody>
-                  
+
                 </table>
-               
+
 
                 @else
                 <p>Không có sản phẩm nào.</p>
                 @endif
                 @endisset
 
-               
+
                 </div>
                 {{$sanphams->links()}}
             </section>
-            
+
 
             <section id="accounts-section" class="admin-section">
                 <h2>Quản lý tài khoản</h2>
@@ -190,25 +188,25 @@
                 @if ($users->count())
                 <table class="table">
                     <thead>
-                        <tr> 
-                            
-                         
+                        <tr>
+
+
                             <th>Tên</th>
                             <th>Email</th>
                             <th>Mật Khẩu</th>
                             <th>Quyền</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
-                        <tr>    
-                         
-                            <td>{{ $user->name }}</td>                           
+                        <tr>
+
+                            <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->password }}</td>
                             <td>{{ $user->role }}</td>
-                            
+
                             <td>
 
                             </td>
@@ -220,7 +218,7 @@
                 @endif
                 @endisset
 
-                
+
             </section>
 
             <section id="statistics-section" class="admin-section">

@@ -19,17 +19,23 @@ class ProductController extends Controller
     public function admin()
     {
         $sanphams = SanPham::paginate(5);
-        return view('admin', compact('sanphams'))->with('i',(request()->input('page', 1) -1) *5);
+        $categories = Category::all();
+        return view('admin', compact('sanphams','categories'))->with('i',(request()->input('page', 1) -1) *5);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'mota' => 'required', // Đảm bảo 'mota' không trống
-            // Các quy tắc kiểm tra khác...
+            'ten' => 'required|string|max:255',
+            'mota' => 'required',
+            'gia' => 'required|numeric',
+            'sale' => 'nullable|numeric',
+            'soluongtrongkho' => 'required|numeric',
+            'soluongdaban' => 'required|numeric',
+            'danhmucsp_id' => 'required|exists:category,danhmucsp_id', // Kiểm tra ID danh mục tồn tại
+            'hinh' => 'nullable|image'
         ]);
 
-        // Tạo một bản ghi mới trong bảng 'sanpham'
         $sanpham = new Sanpham();
         $sanpham->ten = $request->input('ten');
         $sanpham->mota = $request->input('mota');
@@ -37,13 +43,8 @@ class ProductController extends Controller
         $sanpham->sale = $request->input('sale');
         $sanpham->soluongtrongkho = $request->input('soluongtrongkho');
         $sanpham->soluongdaban = $request->input('soluongdaban');
-        // Lấy danh mục sản phẩm đầu tiên trong trường hợp không có hàm controller để lấy danh mục
-        
-        $danhmucsp = Category::first();
-        if ($danhmucsp) {
-            $sanpham->danhmucsp_id = $danhmucsp->id;
-        }
-        // Process file upload
+        $sanpham->danhmucsp_id = $request->input('danhmucsp_id'); // Nhận ID danh mục trực tiếp từ form
+
         if ($request->hasFile('hinh')) {
             $file = $request->file('hinh');
             $sanpham->hinh = $file->getClientOriginalName();
@@ -53,11 +54,9 @@ class ProductController extends Controller
         return redirect('admin')->with('success', 'Sản phẩm đã được tạo thành công.');
     }
 
-
     public function update(Request $request, $id)
     {
         $sanpham = SanPham::findOrFail($id);
-        $categories = Category::all();
 
         // Validate the input data
         $validatedData = $request->validate([
@@ -65,10 +64,9 @@ class ProductController extends Controller
             'mota' => 'required',
             'gia' => 'required|numeric',
             'sale' => 'nullable|numeric',
-            'hinh' => 'nullable|image',
             'soluongtrongkho' => 'required|numeric',
             'soluongdaban' => 'required|numeric',
-            'danhmucsp_id' => 'required|exists:category,danhmucsp_id',
+            'danhmucsp_id' => 'required|exists:category,danhmucsp_id', // Đảm bảo rằng ID danh mục tồn tại trong bảng categories
         ]);
 
         // Update the product data
@@ -76,12 +74,6 @@ class ProductController extends Controller
         $sanpham->mota = $validatedData['mota'];
         $sanpham->gia = $validatedData['gia'];
         $sanpham->sale = $validatedData['sale'] ?? 0;
-
-        if ($request->hasFile('hinh')) {
-            $hinh = $request->file('hinh');
-            $duongDanHinh = $hinh->store('public/img/product/');
-            $sanpham->hinh = $duongDanHinh;
-        }
 
         $sanpham->soluongtrongkho = $validatedData['soluongtrongkho'];
         $sanpham->soluongdaban = $validatedData['soluongdaban'];

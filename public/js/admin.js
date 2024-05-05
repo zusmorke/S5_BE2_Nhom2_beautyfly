@@ -1,24 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll('.nav-link');
-    const adminSections = document.querySelectorAll('.admin-section');
+// Script để hiển thị popup khi click vào nút "Thêm sản phẩm"
+document.getElementById('openPopupButton').addEventListener('click', function() {
+    document.getElementById('popupForm').style.display = 'block';
+});
 
-    // Ẩn tất cả các phần admin section ban đầu, ngoại trừ phần "Quản lý sản phẩm"
-    adminSections.forEach(function (section) {
-        if (section.id !== 'products-section') {
-            section.style.display = 'none';
-        }
+// Script để đóng popup khi click vào nút "Đóng"
+document.getElementById('closePopupButton').addEventListener('click', function() {
+    document.getElementById('popupForm').style.display = 'none';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Lắng nghe sự kiện click trên các nút "Edit"
+    document.querySelectorAll('.edit-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var productId = this.getAttribute('data-product-id');
+            var editForm = document.getElementById('editFormContainer-' + productId);
+            if (editForm) {
+                editForm.style.display = 'block'; // Hiển thị form chỉnh sửa
+            }
+        });
     });
 
-    navLinks.forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1);
-            adminSections.forEach(function (section) {
-                if (section.getAttribute('id') === targetId + '-section') {
-                    section.style.display = 'block';
-                } else {
-                    section.style.display = 'none';
-                }
+    // Thêm sự kiện để đóng form chỉnh sửa
+    document.querySelectorAll('.btn-danger').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var editForms = document.querySelectorAll('.edit-form-container');
+            editForms.forEach(function(form) {
+                form.style.display = 'none'; // Ẩn tất cả các form chỉnh sửa
             });
         });
     });

@@ -22,6 +22,7 @@ class WelcomeController extends Controller
         $sanPham = SanPham::all();
         $lienhe = LienHe::all();
         $cate = Category::all();
+        $news = News::all();
         $sanPhamBanChay = Sanpham::orderBy('soluongdaban', 'desc')->take(9)->get();
 
         // Lấy từ khóa tìm kiếm từ request
@@ -34,7 +35,7 @@ class WelcomeController extends Controller
         } else {
             $results = [];
         }
-        return view('index', compact('sanPham', 'cate', 'lienhe', 'results', 'query', 'sanPhamBanChay'));
+        return view('index', compact('sanPham', 'cate', 'lienhe', 'results', 'query', 'sanPhamBanChay', 'news'));
     }
 
     public function showListProduct(Request $request)

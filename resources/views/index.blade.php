@@ -187,43 +187,21 @@
         <h3 class="category__title">Nhóm 2 Cometics</h3>
         <h3 class="category__heading">Tin Tức</h3>
         <div class="owl-carousel news owl-theme">
+            @foreach($news as $new)
             <a href="{{url('news')}}" class="news">
                 <div class="news__img">
-                    <img src="{{asset('img/news/news1.jpg')}}" alt="">
+                    <img src="{{ asset('img/' . $new->image_url)}}" alt="">
                 </div>
                 <div class="news__body">
-                    <h3 class="news__body-title">Trang điểm đúng cách</h3>
-                    <div class="new__body-date">13/6/2021</div>
+                    <h3 class="news__body-title">{{$new->title}}</h3>
+                    <div class="new__body-date">{{$new->posted_date}}</div>
                     <p class="news__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit molestiae aperiam modi cum deserunt, maxime blanditiis voluptate officiis accusantium minima pariatur harum tenetur quo iste iusto commodi. Modi, culpa?
+                        {{$new->description}}
                     </p>
                 </div>
             </a>
-            <a href="{{url('news')}}" class="news">
-                <div class="news__img">
-                    <img src="{{asset('img/news/news1.jpg')}}" alt="">
-                </div>
-                <div class="news__body">
-                    <h3 class="news__body-title">Trang điểm đúng cách</h3>
-                    <div class="new__body-date">13/6/2021</div>
-                    <p class="news__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit molestiae aperiam modi cum deserunt, maxime blanditiis voluptate officiis accusantium minima pariatur harum tenetur quo iste iusto commodi. Modi, culpa?
-                    </p>
-                </div>
-            </a>
-            <a href="{{url('news')}}" class="news">
-                <div class="news__img">
-                    <img src="{{asset('img/news/news1.jpg')}}" alt="">
-                </div>
-                <div class="news__body">
-                    <h3 class="news__body-title">Trang điểm đúng cách</h3>
-                    <div class="new__body-date">13/6/2021</div>
-                    <p class="news__description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. In sit molestiae aperiam modi cum deserunt, maxime blanditiis voluptate officiis accusantium minima pariatur harum tenetur quo iste iusto commodi. Modi, culpa?
-                    </p>
-                </div>
-            </a>
+            @endforeach
         </div>
-    </div>
+    </div>  
 </div>
 @endsection
