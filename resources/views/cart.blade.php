@@ -135,8 +135,10 @@
                                     {{ $totalPrice }} đ
                                 </div>
                             </div>
-                            <button id="proceedToCheckoutBtn" type="submit" class="btn btn--default">Tiến hành thanh
-                                toán</button>
+                            <form method="GET" action="{{ route('pay') }}">
+    <input type="hidden" name="totalPrice" value="{{ $totalPrice }}">
+    <button id="proceedToCheckoutBtn" type="submit" class="btn btn--default">Tiến hành thanh toán</button>
+</form>
 
                             <div class="main__pay-title">Phiếu ưu đãi</div>
                             <form method="POST" action="{{ route('discount.apply') }}">
@@ -202,6 +204,9 @@
                     window.location.href = "{{ route('pay') }}";
                 });
             });
+
+                        // Lưu tổng tiền vào session
+                        session(['totalPrice' => $totalPrice]);
         </script>
 
 
