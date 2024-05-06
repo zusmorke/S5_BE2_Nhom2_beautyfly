@@ -5,8 +5,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
-
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\CateController;
 
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
@@ -21,7 +21,7 @@ Route::post('/binhluan', [WelcomeController::class, 'store'])->name('binhluan.st
 Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product.show');
 Route::get('/search', [WelcomeController::class, 'index'])->name('search');
 
-Route::get('/news', [WelcomeController::class, 'news'])->name('news');  
+Route::get('/news', [WelcomeController::class, 'news'])->name('news');
 Route::get('/pay', [WelcomeController::class, 'pay'])->name('pay');
 Route::get('/header', [WelcomeController::class, 'cate'])->name('header');
 
@@ -39,12 +39,19 @@ Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
 
-
 /*Admin: Crud User */
-// Route::get('/admin', 'UserController@admin')->name('admin');
+Route::get('roleadmin/user', [UserController::class, 'index'])->name('roleadmin.user.index');
+Route::post('/roleadmin/user/store', [UserController::class, 'store'])->name('roleadmin.user.store');
+Route::put('/roleadmin/user/update/{user_id}', [UserController::class, 'update'])->name('roleadmin.user.update');
+Route::delete('/roleadmin/user/delete/{user_id}', [UserController::class, 'delete'])->name('roleadmin.user.delete');
+
+/*Admin: Crud Cate */
+Route::get('roleadmin/cate', [CateController::class, 'index'])->name('roleadmin.cate.index');
+Route::post('/roleadmin/cate/store', [CateController::class, 'store'])->name('roleadmin.cate.store');
+Route::put('/roleadmin/cate/update/{danhmucsp_id}', [CateController::class, 'update'])->name('roleadmin.cate.update');
+Route::delete('/roleadmin/cate/delete/{danhmucsp_id}', [CateController::class, 'delete'])->name('roleadmin.cate.delete');
 
 Route::post('/contact', [WelcomeController::class, 'add'])->name('contact.add');
-
 Route::get('/admin', [ProductController::class, 'admin'])->middleware('role:admin')->name('admin.dashboard');
 Route::get('/user', [ProductController::class, 'index'])->middleware('role:user')->name('user.dashboard');
 
@@ -62,4 +69,4 @@ Route::middleware('auth')->group(function () {
 
 Route::post('/product/{id}/updateQuantity', 'ProductController@updateProductQuantity')->name('sanpham.updateQuantity');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

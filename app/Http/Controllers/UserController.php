@@ -4,89 +4,63 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function admin()
+    public function index()
     {
         $users = User::paginate(5);
-        return view('admin', compact('users'))->with('i',(request()->input('page', 1) -1) *5);
-
-        
+        return view('roleadmin.user', compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'mota' => 'required', // Đảm bảo 'mota' không trống
-    //         // Các quy tắc kiểm tra khác...
-    //     ]);
+    public function store(Request $request)
+    {
+        $request->validate([
+            'ten' => 'required|max:50',
+            'email' => 'required|email|unique:user,email', // Đảm bảo rằng email là duy nhất trong bảng users
+            'password' => 'required|min:8', // Đặt yêu cầu độ dài tối thiểu là 6 ký tự
+        ]);
 
-    //     // Tạo một bản ghi mới trong bảng 'sanpham'
-    //     $sanpham = new Sanpham();
-    //     $sanpham->ten = $request->input('ten');
-    //     $sanpham->mota = $request->input('mota');
-    //     // Process file upload
-    //     if ($request->hasFile('hinh')) {
-    //         $file = $request->file('hinh');
-    //         $filename = time() . '_' . $file->getClientOriginalName();
-    //         $filepath = 'img/product/' . $filename;
-    //         // Move the uploaded file to the correct directory
-    //         $file->move(public_path('img/product'), $filename);
-    //         // Save $filepath in the 'hinh' column of the 'sanpham' table
-    //         $sanpham->hinh = $filepath;
-    //     }
-    //     SanPham::create($request->all());
-    //     return redirect('admin')->with('success', 'Sản phẩm đã được tạo thành công.');
-    // }
+        // Tạo người dùng mới
+        $user = new User;
+        $user->name = $request->ten;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password); // Mã hóa mật khẩu trước khi lưu
+        $user->plain_password = $request->password; // Lưu mật khẩu dạng plain text
+        $user->role = 'user'; // Có thể cho phép đặt giá trị này thông qua form nếu muốn
+        $user->save();
 
+        return redirect()->route('roleadmin.user.index')->with('success', 'Người dùng mới đã được thêm thành công.');
+    }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $sanpham = SanPham::findOrFail($id);
-    //     $categories = Category::all();
+    public function update(Request $request, $user_id)
+    {
+        $user = User::find($user_id);
 
-    //     // Validate the input data
-    //     $validatedData = $request->validate([
-    //         'ten' => 'required',
-    //         'mota' => 'required',
-    //         'gia' => 'required|numeric',
-    //         'sale' => 'nullable|numeric',
-    //         'hinh' => 'nullable|image',
-    //         'soluongtrongkho' => 'required|numeric',
-    //         'soluongdaban' => 'required|numeric',
-    //         'danhmucsp_id' => 'required|exists:category,danhmucsp_id',
-    //     ]);
+        // Validate the input data
+        $validatedData = $request->validate([
+            'ten' => 'required|max:50',
+            'email' => 'required|email|unique:user,email,' . $user_id . ',user_id',
+            'password' => 'required|min:8',
+            'role' => 'required|in:admin,user', // Chỉ chấp nhận giá trị admin hoặc user
+        ]);
 
-    //     // Update the product data
-    //     $sanpham->ten = $validatedData['ten'];
-    //     $sanpham->mota = $validatedData['mota'];
-    //     $sanpham->gia = $validatedData['gia'];
-    //     $sanpham->sale = $validatedData['sale'] ?? 0;
+        // Update the user data
+        $user->name = $validatedData['ten'];
+        $user->email = $validatedData['email'];
+        $user->password = Hash::make($validatedData['password']);
+        $user->plain_password = $validatedData['password']; // Lưu mật khẩu dạng plain text
+        $user->role = $validatedData['role']; // Cập nhật quyền
+        $user->save();
 
-    //     if ($request->hasFile('hinh')) {
-    //         $hinh = $request->file('hinh');
-    //         $duongDanHinh = $hinh->store('public/img/product/');
-    //         $sanpham->hinh = $duongDanHinh;
-    //     }
+        return redirect()->route('roleadmin.user.index')->with('success', 'Tài khoản đã được cập nhật thành công!');
+    }
 
-    //     $sanpham->soluongtrongkho = $validatedData['soluongtrongkho'];
-    //     $sanpham->soluongdaban = $validatedData['soluongdaban'];
-    //     $sanpham->danhmucsp_id = $validatedData['danhmucsp_id'];
+    public function delete($id)
+    {
+        User::destroy($id);
 
-    //     $sanpham->save();
-
-    //     return redirect('admin')->with('success', 'Sản phẩm đã được cập nhật thành công!');
-    // }
-
-    // public function delete($id)
-    // {
-    //     // Delete related records in the danhgia table
-    //     BinhLuan::where('sanpham_id', $id)->delete();
-
-    //     // Delete the SanPham record
-    //     SanPham::destroy($id);
-
-    //     return redirect('admin')->with('success', 'Sản phẩm đã được xóa thành công.');
-    // }
+        return redirect()->route('roleadmin.user.index')->with('success', 'Tài khoản đã được xóa thành công.');
+    }
 }

@@ -16,10 +16,10 @@
             <a href="{{url('/')}}"><i class="fa fa-home" style="color:#fff; font-size: 25px;"></i></a>
             <nav>
                 <ul>
-
-                    <li><a href="#products" class="nav-link">Quản lý sản phẩm</a></li>
-                    <li><a href="#accounts" class="nav-link">Quản lý tài khoản</a></li>
-                    <li><a href="#statistics" class="nav-link">Thống kê</a></li>
+                    <li><a href="{{asset('admin')}}" class="nav-link">Quản lý sản phẩm</a></li>
+                    <li><a href="{{asset('roleadmin/cate')}}" class="nav-link">Danh Mục</a></li>
+                    <li><a href="{{asset('roleadmin/user')}}" class="nav-link">Quản lý tài khoản</a></li>
+                    <li><a href="#" class="nav-link">Thống Kê</a></li>
                 </ul>
             </nav>
         </header>
@@ -30,7 +30,6 @@
                 {{ session('success') }}
             </div>
             @endif
-
             <!-- Trong section "Quản lý sản phẩm" -->
             <section id="products-section" class="admin-section">
                 <h2>Quản lý sản phẩm</h2>
@@ -160,90 +159,19 @@
                                     <button type="submit" class="btn btn-primary">Cập Nhật Sản Phẩm</button>
                                     <button type="button" class="btn btn-danger" onclick="closeEditForm()">Đóng</button>
                                 </form>
-
                             </div>
                         </tr>
                         @endforeach
                     </tbody>
-
                 </table>
-
-
                 @else
                 <p>Không có sản phẩm nào.</p>
                 @endif
                 @endisset
-
-
                 </div>
                 {{$sanphams->links()}}
             </section>
-
-
-            <section id="accounts-section" class="admin-section">
-                <h2>Quản lý tài khoản</h2>
-                <!-- Form thêm, sửa, xóa tài khoản -->
-                <!-- Bảng hiển thị tài khoản -->
-                @isset($users)
-                @if ($users->count())
-                <table class="table">
-                    <thead>
-                        <tr>
-
-
-                            <th>Tên</th>
-                            <th>Email</th>
-                            <th>Mật Khẩu</th>
-                            <th>Quyền</th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr>
-
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->password }}</td>
-                            <td>{{ $user->role }}</td>
-
-                            <td>
-
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <p>Không có tài khoản nào.</p>
-                @endif
-                @endisset
-
-
-            </section>
-
-            <section id="statistics-section" class="admin-section">
-                <h2>Thống kê</h2>
-
-            </section>
-
         </main>
-
-        <footer>
-            <!-- Thêm footer nếu cần -->
-        </footer>
-
     </body>
-
     </html>
-    <script>
-        // Script để hiển thị popup khi click vào nút "Thêm sản phẩm"
-        document.getElementById('openPopupButton').addEventListener('click', function() {
-            document.getElementById('popupForm').style.display = 'block';
-        });
-
-        // Script để đóng popup khi click vào nút "Đóng"
-        document.getElementById('closePopupButton').addEventListener('click', function() {
-            document.getElementById('popupForm').style.display = 'none';
-        });
-    </script>
     <script src="{{asset('js/admin.js')}}"></script>

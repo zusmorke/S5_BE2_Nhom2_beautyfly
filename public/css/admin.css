@@ -284,5 +284,36 @@ element.style {
     text-align: center;
     padding: 20px;
     border: 1px solid #ccc;
+}
 
+/* CSS cho trường email */
+#email {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+#email:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* CSS cho trường password */
+#password {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: none;
+    transition: border-color 0.3s ease;
+}
+
+#password:focus {
+    border-color: #007bff;
+    outline: none;
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->increments('user_id');
             $table->string('name', 50);
             $table->string('password', 255);
+            $table->string('plain_password')->nullable();
             $table->string('email', 100)->unique();
             $table->enum('role', ['admin', 'user'])->default('user'); // Thêm trường role với giá trị mặc định là 'user'
             $table->timestamps();
