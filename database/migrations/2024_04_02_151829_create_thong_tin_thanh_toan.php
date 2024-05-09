@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateThongTinThanhToanTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -20,13 +20,14 @@ class CreateThongTinThanhToanTable extends Migration
             $table->string('diachi', 255);
             $table->string('email', 100)->unique();
             $table->string('sdt', 255);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('donhang_id')->nullable();
             $table->string('ghichudonhang', 255)->nullable();
             
             // Khóa ngoại
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('donhang_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('donhang_id')->references('id')->on('don_hang');
+            
+            $table->foreign('user_id')->references('user_id')->on('user');
+            $table->foreign('donhang_id')->references('donhang_id')->on('don_hang');
             $table->timestamps();
         });
     }
@@ -40,5 +41,4 @@ class CreateThongTinThanhToanTable extends Migration
     {
         Schema::dropIfExists('thong_tin_thanh_toan');
     }
-}
-
+};

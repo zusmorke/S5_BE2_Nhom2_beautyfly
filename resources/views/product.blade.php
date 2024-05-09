@@ -65,12 +65,7 @@
                                 </div>
 
                                 <div class="productInfo__addToCart">
-                                    <div class="buttons_added">
-                                        <input class="minus is-form" type="button" value="-" onclick="minusProduct()">
-                                        <input aria-label="quantity" class="input-qty" max="10" min="1"
-                                            name="" type="number" value="1">
-                                        <input class="plus is-form" type="button" value="+" onclick="plusProduct()">
-                                    </div>
+                                    
 
                                     <form method="post" action="{{ route('cart.add') }}">
 
@@ -419,7 +414,7 @@
 
                         // Gửi AJAX request để mua sản phẩm
                         $.ajax({
-                            url: '{{ route('purchase.product') }}',
+                            url: "{{ route('purchase.product') }}",
                             method: 'POST',
                             data: {
                                 _token: '{{ csrf_token() }}',

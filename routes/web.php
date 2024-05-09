@@ -37,6 +37,8 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
 Route::post('/purchase-product', [ProductController::class, 'purchaseProduct'])->name('purchase.product');
 
+/*Tăng view*/
+
 
 /*Admin: Crud San Pham */
 Route::get('/admin', 'ProductController@admin')->name('admin');

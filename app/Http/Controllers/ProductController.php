@@ -101,6 +101,7 @@ class ProductController extends Controller
         $binhluans = BinhLuan::where('sanpham_id', $sanphamId)->get(); // Lấy tất cả bình luận của sản phẩm
         return view('product', compact('sanpham', 'binhluans'));
     }
+    
     public function purchaseProduct(Request $request) {
        // Lấy thông tin sản phẩm từ request
        $sanPhamId = $request->input('sanpham_id');

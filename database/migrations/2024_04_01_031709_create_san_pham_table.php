@@ -17,7 +17,7 @@ return new class extends Migration
             $table->increments('sanpham_id');
             $table->string('ten', 255);
             $table->string('mota', 255);
-            $table->integer('gia'); 
+            $table->integer('gia');
             $table->integer('sale');
             $table->string('hinh', 255)->nullable();
             $table->integer('soluongtrongkho');

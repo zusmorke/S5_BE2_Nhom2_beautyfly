@@ -33,6 +33,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl caroucel Js-->
     <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
+    <style>
+        /* CSS cho nút View */
+        .product__actions {
+            padding-top: 10px;
+        }
+
+        .badge{
+            margin-top: 60px;
+            font-size: 20px;
+            border-radius: 20%;
+            color: #000;
+            color: #f2fbf7;
+            background: black;
+        }
+    </style>
 </head>
 
 @if(!empty($results))
@@ -97,6 +112,9 @@
                             <div class="product__sale">
                                 <span class="product__sale-percent">{{$product->sale}}</span>
                                 <span class="product__sale-text">Giảm</span>
+                            </div>
+                            <div class="product__actions">
+                                <span class="badge text-bg-warning view-product" data-product-id="{{ $product->sanpham_id }}"><i class="fa fa-eye" aria-hidden="true"></i></span>
                             </div>
                         </div>
                     </div>
@@ -202,6 +220,6 @@
             </a>
             @endforeach
         </div>
-    </div>  
+    </div>
 </div>
 @endsection
