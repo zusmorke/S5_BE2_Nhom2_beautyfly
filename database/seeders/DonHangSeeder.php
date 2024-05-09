@@ -17,32 +17,13 @@ class DonHangSeeder extends Seeder
         DB::table('don_hang')->insert([
             [
                 'user_id' => '1',
-                'ngaydat' => now(),
+                'sanpham_id' => '1',
+               
                 "tongtien" => '500000',
                 "created_at" => now(),
                 "updated_at" => now(),
             ],
-            [
-                'user_id' => '2',
-                'ngaydat' => now(),
-                "tongtien" => '700000',
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                'user_id' => '3',
-                'ngaydat' => now(),
-                "tongtien" => '400000',
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
-            [
-                'user_id' => '4',
-                'ngaydat' => now(),
-                "tongtien" => '550000',
-                "created_at" => now(),
-                "updated_at" => now(),
-            ],
+            
         ]);
     }
 }

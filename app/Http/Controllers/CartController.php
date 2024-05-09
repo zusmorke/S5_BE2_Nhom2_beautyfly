@@ -28,6 +28,7 @@ class CartController extends Controller
             } else {
                 // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào giỏ hàng
                 $cart[$productId] = [
+                    'id' => $sanPham->sanpham_id,
                     'name' => $sanPham->ten,
                     'price' => $sanPham->gia - $sanPham->sale,
                     'quantity' => 1,

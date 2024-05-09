@@ -9,4 +9,14 @@ class ThongTinThanhToan extends Model
 {
     protected $table = 'thong_tin_thanh_toan';
     use HasFactory;
+
+    protected $fillable = [
+        'id',
+        'ten',
+        'diachigiaohang',
+        'sdt',
+        'ghichudonhang',
+        'user_id'
+    ];
+
 }

@@ -13,15 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
-            $table->increments('news_id');
-            $table->string('title');
-            $table->string('image_url');
-            $table->text('description');
-            $table->text('content');
-            $table->date('posted_date');
-            $table->timestamps(); // Tự động thêm cột created_at và updated_at
-        });
+        // Kiểm tra xem bảng news đã tồn tại hay chưa
+        if (!Schema::hasTable('news')) {
+            // Nếu chưa tồn tại, thì mới tạo bảng news
+            Schema::create('news', function (Blueprint $table) {
+                $table->id('news_id');
+                $table->string('title', 255);
+                $table->string('image_url', 255);
+                $table->text('description');
+                $table->text('content');
+                $table->date('posted_date');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
@@ -31,6 +35,8 @@ return new class extends Migration
      */
     public function down()
     {
+        // Xóa bảng news nếu tồn tại
         Schema::dropIfExists('news');
     }
 };
+

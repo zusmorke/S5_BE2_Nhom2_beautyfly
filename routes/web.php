@@ -7,6 +7,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CateController;
+use App\Http\Controllers\PayController;
 
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
@@ -21,6 +22,10 @@ Route::post('/binhluan', [WelcomeController::class, 'store'])->name('binhluan.st
 Route::get('/product/{id}', [ProductController::class, 'showProduct'])->name('product.show');
 Route::get('/search', [WelcomeController::class, 'index'])->name('search');
 
+Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
+Route::get('/payment', [WelcomeController::class, 'pay'])->name('pay');
+Route::post('/pay', [PayController::class, 'processPayment'])->name('pay');
+// Route::post('/pay', [PayController::class, 'processPayment'])->name('process.payment');
 Route::get('/news', [WelcomeController::class, 'news'])->name('news');
 Route::get('/pay', [WelcomeController::class, 'pay'])->name('pay');
 Route::get('/header', [WelcomeController::class, 'cate'])->name('header');

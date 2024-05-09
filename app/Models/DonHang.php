@@ -9,4 +9,11 @@ class DonHang extends Model
 {
     protected $table = 'don_hang';
     use HasFactory;
+
+    protected $fillable = [
+        'donhang_id', // Thêm trường 'name' vào đây
+        'user_id',
+        'sanpham_id',
+        'tongtien'
+    ];
 }

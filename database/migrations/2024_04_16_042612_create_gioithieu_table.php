@@ -13,6 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
+        // Xóa bảng nếu tồn tại trước khi tạo lại
+        Schema::dropIfExists('gioithieu');
+
+        // Tạo lại bảng gioithieu
         Schema::create('gioithieu', function (Blueprint $table) {
             $table->id();
             $table->string('titel', 255);
@@ -28,6 +32,8 @@ return new class extends Migration
      */
     public function down()
     {
+        // Xóa bảng gioithieu nếu tồn tại
         Schema::dropIfExists('gioithieu');
     }
 };
+
