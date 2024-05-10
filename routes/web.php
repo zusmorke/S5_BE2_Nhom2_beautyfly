@@ -46,7 +46,7 @@ Route::post('/roleadmin/user/reset', [UserController::class, 'reset'])->name('ro
 /*Tăng like*/
 
 // Trong file routes/web.php
-Route::post('/subscribe', [SubscriptionController::class, '@subscribe'])->name('subscribe');
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
 
 /*Admin: Crud San Pham */
 Route::get('/admin', 'ProductController@admin')->name('admin');

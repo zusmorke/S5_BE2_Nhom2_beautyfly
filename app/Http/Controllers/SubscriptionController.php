@@ -1,20 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
 class SubscriptionController extends Controller
 {
     public function subscribe(Request $request)
     {
-        // Lưu email vào cơ sở dữ liệu hoặc thực hiện các hành động cần thiết
-        $email = $request->input('email');
+        $request->validate([
+            'email' => 'required|email|unique:subscribers,email'
+        ]);
 
-        // Ví dụ: Lưu email vào cơ sở dữ liệu
-        // User::create(['email' => $email]);
+        $subscriber = new Subscriber();
+        $subscriber->email = $request->email;
+        $subscriber->save();
 
-        // Trả về phản hồi thành công
-        return response()->json(['success' => true]);
+        return redirect()->back()->with('success', 'Đăng ký thành công!');
     }
 }
