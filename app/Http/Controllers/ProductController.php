@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\BinhLuan;
 use App\Models\SanPham;
 use App\Models\Category;
-use App\Models\DanhGia;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SanPhamExport;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -134,8 +135,9 @@ class ProductController extends Controller
             // Trả về thông báo lỗi nếu sản phẩm không tồn tại
         }
     }
-    public function exportToExcel()
+    public function exportExcel()
     {
-        return Excel::download(new SanPhamsExport, 'sanphams.xlsx');
+        return Excel::download(new SanPhamExport, 'sanpham.xlsx');
     }
+    
 }

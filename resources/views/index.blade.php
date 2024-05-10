@@ -114,7 +114,7 @@
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                             <div class="product__actions">
-                                <span class="badge text-bg-warning view-product" data-product-id="{{ $product->sanpham_id }}"><i class="fa fa-eye" aria-hidden="true"></i></span>
+                                <span class="badge text-bg-warning view-product" data-product-id="{{ $product->sanpham_id }}"><i class="fa fa-eye" aria-hidden="true"></i>{{$product->view}}</span>
                             </div>
                         </div>
                     </div>

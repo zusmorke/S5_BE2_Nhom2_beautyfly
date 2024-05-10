@@ -244,7 +244,7 @@
                 const exportExcelButton = document.getElementById("exportExcelButton");
 
                 exportExcelButton.addEventListener("click", function() {
-                    window.location.href = "{{ route('admin.sanpham.export_excel') }}";
+                    window.location.href = "{{ route('admin.export_excel') }}";
                 });
             });
         </script>

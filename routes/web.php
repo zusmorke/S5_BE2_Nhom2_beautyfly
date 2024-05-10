@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CateController;
 use App\Http\Controllers\PayController;
+use App\Http\Controllers\SubscriptionController;
 
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
@@ -42,12 +43,17 @@ Route::post('/roleadmin/user/reset', [UserController::class, 'reset'])->name('ro
 
 /*Tăng view*/
 
+/*Tăng like*/
+
+// Trong file routes/web.php
+Route::post('/subscribe', [SubscriptionController::class, '@subscribe'])->name('subscribe');
+
 /*Admin: Crud San Pham */
 Route::get('/admin', 'ProductController@admin')->name('admin');
 Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('admin.sanpham.store');
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
-Route::get('admin/sanpham/export_excel', 'AdminController@exportToExcel')->name('admin.sanpham.export_excel');
+Route::get('admin/export_excel',[ProductController::class, 'exportExcel'])->name('admin.export_excel');
 
 /*Admin: Crud User */
 Route::get('roleadmin/user', [UserController::class, 'index'])->name('roleadmin.user.index');
