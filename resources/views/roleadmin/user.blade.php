@@ -53,6 +53,29 @@
             <button id="closePopupButton" class="btn btn-danger">Đóng</button>
         </div>
 
+
+        <!-- Button to trigger the popup -->
+        <button id="resetPasswordButton" class="btn btn-warning">Reset Mật Khẩu</button>
+
+        <!-- Popup form -->
+        <div id="resetPasswordPopup" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border: 1px solid #ccc; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); z-index: 9999;">
+            <form id="resetPasswordForm" action="{{ route('roleadmin.user.reset') }}" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label>Chọn người dùng:</label><br>
+                    @foreach ($users as $user)
+                    <div class="form-check">
+                        <input type="checkbox" id="user_{{ $user->user_id }}" name="user_ids[]" value="{{ $user->user_id }}" class="form-check-input">
+                        <label class="form-check-label" for="user_{{ $user->user_id }}">{{ $user->name }}</label>
+                    </div>
+                    @endforeach
+                </div>
+                <button type="submit" class="btn btn-primary">Reset Mật Khẩu</button>
+                <button type="button" class="btn btn-danger" onclick="closeResetPasswordPopup()" style="margin: 10px; ">Đóng</button>
+            </form>
+        </div>
+
+
         @isset($users)
         @if ($users->count())
         <table class="table">
@@ -62,7 +85,6 @@
                     <th>Tên</th>
                     <th>Email</th>
                     <th>Mật Khẩu (Hash)</th>
-                    <th>Mật Khẩu (Plain)</th>
                     <th>Quyền</th>
                     <th>Thao tác</th>
                 </tr>
@@ -74,7 +96,6 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->password }}</td>
-                    <td>{{ $user->plain_password }}</td>
                     <td>{{ $user->role }}</td>
                     <td>
                         <button class="edit-button" data-product-id="{{ $user->user_id }}">Edit</button>
@@ -100,7 +121,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password:</label>
-                                <textarea id="password" name="password" class="form-control" required>{{ $user->plain_password }}</textarea>
+                                <textarea id="password" name="password" class="form-control" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="role">Quyền:</label>
@@ -122,6 +143,19 @@
         @endif
         @endisset
     </section>
+    <script>
+    // Function to open reset password popup
+    function openResetPasswordPopup() {
+        document.getElementById('resetPasswordPopup').style.display = 'block';
+    }
 
+    // Function to close reset password popup
+    function closeResetPasswordPopup() {
+        document.getElementById('resetPasswordPopup').style.display = 'none';
+    }
+
+    // Add event listener to open popup button
+    document.getElementById('resetPasswordButton').addEventListener('click', openResetPasswordPopup);
+</script>
 </html>
 <script src="{{asset('js/admin.js')}}"></script>

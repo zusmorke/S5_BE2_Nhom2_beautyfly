@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
                 'name' => 'Halo76',
                 'email' => 'admin@gmail.com',
                 'password' => Hash::make('admin123'), // Bạn có thể sử dụng Hash để mã hóa mật khẩu
-                'plain_password' => 'admin123', // Lưu mật khẩu dạng plain text
                 'role' => 'admin',
             ]
         );

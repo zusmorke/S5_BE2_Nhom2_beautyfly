@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -27,7 +28,6 @@ class UserController extends Controller
         $user->name = $request->ten;
         $user->email = $request->email;
         $user->password = Hash::make($request->password); // Mã hóa mật khẩu trước khi lưu
-        $user->plain_password = $request->password; // Lưu mật khẩu dạng plain text
         $user->role = 'user'; // Có thể cho phép đặt giá trị này thông qua form nếu muốn
         $user->save();
 
@@ -50,7 +50,6 @@ class UserController extends Controller
         $user->name = $validatedData['ten'];
         $user->email = $validatedData['email'];
         $user->password = Hash::make($validatedData['password']);
-        $user->plain_password = $validatedData['password']; // Lưu mật khẩu dạng plain text
         $user->role = $validatedData['role']; // Cập nhật quyền
         $user->save();
 
@@ -63,4 +62,33 @@ class UserController extends Controller
 
         return redirect()->route('roleadmin.user.index')->with('success', 'Tài khoản đã được xóa thành công.');
     }
+
+    public function reset(Request $request)
+{
+    // Validate request data
+    $request->validate([
+        'user_ids' => 'required|array',
+        'user_ids.*' => 'exists:user,user_id',
+    ]);
+
+    // Loop through each user_id
+    foreach ($request->user_ids as $user_id) {
+        // Find the user by user_id
+        $user = User::find($user_id);
+
+        // Use the email address as the password
+        $password = $user->email;
+
+        // Hash the password
+        $hashedPassword = bcrypt($password);
+
+        // Update user's password
+        $user->password = $hashedPassword;
+        $user->save();
+    }
+
+    // Return a response
+    return redirect()->route('roleadmin.user.index')->with('success', 'Mật khẩu đã được reset về mật khẩu giống với địa chỉ email.');
+}
+
 }

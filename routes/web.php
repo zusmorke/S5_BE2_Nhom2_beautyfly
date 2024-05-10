@@ -37,14 +37,17 @@ Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remov
 Route::post('/apply-discount', [CartController::class, 'applyDiscount'])->name('discount.apply');
 Route::post('/purchase-product', [ProductController::class, 'purchaseProduct'])->name('purchase.product');
 
-/*Tăng view*/
+/*Reset pass*/
+Route::post('/roleadmin/user/reset', [UserController::class, 'reset'])->name('roleadmin.user.reset');
 
+/*Tăng view*/
 
 /*Admin: Crud San Pham */
 Route::get('/admin', 'ProductController@admin')->name('admin');
 Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('admin.sanpham.store');
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
+Route::get('admin/sanpham/export_excel', 'AdminController@exportToExcel')->name('admin.sanpham.export_excel');
 
 /*Admin: Crud User */
 Route::get('roleadmin/user', [UserController::class, 'index'])->name('roleadmin.user.index');

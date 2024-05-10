@@ -7,7 +7,32 @@
         <title>Admin Dashboard</title>
         <link rel="stylesheet" href="{{asset('css/admin.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.js"></script>
+        <style>
+            .search-container {
+                margin-bottom: 20px;
+            }
 
+            #searchInput {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            #searchButton {
+                padding: 8px 12px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            #searchButton:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
 
     <body>
@@ -30,9 +55,18 @@
                 {{ session('success') }}
             </div>
             @endif
+
             <!-- Trong section "Quản lý sản phẩm" -->
             <section id="products-section" class="admin-section">
                 <h2>Quản lý sản phẩm</h2>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sản phẩm...">
+                    <button type="button" id="searchButton">Tìm kiếm</button>
+                </div>
+                <div id="searchResultMessage" style="display: none;">
+                    Không có sản phẩm nào phù hợp với từ khóa tìm kiếm.
+                </div>
+                <button id="exportExcelButton" class="btn">Xuất Excel</button>
 
                 <!-- Button to trigger the popup -->
                 <button id="openPopupButton" class="btn btn-primary">Thêm sản phẩm</button>
@@ -46,7 +80,8 @@
                         </div>
                         <div class="form-group">
                             <label for="mota">Mô tả:</label>
-                            <textarea id="mota" name="mota" class="form-control"></textarea>
+                            <input id="mota" type="hidden" name="mota">
+                            <trix-editor input="mota"></trix-editor>
                         </div>
                         <div class="form-group">
                             <label for="gia">Giá:</label>
@@ -85,7 +120,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-
                             <th>ID</th>
                             <th>Tên</th>
                             <th>Mô tả</th>
@@ -101,10 +135,9 @@
                     <tbody>
                         @foreach ($sanphams as $sanpham)
                         <tr>
-
                             <td>{{ $sanpham->sanpham_id }}</td>
                             <td>{{ $sanpham->ten }}</td>
-                            <td>{{ $sanpham->mota }}</td>
+                            <td>{!! $sanpham->mota !!}</td>
                             <td>{{ $sanpham->gia }}</td>
                             <td>{{ $sanpham->sale }}</td>
                             <td><img src="{{ asset('img/product/' . $sanpham->hinh)}}" alt="Hình ảnh sản phẩm"></td>
@@ -122,7 +155,7 @@
                             </td>
                             <!-- Edit form container -->
                             <div id="editFormContainer-{{ $sanpham->sanpham_id }}" class="edit-form-container" style="display: none;">
-                                <form action="{{ route('admin.sanpham.update', $sanpham->sanpham_id) }}" method="post">
+                                <form action="{{ route('admin.sanpham.update', $sanpham->sanpham_id) }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
@@ -130,8 +163,9 @@
                                         <input type="text" id="ten" name="ten" class="form-control" value="{{ $sanpham->ten }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="mota">Mô Tả Sản phẩm:</label>
-                                        <textarea id="mota" name="mota" class="form-control" required>{{ $sanpham->mota }}</textarea>
+                                        <label for="mota">Mô tả:</label>
+                                        <input id="mota" type="hidden" name="mota" value="{{ $sanpham->mota }}" required>
+                                        <trix-editor input="mota">{{ $sanpham->mota }}</trix-editor>
                                     </div>
                                     <div class="form-group">
                                         <label for="gia">Giá:</label>
@@ -147,7 +181,6 @@
                                         <option value="{{ $category->danhmucsp_id }}">{{ $category->ten }}</option>
                                         @endforeach
                                     </select>
-
                                     <div class="form-group">
                                         <label for="soluongtrongkho">Số lượng trong kho:</label>
                                         <input type="number" id="soluongtrongkho" name="soluongtrongkho" class="form-control" value="{{ $sanpham->soluongtrongkho }}" required>
@@ -155,6 +188,13 @@
                                     <div class="form-group">
                                         <label for="soluongdaban">Số lượng đã bán:</label>
                                         <input type="number" id="soluongdaban" name="soluongdaban" class="form-control" value="{{ $sanpham->soluongdaban }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="hinh">Hình:</label>
+                                        <input type="file" id="hinh" name="hinh" class="form-control">
+                                        @if($sanpham->hinh)
+                                        <img src="{{ asset('img/product/' . $sanpham->hinh) }}" alt="Product Image" style="max-width: 200px; margin-top: 10px;">
+                                        @endif
                                     </div>
                                     <button type="submit" class="btn btn-primary">Cập Nhật Sản Phẩm</button>
                                     <button type="button" class="btn btn-danger" onclick="closeEditForm()">Đóng</button>
@@ -172,6 +212,43 @@
                 {{$sanphams->links()}}
             </section>
         </main>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const searchInput = document.getElementById("searchInput");
+                const searchButton = document.getElementById("searchButton");
+                const searchResultMessage = document.getElementById("searchResultMessage");
+
+                searchButton.addEventListener("click", function() {
+                    const searchTerm = searchInput.value.trim().toLowerCase();
+                    const rows = document.querySelectorAll("#products-section table tbody tr");
+                    let found = false;
+
+                    rows.forEach(function(row) {
+                        const productName = row.querySelector("td:nth-child(2)").textContent.trim().toLowerCase();
+                        if (productName.includes(searchTerm)) {
+                            row.style.display = "";
+                            found = true;
+                        } else {
+                            row.style.display = "none";
+                        }
+                    });
+
+                    if (!found) {
+                        searchResultMessage.style.display = "block";
+                    } else {
+                        searchResultMessage.style.display = "none";
+                    }
+                });
+            });
+            document.addEventListener("DOMContentLoaded", function() {
+                const exportExcelButton = document.getElementById("exportExcelButton");
+
+                exportExcelButton.addEventListener("click", function() {
+                    window.location.href = "{{ route('admin.sanpham.export_excel') }}";
+                });
+            });
+        </script>
     </body>
+
     </html>
     <script src="{{asset('js/admin.js')}}"></script>

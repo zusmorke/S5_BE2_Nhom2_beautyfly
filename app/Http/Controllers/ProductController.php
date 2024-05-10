@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $sanphams = SanPham::paginate(5);
         $categories = Category::all();
-        return view('admin', compact('sanphams','categories'))->with('i',(request()->input('page', 1) -1) *5);
+        return view('admin', compact('sanphams', 'categories'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function store(Request $request)
@@ -47,7 +47,9 @@ class ProductController extends Controller
 
         if ($request->hasFile('hinh')) {
             $file = $request->file('hinh');
-            $sanpham->hinh = $file->getClientOriginalName();
+            $fileName = time() . '_' . $file->getClientOriginalName(); // Thêm thời gian để tránh trùng lặp
+            $file->move(public_path('img/product'), $fileName); // Di chuyển file vào thư mục lưu trữ
+            $sanpham->hinh = $fileName; // Lưu tên tệp hình ảnh vào cơ sở dữ liệu
         }
 
         $sanpham->save();
@@ -66,7 +68,8 @@ class ProductController extends Controller
             'sale' => 'nullable|numeric',
             'soluongtrongkho' => 'required|numeric',
             'soluongdaban' => 'required|numeric',
-            'danhmucsp_id' => 'required|exists:category,danhmucsp_id', // Đảm bảo rằng ID danh mục tồn tại trong bảng categories
+            'danhmucsp_id' => 'required|exists:category,danhmucsp_id',
+            'hinh' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Update the product data
@@ -74,10 +77,17 @@ class ProductController extends Controller
         $sanpham->mota = $validatedData['mota'];
         $sanpham->gia = $validatedData['gia'];
         $sanpham->sale = $validatedData['sale'] ?? 0;
-
         $sanpham->soluongtrongkho = $validatedData['soluongtrongkho'];
         $sanpham->soluongdaban = $validatedData['soluongdaban'];
         $sanpham->danhmucsp_id = $validatedData['danhmucsp_id'];
+
+        // Xử lý hình ảnh
+        if ($request->hasFile('hinh')) {
+            $image = $request->file('hinh');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('img/product'), $imageName);
+            $sanpham->hinh = $imageName;
+        }
 
         $sanpham->save();
 
@@ -101,26 +111,31 @@ class ProductController extends Controller
         $binhluans = BinhLuan::where('sanpham_id', $sanphamId)->get(); // Lấy tất cả bình luận của sản phẩm
         return view('product', compact('sanpham', 'binhluans'));
     }
-    
-    public function purchaseProduct(Request $request) {
-       // Lấy thông tin sản phẩm từ request
-       $sanPhamId = $request->input('sanpham_id');
-       $soLuongDatHang = $request->input('so_luong');
 
-       // Lấy thông tin sản phẩm từ cơ sở dữ liệu
-       $sanPham = SanPham::find($sanPhamId);
+    public function purchaseProduct(Request $request)
+    {
+        // Lấy thông tin sản phẩm từ request
+        $sanPhamId = $request->input('sanpham_id');
+        $soLuongDatHang = $request->input('so_luong');
 
-       if ($sanPham) {
-           // Cập nhật số lượng bán và số lượng trong kho
-           $sanPham->so_luong_ban += $soLuongDatHang;
-           $sanPham->so_luong_trong_kho -= $soLuongDatHang;
+        // Lấy thông tin sản phẩm từ cơ sở dữ liệu
+        $sanPham = SanPham::find($sanPhamId);
 
-           // Lưu lại thông tin cập nhật vào cơ sở dữ liệu
-           $sanPham->save();
+        if ($sanPham) {
+            // Cập nhật số lượng bán và số lượng trong kho
+            $sanPham->so_luong_ban += $soLuongDatHang;
+            $sanPham->so_luong_trong_kho -= $soLuongDatHang;
 
-           // Điều hướng hoặc trả về thông báo thành công
-       } else {
-           // Trả về thông báo lỗi nếu sản phẩm không tồn tại
-       }
+            // Lưu lại thông tin cập nhật vào cơ sở dữ liệu
+            $sanPham->save();
+
+            // Điều hướng hoặc trả về thông báo thành công
+        } else {
+            // Trả về thông báo lỗi nếu sản phẩm không tồn tại
+        }
+    }
+    public function exportToExcel()
+    {
+        return Excel::download(new SanPhamsExport, 'sanphams.xlsx');
     }
 }
