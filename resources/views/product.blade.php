@@ -42,7 +42,7 @@
         }
 
         .likeButton {
-            height: 45px;
+            height: 5px;
             /* Thêm các thuộc tính CSS để căn chỉnh icon vào giữa nút */
             display: flex;
             align-items: center;
@@ -54,6 +54,27 @@
             font-size: 24px;
             color: #fff;
             /* Màu đỏ, bạn có thể thay đổi theo ý muốn */
+        }
+
+        /* Add the following CSS styles for the "Thích" button */
+        .likeButton {
+            height: 20px;
+            /* Remove the height property to allow the button to adjust its height based on the content */
+            padding: 5px 10px;
+            /* Add padding to give some space around the icon and text */
+            background-color: #ff0000;
+            /* Change the background color to red */
+            border-radius: 5px;
+            /* Add border radius to give a rounded look */
+            cursor: pointer;
+            /* Change the cursor to a pointer to indicate clickability */
+        }
+
+        .likeButton i {
+            font-size: 24px;
+            /* Keep the font-size as 24px */
+            color: #fff;
+            /* Keep the color as white */
         }
     </style>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
@@ -88,15 +109,15 @@
 
                         <div class="productInfo__addToCart">
                             <!-- Nút Thích -->
-                            <button type="button" class="btn btn--default likeButton">
-                                <i class="far fa-heart" style="margin-top: -10px;">{{$sanpham->like}}</i>
+                            <button id="likeButton" class="btn btn--default" data-product-id="{{ $sanpham->sanpham_id }}" style="height: 60px;">
+                                <i class="icon-heart"></i>
+                                <span id="likeCount" style="font-size: 40px;">{{ $sanpham->like }}</span>
                             </button>
-
                             <!-- Form thêm vào giỏ hàng -->
                             <form method="post" action="{{ route('cart.add') }}">
                                 @csrf
                                 <input type="hidden" value="{{ $sanpham->sanpham_id }}" name='sanpham_id'>
-                                <button type="submit" class="btn btn--default orange">Thêm vào giỏ hàng</button>
+                                <button type="submit" class="btn btn--default orange" style="height: 60px;">Thêm vào giỏ hàng</button>
                             </form>
                         </div>
 
@@ -437,10 +458,31 @@
                     });
                 });
             });
-
-            
+            $(document).ready(function() {
+                $('#likeButton').click(function() {
+                    var productId = $(this).data('product-id');
+                    $.ajax({
+                        url: '/sanpham/' + productId + '/like',
+                        type: 'POST',
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                        },
+                        success: function(response) {
+                            // Update the like count UI
+                            var likeCount = parseInt($('#likeCount').text());
+                            likeCount++;
+                            $('#likeCount').text(likeCount);
+                            alert('Cảm ơn bạn đã thích sản phẩm!');
+                        },
+                        error: function(xhr) {
+                            // Handle error
+                            alert('Có lỗi xảy ra, vui lòng thử lại.');
+                        }
+                    });
+                });
+            });
         </script>
-
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <!-- Script common -->
         <script src="{{ asset('js/commonscript.js') }} "></script>
 </body>

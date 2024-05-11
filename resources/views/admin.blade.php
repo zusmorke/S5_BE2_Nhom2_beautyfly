@@ -66,7 +66,7 @@
                 <div id="searchResultMessage" style="display: none;">
                     Không có sản phẩm nào phù hợp với từ khóa tìm kiếm.
                 </div>
-                <button id="exportExcelButton" class="btn">Xuất Excel</button>
+                <button id="exportExcelButton" class="btn">Export Excel</button>
 
                 <!-- Button to trigger the popup -->
                 <button id="openPopupButton" class="btn btn-primary">Thêm sản phẩm</button>

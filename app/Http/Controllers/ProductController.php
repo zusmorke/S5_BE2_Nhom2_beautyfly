@@ -8,6 +8,7 @@ use App\Models\Category;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\SanPhamExport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -139,5 +140,19 @@ class ProductController extends Controller
     {
         return Excel::download(new SanPhamExport, 'sanpham.xlsx');
     }
-    
+
+
+    public function increaseLike(Request $request, $sanphamId)
+    {
+        $sanpham = SanPham::find($sanphamId);
+        if (!$sanpham) {
+            return response()->json(['message' => 'Sản phẩm không tồn tại'], 404);
+        }
+
+        DB::table('sanpham')
+            ->where('sanpham_id', $sanphamId)
+            ->increment('like');
+
+        return response()->json(['message' => 'Cảm ơn bạn đã thích sản phẩm', 'likes' => $sanpham->like]);
+    }
 }

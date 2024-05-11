@@ -32,14 +32,14 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Owl caroucel Js-->
-    <script src="{{asset('owlCarousel/owl.carousel.min.js')}}"></script>
+    <script src="{{ asset('owlCarousel/owl.carousel.min.js') }}"></script>
     <style>
         /* CSS cho nút View */
         .product__actions {
             padding-top: 10px;
         }
 
-        .badge{
+        .badge {
             margin-top: 60px;
             font-size: 20px;
             border-radius: 20%;
@@ -114,7 +114,7 @@
                                 <span class="product__sale-text">Giảm</span>
                             </div>
                             <div class="product__actions">
-                                <span class="badge text-bg-warning view-product" data-product-id="{{ $product->sanpham_id }}"><i class="fa fa-eye" aria-hidden="true"></i>{{$product->view}}</span>
+                                <span class="badge view-product" data-product-id="{{ $product->sanpham_id }}" style="background-color: #0daf74; color: #fff;"><i class="fa fa-eye" aria-hidden="true"></i>{{$product->view}}</span>
                             </div>
                         </div>
                     </div>
@@ -222,4 +222,7 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 @endsection

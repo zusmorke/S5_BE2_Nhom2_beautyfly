@@ -42,8 +42,11 @@ Route::post('/purchase-product', [ProductController::class, 'purchaseProduct'])-
 Route::post('/roleadmin/user/reset', [UserController::class, 'reset'])->name('roleadmin.user.reset');
 
 /*Tăng view*/
+// routes/web.php
+Route::get('/product/{sanpham_id}', 'ProductController@show')->name('product.show');
 
 /*Tăng like*/
+Route::post('/sanpham/{sanphamId}/like', [ProductController::class, 'increaseLike']);
 
 // Trong file routes/web.php
 Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');
