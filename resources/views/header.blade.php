@@ -1,3 +1,33 @@
+<style>
+@media screen and (max-width: 480px) {
+  .header__top {
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #00ab6d;
+    text-align: center;
+  }
+  .header__nav.active {
+    display: block;
+  }
+  .header__nav-list {
+    padding: 20px;
+  }
+  .header__nav-link {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+</style>
 <div class="header scrolling" id="myHeader">
     <div class="grid wide">
         <div class="header__top">
@@ -107,4 +137,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     updateCartHint(); // Cập nhật số lượng sản phẩm khi trang được tải
 });
+document.addEventListener('DOMContentLoaded', function() {
+  var navbarIcon = document.querySelector('.navbar-icon');
+  var headerNav = document.querySelector('.header__nav');
+
+  navbarIcon.addEventListener('click', function() {
+    headerNav.classList.toggle('active');
+  });
+});
+
 </script>

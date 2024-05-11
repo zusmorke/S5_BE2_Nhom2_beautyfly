@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CateController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
 
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
@@ -85,7 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+Route::post('password/email', [PasswordResetLinkController::class, 'tore'])->name('password.email');
 Route::post('/product/{id}/updateQuantity', 'ProductController@updateProductQuantity')->name('sanpham.updateQuantity');
 
 require __DIR__ . '/auth.php';
