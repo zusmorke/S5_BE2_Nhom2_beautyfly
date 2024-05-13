@@ -9,7 +9,7 @@ class CateController extends Controller
 {
     public function index()
     {
-        $cates = Category::all();
+        $cates = Category::paginate(3);
         return view('roleadmin.cate', compact('cates'));
     }
 

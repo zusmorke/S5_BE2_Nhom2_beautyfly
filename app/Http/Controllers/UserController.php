@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::paginate(3);
         return view('roleadmin.user', compact('users'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

@@ -44,7 +44,6 @@
                     <li><a href="{{asset('admin')}}" class="nav-link">Quản lý sản phẩm</a></li>
                     <li><a href="{{asset('roleadmin/cate')}}" class="nav-link">Danh Mục</a></li>
                     <li><a href="{{asset('roleadmin/user')}}" class="nav-link">Quản lý tài khoản</a></li>
-                    <li><a href="#" class="nav-link">Thống Kê</a></li>
                 </ul>
             </nav>
         </header>
@@ -63,9 +62,7 @@
                     <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên sản phẩm...">
                     <button type="button" id="searchButton">Tìm kiếm</button>
                 </div>
-                <div id="searchResultMessage" style="display: none;">
-                    Không có sản phẩm nào phù hợp với từ khóa tìm kiếm.
-                </div>
+
                 <button id="exportExcelButton" class="btn">Export Excel</button>
 
                 <!-- Button to trigger the popup -->
@@ -163,9 +160,8 @@
                                         <input type="text" id="ten" name="ten" class="form-control" value="{{ $sanpham->ten }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="mota">Mô tả:</label>
-                                        <input id="mota" type="hidden" name="mota" value="{{ $sanpham->mota }}" required>
-                                        <trix-editor input="mota">{{ $sanpham->mota }}</trix-editor>
+                                        <label for="mota">Mô Tả:</label>
+                                        <textarea id="mota" name="mota" class="form-control" required>{{ $sanpham->mota }}</textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="gia">Giá:</label>
@@ -234,7 +230,7 @@
                     });
 
                     if (!found) {
-                        searchResultMessage.style.display = "block";
+                        alert("Không có tên sản phẩm nào phù hợp với từ khóa tìm kiếm.");
                     } else {
                         searchResultMessage.style.display = "none";
                     }

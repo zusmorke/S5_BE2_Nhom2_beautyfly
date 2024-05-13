@@ -29,6 +29,8 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
+        <? $url = route('password.reset', ['token' => $token]); ?> // Trong đó $token là token reset mật khẩu của người dùng
+        <a href="{{ $url }}">Click here to reset your password</a>
 
         <div class="flex items-center justify-end mt-4">
             <x-primary-button>

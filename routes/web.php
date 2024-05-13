@@ -10,6 +10,7 @@ use App\Http\Controllers\CateController;
 use App\Http\Controllers\PayController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\NewPasswordController;
 
 Route::get('/', [WelcomeController::class, 'index'])->middleware('auth')->name('index');
 Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
@@ -57,7 +58,7 @@ Route::get('/admin', 'ProductController@admin')->name('admin');
 Route::post('/admin/sanpham/store', [ProductController::class, 'store'])->name('admin.sanpham.store');
 Route::put('/admin/sanpham/update/{sanpham_id}', [ProductController::class, 'update'])->name('admin.sanpham.update');
 Route::delete('/admin/sanpham/delete/{sanpham_id}', [ProductController::class, 'delete'])->name('admin.sanpham.delete');
-Route::get('admin/export_excel',[ProductController::class, 'exportExcel'])->name('admin.export_excel');
+Route::get('admin/export_excel', [ProductController::class, 'exportExcel'])->name('admin.export_excel');
 
 /*Admin: Crud User */
 Route::get('roleadmin/user', [UserController::class, 'index'])->name('roleadmin.user.index');
@@ -86,7 +87,23 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::post('password/email', [PasswordResetLinkController::class, 'tore'])->name('password.email');
+Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.request');
+
+Route::post('/forgot-password', [PasswordResetLinkController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.email');
+
+Route::get('/reset-password/{token}', [NewPasswordController::class, 'create'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/reset-password', [NewPasswordController::class, 'store'])
+    ->middleware('guest')
+    ->name('password.update');
+
+Route::get('/verify-email/{id}/{hash}', 'Auth\EmailVerificationController@verify')->name('verify-email');
 Route::post('/product/{id}/updateQuantity', 'ProductController@updateProductQuantity')->name('sanpham.updateQuantity');
 
 require __DIR__ . '/auth.php';
