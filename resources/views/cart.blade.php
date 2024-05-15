@@ -104,9 +104,11 @@
                             @else
                                 <!-- Xử lý khi không có giỏ hàng hoặc giỏ hàng rỗng -->
                             @endif
-                            <div class="btn btn--default">
+                            <!-- <div class="btn btn--default">
                                 Cập nhật giỏ hàng
-                            </div>
+                            </div> -->
+                            <button class="btn btn--default" id="updateCartBtn">Cập nhật giỏ hàng</button>
+
                         </div>
                     </div>
                     <div class="col l-4 m-12 s-12">
@@ -154,59 +156,65 @@
 
         <!-- Script common -->
         <script>
-            // Lắng nghe sự kiện click trên nút tăng/giảm số lượng
-            $('.plus, .minus').on('click', function() {
+                $(document).ready(function() {
+                $(document).on('click', '.plus', function() {
                 var productId = $(this).data('product-id');
                 var quantityElement = $(this).siblings('.quantity');
                 var currentQuantity = parseInt(quantityElement.text());
-                var newQuantity = currentQuantity;
+                var newQuantity = currentQuantity + 1;
+                quantityElement.text(newQuantity);
+                // Gọi hàm cập nhật giỏ hàng bằng Ajax
+                updateCart(productId, newQuantity);
+                });
 
-                if ($(this).hasClass('plus')) {
-                    newQuantity = currentQuantity + 1;
-                } else if ($(this).hasClass('minus') && currentQuantity > 1) {
-                    newQuantity = currentQuantity - 1;
-                }
-                // Gửi yêu cầu cập nhật giỏ hàng bằng Ajax
+                $(document).on('click', '.minus', function() {
+                    var productId = $(this).data('product-id');
+                    var quantityElement = $(this).siblings('.quantity');
+                    var currentQuantity = parseInt(quantityElement.text());
+                    var newQuantity = currentQuantity - 1;
+                    if (newQuantity >= 1) {
+                        quantityElement.text(newQuantity);
+                        // Gọi hàm cập nhật giỏ hàng bằng Ajax
+                        updateCart(productId, newQuantity);
+                    }
+                });
+
+
+
+            // Function to update cart via AJAX
+            function updateCart(productId, quantity) {
                 $.ajax({
                     url: '/cart/update',
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',
                         product_id: productId,
-                        quantity: newQuantity
+                        quantity: quantity
                     },
                     success: function(response) {
-                        // Nếu cập nhật thành công, cập nhật giá tiền sản phẩm và tổng giá tiền
-                        var newPrice = response.price; // Giả sử server trả về giá mới của sản phẩm
-                        var subtotal = newPrice * parseInt(quantityElement.text());
-                        var totalPrice = 0;
+                        // Cập nhật số lượng sản phẩm trên giao diện
                         $('.main__cart-price').each(function() {
-                            var productId = $(this).closest('.item').find('.plus, .minus').data(
-                                'product-id');
-                            var price = response.prices[
-                            productId]; // Lấy giá mới của sản phẩm từ phản hồi của server
-                            $(this).text(price + ' đ'); // Cập nhật giá tiền của sản phẩm
-                            totalPrice += parseInt(price) * parseInt($(this).siblings(
-                                '.col.l-2.m-2.s-0').find('.quantity').text());
+                            var productId = $(this).closest('.item').find('.plus, .minus').data('product-id');
+                            var price = response.prices[productId];
+                            $(this).text(price + ' đ');
                         });
-                        $('#totalPrice').text(totalPrice + ' đ'); // Cập nhật tổng giá tiền
+                        // Cập nhật tổng giá tiền của giỏ hàng
+                        $('#totalPrice').text(response.totalPrice + ' đ');
                     },
                     error: function(xhr, status, error) {
-                        // Xử lý lỗi nếu có
                         console.error('Lỗi khi cập nhật giỏ hàng: ' + error);
                     }
                 });
-            });
-            $(document).ready(function() {
-                // Lắng nghe sự kiện click trên nút "Tiến hành thanh toán"
-                $('#proceedToCheckoutBtn').on('click', function() {
-                    // Chuyển hướng người dùng đến trang thanh toán
-                    window.location.href = "{{ route('pay') }}";
-                });
-            });
+            }
+        });
 
-                        // Lưu tổng tiền vào session
-                        session(['totalPrice' => $totalPrice]);
+        $(document).ready(function() {
+        $('#updateCartBtn').on('click', function() {
+            location.reload(); // Tải lại trang khi nhấp vào nút "Cập nhật giỏ hàng"
+         });
+        });
+
+
         </script>
 
 
