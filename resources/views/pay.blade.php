@@ -229,6 +229,10 @@
                 } else {
                     document.getElementById('error-message').style.display = 'none';
                     document.getElementById('success-message').style.display = 'block';
+                    // Chuyển hướng về trang chủ sau 1 giây
+                    setTimeout(function() {
+                        window.location.href = "{{ route('index') }}";
+                    }, 1000); // Thời gian chờ trước khi chuyển hướng (ở đây là 1 giây)
                 }
                 $.ajax({
                     type: 'POST',
