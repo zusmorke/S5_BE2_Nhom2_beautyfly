@@ -113,9 +113,7 @@
                                 <span class="product__sale-percent">{{$product->sale}}</span>
                                 <span class="product__sale-text">Giảm</span>
                             </div>
-                            <div class="product__actions">
-                                <span class="badge view-product" data-product-id="{{ $product->sanpham_id }}" style="background-color: #0daf74; color: #fff;"><i class="fa fa-eye" aria-hidden="true"></i>{{$product->view}}</span>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

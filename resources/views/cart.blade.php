@@ -56,9 +56,6 @@
                             @if (isset($cart) && is_array($cart) && count($cart) > 0)
                                 @foreach ($cart as $id => $item)
                                     <div class="row item">
-                                        <div class="col l-1 m-1 s-0">
-                                            <input type="checkbox" name="a">
-                                        </div>
                                         <div class="col l-4 m-4 s-8">
                                             <div class="main__cart-product">
                                                 <img src="img/product/{{ $item['img'] }}" alt="">
@@ -118,7 +115,7 @@
                                 <div class="main__pay-text">
                                     Tổng phụ</div>
                                 <div class="main__pay-price">
-                                    {{ $totalPrice }} đ
+                                    0 đ
                                 </div>
                             </div>
                             <div class="pay-info">
@@ -126,14 +123,6 @@
                                     Tổng thành tiền
                                 </div>
                                 <div class="main__pay-price" id="totalPrice">
-                                    {{ $totalPrice }} đ
-                                </div>
-                            </div>
-
-                            <div class="pay-info">
-                                <div class="main__pay-text">
-                                    Tổng thành tiền</div>
-                                <div class="main__pay-price">
                                     {{ $totalPrice }} đ
                                 </div>
                             </div>
